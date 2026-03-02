@@ -1,0 +1,146 @@
+% ============================================================================
+% Diagrama da Arquitetura em Cascata - PGIE + 3 SGIEs (Simplificado)
+% Para dissertação de mestrado PPGC/UFRGS
+% Uso: \input{figuras/diagrama_cascata.tex}
+% ============================================================================
+
+\begin{tikzpicture}[
+    scale=0.9, transform shape,
+    % Estilos dos nós
+    input/.style={
+        rectangle,
+        rounded corners=3pt,
+        draw=black!60,
+        fill=gray!15,
+        minimum width=2.2cm,
+        minimum height=1.0cm,
+        align=center,
+        font=\footnotesize\bfseries
+    },
+    pgie/.style={
+        rectangle,
+        rounded corners=4pt,
+        draw=blue!60!black,
+        fill=blue!20,
+        minimum width=3.5cm,
+        minimum height=1.2cm,
+        align=center,
+        font=\footnotesize\bfseries,
+        line width=1pt
+    },
+    pgie_classes/.style={
+        rectangle,
+        rounded corners=3pt,
+        draw=blue!40!black,
+        fill=blue!8,
+        minimum width=3.2cm,
+        align=left,
+        font=\tiny,
+        inner sep=4pt
+    },
+    sgie/.style={
+        rectangle,
+        rounded corners=4pt,
+        draw=teal!60!black,
+        fill=teal!15,
+        minimum width=3.0cm,
+        minimum height=1.0cm,
+        align=center,
+        font=\footnotesize\bfseries,
+        line width=0.8pt
+    },
+    sgie_classes/.style={
+        rectangle,
+        rounded corners=3pt,
+        draw=teal!40!black,
+        fill=teal!6,
+        minimum width=2.8cm,
+        align=left,
+        font=\tiny,
+        inner sep=4pt
+    },
+    output/.style={
+        rectangle,
+        rounded corners=3pt,
+        draw=green!50!black,
+        fill=green!12,
+        minimum width=2.2cm,
+        minimum height=1.0cm,
+        align=center,
+        font=\footnotesize\bfseries,
+        line width=0.8pt
+    },
+    arrow/.style={->, >=stealth, thick, draw=black!50},
+    arrow_pgie/.style={->, >=stealth, thick, draw=blue!50!black},
+    arrow_sgie/.style={->, >=stealth, thick, draw=teal!50!black},
+    label_arrow/.style={font=\tiny, fill=white, inner sep=1pt}
+]
+
+% ============================================================================
+% Entrada
+% ============================================================================
+\node[input] (input) at (0, 0) {Frame de\\Vídeo};
+
+% ============================================================================
+% PGIE
+% ============================================================================
+\node[pgie] (pgie) at (3.8, 0) {PGIE\\(Detector Primário)};
+
+\node[pgie_classes, anchor=north] (pgie_classes) at (3.8, -0.9) {
+    \textbf{5 Classes:}\\
+    Pessoa | Veículo | Capacete\\
+    Colete | Ferramenta
+};
+
+% ============================================================================
+% SGIEs
+% ============================================================================
+\node[sgie] (sgie_epi) at (8.5, 2.0) {SGIE-EPI};
+\node[sgie_classes, anchor=north] (sgie_epi_classes) at (8.5, 1.4) {
+    14 classes: EPIs,\\
+    Quedas, Escadas...
+};
+
+\node[sgie] (sgie_maq) at (8.5, -0.3) {SGIE-Maquinário};
+\node[sgie_classes, anchor=north] (sgie_maq_classes) at (8.5, -0.9) {
+    Escavadeira, Guindaste\\
+    Caminhão, Empilhadeira
+};
+
+\node[sgie] (sgie_fer) at (8.5, -2.6) {SGIE-Ferramentas};
+\node[sgie_classes, anchor=north] (sgie_fer_classes) at (8.5, -3.2) {
+    Escada, Cone\\
+    Andaime, Carrinho
+};
+
+% ============================================================================
+% Saída
+% ============================================================================
+\node[output] (output) at (12.5, -0.3) {Frame\\Anotado};
+
+% ============================================================================
+% Setas
+% ============================================================================
+\draw[arrow] (input.east) -- (pgie.west);
+
+\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- node[label_arrow, pos=0.7, above] {\tiny Person} (sgie_epi.west);
+\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- node[label_arrow, pos=0.5, above] {\tiny Vehicle} (sgie_maq.west);
+\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- node[label_arrow, pos=0.7, below] {\tiny Tool} (sgie_fer.west);
+
+\draw[arrow_sgie] (sgie_epi.east) -- ++(0.4,0) |- (output.north west);
+\draw[arrow_sgie] (sgie_maq.east) -- (output.west);
+\draw[arrow_sgie] (sgie_fer.east) -- ++(0.4,0) |- (output.south west);
+
+% ============================================================================
+% Título
+% ============================================================================
+\node[font=\small\bfseries, text=labelcolor] at (6.2, 3.5) {Arquitetura de Inferência em Cascata};
+
+% Separador
+\draw[dashed, gray!40, line width=0.4pt] (6.0, 3.2) -- (6.0, -4.2);
+
+% Labels das seções
+\node[font=\tiny, gray] at (1.9, -2.5) {Detector Primário};
+\node[font=\tiny, gray] at (10.5, -4.0) {Detectores Secundários};
+
+\end{tikzpicture}

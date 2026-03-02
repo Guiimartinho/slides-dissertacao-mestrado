@@ -1,0 +1,135 @@
+% ============================================================================
+% Diagrama da Arquitetura YOLOv8s (Simplificado)
+% Para uso em dissertação de mestrado - PPGC/UFRGS
+% Uso: \input{figuras/diagrama_yolov8.tex}
+% ============================================================================
+
+\begin{tikzpicture}[
+    node distance=0.5cm and 0.6cm,
+    scale=0.9, transform shape,
+    % Estilos dos blocos
+    block/.style={
+        rectangle,
+        rounded corners=3pt,
+        minimum width=1.6cm,
+        minimum height=0.6cm,
+        text centered,
+        font=\scriptsize\sffamily,
+        text=white,
+        draw=none,
+    },
+    inputblock/.style={block, fill=inputcolor, minimum width=1.8cm, minimum height=0.8cm},
+    cbsblock/.style={block, fill=backbonecolor, minimum width=1.2cm},
+    c2fblock/.style={block, fill=c3color, minimum width=1.4cm},
+    sppfblock/.style={block, fill=backbonecolor!80!black, minimum width=1.4cm},
+    neckblock/.style={block, fill=neckcolor, minimum width=1.4cm},
+    headblock/.style={block, fill=headcolor, minimum width=1.8cm, minimum height=0.7cm},
+    outputblock/.style={block, fill=outputcolor, minimum width=2.2cm, minimum height=0.8cm},
+    % Estilos das setas
+    arrow/.style={-{Stealth[length=1.8mm, width=1.2mm]}, thick, arrowcolor},
+    skiparrow/.style={-{Stealth[length=1.8mm, width=1.2mm]}, thick, skipcolor},
+    % Estilos das labels
+    sectionlabel/.style={font=\footnotesize\sffamily\bfseries, text=labelcolor},
+    sizelabel/.style={font=\tiny\sffamily, text=sublabelcolor},
+]
+
+% ============================================================================
+% ENTRADA
+% ============================================================================
+\node[inputblock] (input) {Imagem\\640$\times$640};
+\node[sectionlabel, above=0.3cm of input] {Entrada};
+
+% ============================================================================
+% BACKBONE
+% ============================================================================
+\node[cbsblock, right=0.8cm of input] (cbs1) {CBS};
+\node[c2fblock, right=0.4cm of cbs1] (c2f1) {C2f};
+\node[sizelabel, below=0.02cm of c2f1] {\tiny P3};
+
+\node[cbsblock, right=0.4cm of c2f1] (cbs2) {CBS};
+\node[c2fblock, right=0.4cm of cbs2] (c2f2) {C2f};
+\node[sizelabel, below=0.02cm of c2f2] {\tiny P4};
+
+\node[cbsblock, right=0.4cm of c2f2] (cbs3) {CBS};
+\node[c2fblock, right=0.4cm of cbs3] (c2f3) {C2f};
+\node[sppfblock, right=0.4cm of c2f3] (sppf) {SPPF};
+\node[sizelabel, below=0.02cm of sppf] {\tiny P5};
+
+% Backbone label
+\node[sectionlabel] at ($(cbs2)!0.5!(c2f3) + (0, 0.8)$) {Backbone (CSPDarknet)};
+
+% ============================================================================
+% NECK (FPN + PANet)
+% ============================================================================
+\node[neckblock, below=1.0cm of c2f2] (neck1) {FPN};
+\node[neckblock, right=0.6cm of neck1] (neck2) {PANet};
+\node[sectionlabel] at ($(neck1)!0.5!(neck2) + (0, 0.7)$) {Neck};
+
+% ============================================================================
+% HEAD
+% ============================================================================
+\node[headblock, below=1.0cm of neck1] (head1) {Head\\80$\times$80};
+\node[headblock, right=0.5cm of head1] (head2) {Head\\40$\times$40};
+\node[headblock, right=0.5cm of head2] (head3) {Head\\20$\times$20};
+\node[sectionlabel] at ($(head2) + (0, 0.7)$) {Decoupled Head};
+
+\node[sizelabel, below=0.1cm of head1] {Pequenos};
+\node[sizelabel, below=0.1cm of head2] {Médios};
+\node[sizelabel, below=0.1cm of head3] {Grandes};
+
+% ============================================================================
+% SAÍDA
+% ============================================================================
+\node[outputblock, below=1.0cm of head2] (output) {Bounding Boxes\\Classes + Confiança};
+\node[sectionlabel, below=0.3cm of output] {Saída};
+
+% ============================================================================
+% SETAS
+% ============================================================================
+% Input -> Backbone
+\draw[arrow] (input) -- (cbs1);
+\draw[arrow] (cbs1) -- (c2f1);
+\draw[arrow] (c2f1) -- (cbs2);
+\draw[arrow] (cbs2) -- (c2f2);
+\draw[arrow] (c2f2) -- (cbs3);
+\draw[arrow] (cbs3) -- (c2f3);
+\draw[arrow] (c2f3) -- (sppf);
+
+% Backbone -> Neck (skip connections)
+\draw[skiparrow] (c2f1.south) -- ++(0,-0.3) -| (neck1.north west);
+\draw[skiparrow] (c2f2.south) -- (neck1.north);
+\draw[skiparrow] (sppf.south) -- ++(0,-0.2) -| (neck2.north);
+
+% Neck -> Head
+\draw[arrow] (neck1.south) -- ++(0,-0.2) -| (head1.north);
+\draw[arrow] (neck1.south east) -- ++(0,-0.2) -| (head2.north);
+\draw[arrow] (neck2.south) -- ++(0,-0.2) -| (head3.north);
+
+% Head -> Output
+\draw[arrow] (head1.south) -- ++(0,-0.2) -| ($(output.north) + (-0.5,0)$);
+\draw[arrow] (head2.south) -- (output.north);
+\draw[arrow] (head3.south) -- ++(0,-0.2) -| ($(output.north) + (0.5,0)$);
+
+% ============================================================================
+% LEGENDA
+% ============================================================================
+\begin{scope}[shift={($(output) + (4.5, 2.5)$)}]
+    \node[font=\footnotesize\sffamily\bfseries, text=labelcolor] at (0, 1.2) {Legenda:};
+
+    \node[block, fill=backbonecolor, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.8) {\tiny CBS};
+    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.6, 0.8) {Conv+BN+SiLU};
+
+    \node[block, fill=c3color, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.4) {\tiny C2f};
+    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.6, 0.4) {CSP Bottleneck};
+
+    \node[block, fill=headcolor, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.0) {\tiny Head};
+    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.6, 0.0) {Cls + Reg separados};
+
+    \draw[arrow] (-0.4, -0.4) -- (0.2, -0.4);
+    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.4, -0.4) {Fluxo principal};
+
+    \draw[skiparrow] (-0.4, -0.7) -- (0.2, -0.7);
+    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.4, -0.7) {Skip connection};
+\end{scope}
+
+\end{tikzpicture}

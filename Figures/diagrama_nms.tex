@@ -1,0 +1,117 @@
+% ============================================================================
+% Diagrama do Algoritmo Non-Maximum Suppression (NMS) - Simplificado
+% Para uso em dissertação de mestrado - PPGC/UFRGS
+% Uso: \input{figuras/diagrama_nms.tex}
+% ============================================================================
+
+\begin{tikzpicture}[
+    node distance=0.6cm and 1.0cm,
+    scale=0.9, transform shape,
+    font=\sffamily,
+    % Estilos
+    sectionbox/.style={
+        rectangle,
+        rounded corners=4pt,
+        draw=labelcolor,
+        fill=bgbox,
+        minimum width=3.8cm,
+        minimum height=4.5cm,
+        line width=0.6pt,
+    },
+    processbox/.style={
+        rectangle,
+        rounded corners=6pt,
+        fill=cspcolor,
+        text=white,
+        font=\small\sffamily\bfseries,
+        minimum width=2.4cm,
+        minimum height=1.0cm,
+        align=center,
+    },
+    sectiontitle/.style={
+        font=\small\sffamily\bfseries,
+        text=labelcolor,
+    },
+    processarrow/.style={
+        -{Stealth[length=3mm, width=2mm]},
+        line width=1.5pt,
+        arrowcolor,
+    },
+]
+
+% Cores para bounding boxes
+\definecolor{bbox1}{RGB}{39, 174, 96}
+\definecolor{bbox2}{RGB}{41, 128, 185}
+\definecolor{bbox3}{RGB}{230, 126, 34}
+\definecolor{bbox4}{RGB}{192, 57, 43}
+
+% ============================================================================
+% ANTES DO NMS
+% ============================================================================
+\node[sectionbox] (beforebox) at (0, 0) {};
+\node[sectiontitle, above=0.05cm of beforebox.north] {Antes do NMS};
+
+% Silhueta simplificada
+\begin{scope}[shift={(0, -0.2)}]
+    \fill[labelcolor!50] (0, 1.1) circle (0.28);
+    \fill[labelcolor!50, rounded corners=2pt] (-0.32, -0.7) rectangle (0.32, 0.75);
+    \fill[labelcolor!50, rounded corners=2pt] (-0.28, -0.7) rectangle (-0.08, -1.4);
+    \fill[labelcolor!50, rounded corners=2pt] (0.08, -0.7) rectangle (0.28, -1.4);
+\end{scope}
+
+% Bounding boxes sobrepostas
+\draw[bbox4, line width=1pt, dashed] (-1.1, -1.8) rectangle (1.0, 1.6);
+\node[font=\tiny\bfseries, fill=bbox4, text=white, rounded corners=1pt, inner sep=1pt] at (1.0, 1.6) {0.71};
+
+\draw[bbox3, line width=1.2pt, densely dashed] (-0.95, -1.65) rectangle (0.85, 1.5);
+\node[font=\tiny\bfseries, fill=bbox3, text=white, rounded corners=1pt, inner sep=1pt] at (0.85, 1.5) {0.78};
+
+\draw[bbox2, line width=1.3pt, densely dotted] (-0.8, -1.55) rectangle (0.7, 1.45);
+\node[font=\tiny\bfseries, fill=bbox2, text=white, rounded corners=1pt, inner sep=1pt] at (0.7, 1.45) {0.85};
+
+\draw[bbox1, line width=1.5pt] (-0.7, -1.5) rectangle (0.6, 1.4);
+\node[font=\tiny\bfseries, fill=bbox1, text=white, rounded corners=1pt, inner sep=1pt] at (0.6, 1.4) {0.92};
+
+\node[font=\tiny\sffamily\itshape, text=labelcolor] at (0, -2.2) {Múltiplas detecções};
+
+% ============================================================================
+% PROCESSO NMS
+% ============================================================================
+\node[processbox] (nmsprocess) at (4.5, 0) {NMS\\IoU $>$ 0.5};
+\draw[processarrow] (beforebox.east) -- (nmsprocess.west);
+\draw[processarrow] (nmsprocess.east) -- ++(1.5, 0);
+
+\node[font=\tiny\sffamily, text=labelcolor, align=center] at (4.5, -1.0) {Suprime caixas\\redundantes};
+
+% ============================================================================
+% DEPOIS DO NMS
+% ============================================================================
+\node[sectionbox] (afterbox) at (9.0, 0) {};
+\node[sectiontitle, above=0.05cm of afterbox.north] {Após o NMS};
+
+% Silhueta
+\begin{scope}[shift={(9.0, -0.2)}]
+    \fill[labelcolor!50] (0, 1.1) circle (0.28);
+    \fill[labelcolor!50, rounded corners=2pt] (-0.32, -0.7) rectangle (0.32, 0.75);
+    \fill[labelcolor!50, rounded corners=2pt] (-0.28, -0.7) rectangle (-0.08, -1.4);
+    \fill[labelcolor!50, rounded corners=2pt] (0.08, -0.7) rectangle (0.28, -1.4);
+\end{scope}
+
+% Apenas melhor box
+\draw[bbox1, line width=1.8pt] (8.3, -1.5) rectangle (9.6, 1.4);
+\node[font=\tiny\bfseries, fill=bbox1, text=white, rounded corners=1pt, inner sep=1pt] at (9.6, 1.4) {0.92};
+
+\node[font=\tiny\sffamily\itshape, text=labelcolor] at (9.0, -2.2) {Melhor detecção};
+
+% ============================================================================
+% LEGENDA COMPACTA
+% ============================================================================
+\node[font=\footnotesize\sffamily\bfseries, text=labelcolor] at (4.5, -2.8) {Etapas:};
+\node[font=\tiny\sffamily, text=labelcolor, align=left] at (4.5, -3.5) {
+    1. Ordenar por confiança\\
+    2. Manter a melhor caixa\\
+    3. Suprimir IoU $>$ limiar\\
+    4. Repetir para restantes
+};
+
+\end{tikzpicture}

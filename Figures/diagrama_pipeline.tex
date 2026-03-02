@@ -1,0 +1,190 @@
+% ============================================================================
+% Diagrama do Pipeline GStreamer/DeepStream
+% Para inclusao na dissertacao de mestrado - PPGC/UFRGS
+% ============================================================================
+% Uso: \input{figuras/diagrama_pipeline.tex}
+% Requer: \usepackage{tikz}
+%         \usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, calc}
+% ============================================================================
+
+\begin{tikzpicture}[
+    % Definicao de estilos
+    node distance=0.6cm and 0.8cm,
+    % Estilo para blocos do pipeline
+    block/.style={
+        rectangle,
+        draw=#1,
+        fill=#1!10,
+        line width=1pt,
+        minimum width=2.2cm,
+        minimum height=1.2cm,
+        align=center,
+        font=\footnotesize\sffamily,
+        rounded corners=2pt
+    },
+    % Estilo para labels dos plugins (abaixo dos blocos)
+    plugin/.style={
+        font=\tiny\ttfamily,
+        text=#1!80!black
+    },
+    % Estilo para setas
+    arrow/.style={
+        ->,
+        >=Stealth,
+        line width=0.8pt,
+        draw=black!70
+    },
+    % Estilo para setas de dados
+    dataarrow/.style={
+        ->,
+        >=Stealth,
+        line width=1.2pt,
+        draw=blue!60!black
+    },
+    % Estilo para grupo/container
+    container/.style={
+        rectangle,
+        draw=#1!60,
+        fill=#1!5,
+        dashed,
+        line width=0.8pt,
+        rounded corners=4pt,
+        inner sep=8pt
+    },
+    % Cores academicas profissionais
+    sourcecolor/.style={block=teal!80!black},
+    decodecolor/.style={block=cyan!70!black},
+    muxcolor/.style={block=blue!70!black},
+    pgiecolor/.style={block=purple!70!black},
+    trackercolor/.style={block=violet!70!black},
+    sgiecolor/.style={block=orange!70!black},
+    osdcolor/.style={block=green!60!black},
+    sinkcolor/.style={block=red!60!black}
+]
+
+% ============================================================================
+% Primeira linha: Source -> Decoder -> Streammux
+% ============================================================================
+
+% Source
+\node[sourcecolor] (source) {
+    \textbf{Source}\\[2pt]
+    Camera/Arquivo
+};
+\node[plugin=teal!80!black, below=0.1cm of source] {\textit{nvv4l2camerasrc}};
+\node[plugin=teal!80!black, below=0.35cm of source] {\textit{filesrc}};
+
+% Decoder
+\node[decodecolor, right=of source] (decoder) {
+    \textbf{Decoder}\\[2pt]
+    Decodificacao
+};
+\node[plugin=cyan!70!black, below=0.1cm of decoder] {\textit{nvv4l2decoder}};
+
+% Streammux
+\node[muxcolor, right=of decoder] (streammux) {
+    \textbf{Streammux}\\[2pt]
+    Batching
+};
+\node[plugin=blue!70!black, below=0.1cm of streammux] {\textit{nvstreammux}};
+
+% ============================================================================
+% Segunda linha: PGIE
+% ============================================================================
+
+% PGIE
+\node[pgiecolor, right=of streammux] (pgie) {
+    \textbf{PGIE}\\[2pt]
+    Primary Inference
+};
+\node[plugin=purple!70!black, below=0.1cm of pgie] {\textit{nvinfer}};
+
+% ============================================================================
+% Tracker
+% ============================================================================
+
+% Tracker
+\node[trackercolor, right=of pgie] (tracker) {
+    \textbf{Tracker}\\[2pt]
+    Object Tracking
+};
+\node[plugin=violet!70!black, below=0.1cm of tracker] {\textit{nvtracker}};
+
+% ============================================================================
+% Container para SGIEs
+% ============================================================================
+
+% SGIE-1
+\node[sgiecolor, right=1.5cm of tracker, yshift=1.2cm] (sgie1) {
+    \textbf{SGIE-1}\\[2pt]
+    EPI Detection
+};
+\node[plugin=orange!70!black, below=0.1cm of sgie1] {\textit{nvinfer}};
+
+% SGIE-2
+\node[sgiecolor, right=1.5cm of tracker] (sgie2) {
+    \textbf{SGIE-2}\\[2pt]
+    Machinery ID
+};
+\node[plugin=orange!70!black, below=0.1cm of sgie2] {\textit{nvinfer}};
+
+% SGIE-3
+\node[sgiecolor, right=1.5cm of tracker, yshift=-1.2cm] (sgie3) {
+    \textbf{SGIE-3}\\[2pt]
+    Tools Detection
+};
+\node[plugin=orange!70!black, below=0.1cm of sgie3] {\textit{nvinfer}};
+
+% Container para SGIEs
+\node[container=orange, fit=(sgie1)(sgie2)(sgie3), label={[font=\footnotesize\sffamily,orange!70!black]above:Secondary Inference Engines}] (sgiegroup) {};
+
+% ============================================================================
+% OSD e Sink
+% ============================================================================
+
+% OSD
+\node[osdcolor, right=1.5cm of sgie2] (osd) {
+    \textbf{OSD}\\[2pt]
+    On-Screen Display
+};
+\node[plugin=green!60!black, below=0.1cm of osd] {\textit{nvdsosd}};
+
+% Sink
+\node[sinkcolor, right=of osd] (sink) {
+    \textbf{Sink}\\[2pt]
+    Output
+};
+\node[plugin=red!60!black, below=0.1cm of sink] {\textit{nveglglessink}};
+\node[plugin=red!60!black, below=0.35cm of sink] {\textit{filesink}};
+
+% ============================================================================
+% Setas de conexao
+% ============================================================================
+
+% Fluxo principal
+\draw[arrow] (source) -- (decoder);
+\draw[arrow] (decoder) -- (streammux);
+\draw[arrow] (streammux) -- (pgie);
+\draw[arrow] (pgie) -- (tracker);
+
+% Tracker para SGIEs
+\draw[arrow] (tracker.east) -- ++(0.3,0) |- (sgie1.west);
+\draw[arrow] (tracker.east) -- (sgie2.west);
+\draw[arrow] (tracker.east) -- ++(0.3,0) |- (sgie3.west);
+
+% SGIEs para OSD
+\draw[arrow] (sgie1.east) -| ($(osd.west)+(-0.3,0)$) -- (osd.west);
+\draw[arrow] (sgie2.east) -- (osd.west);
+\draw[arrow] (sgie3.east) -| ($(osd.west)+(-0.3,0)$) -- (osd.west);
+
+% OSD para Sink
+\draw[arrow] (osd) -- (sink);
+
+% ============================================================================
+% Legenda de fluxo de dados
+% ============================================================================
+
+% Indicador de direcao do fluxo
+\node[font=\footnotesize\sffamily, text=black!60, below=2.5cm of streammux] (flowlabel) {Fluxo de dados $\longrightarrow$};
+
+\end{tikzpicture}

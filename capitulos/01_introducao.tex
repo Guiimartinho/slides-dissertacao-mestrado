@@ -1,0 +1,279 @@
+% ============================================================================
+% CAPITULO 1 - INTRODUCAO E MOTIVACAO
+% ============================================================================
+
+% --- Slide 1: Titulo ---
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+}
+
+% --- Slide 2: Sumario ---
+\begin{frame}{Sum\'{a}rio}
+  \tableofcontents
+\end{frame}
+
+% ============================================================================
+\section{Introdu\c{c}\~{a}o}
+% ============================================================================
+
+% --- Slide 3: Contexto ---
+\begin{frame}{Contexto}
+  \vfill
+
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      {
+      \setbeamercolor{block title}{fg=white, bg=inputcolor}
+      \setbeamercolor{block body}{bg=inputcolor!8}
+      \begin{block}{\centering Constru\c{c}\~{a}o Civil no Mundo}
+        \centering\smallskip
+        {\color{inputcolor}\fontsize{30}{34}\selectfont\textbf{13\%}}\\[2pt]
+        {\small do PIB mundial}\\[6pt]
+        {\color{inputcolor}\fontsize{30}{34}\selectfont\textbf{7\%}}\\[2pt]
+        {\small da for\c{c}a de trabalho global}\\[2pt]
+      \end{block}
+      }
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      {
+      \setbeamercolor{block title}{fg=white, bg=skipcolor}
+      \setbeamercolor{block body}{bg=skipcolor!8}
+      \begin{block}{\centering Constru\c{c}\~{a}o Civil no Brasil}
+        \centering\smallskip
+        {\color{skipcolor}\fontsize{30}{34}\selectfont\textbf{6,2\%}}\\[2pt]
+        {\small do PIB nacional}\\[6pt]
+        {\color{skipcolor}\fontsize{30}{34}\selectfont\textbf{2,5M}}\\[2pt]
+        {\small trabalhadores formais}\\[2pt]
+      \end{block}
+      }
+    \end{column}
+  \end{columns}
+
+  \vspace{6mm}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \node[fill=stagecolor!10, rounded corners=3pt, inner sep=6pt, text width=0.88\textwidth, align=center] {
+        {\footnotesize O setor lidera as estat\'{i}sticas de \textbf{acidentes graves e fatais}
+        tanto no Brasil quanto mundialmente. Quedas de altura, soterramento,
+        choque el\'{e}trico e impacto de objetos s\~{a}o as principais causas.}
+      };
+    \end{tikzpicture}
+  \end{center}
+  \vfill
+\end{frame}
+
+% --- Slide 4: O Problema ---
+\begin{frame}{O Problema}
+  \vfill
+
+  % --- Big numbers row ---
+  \begin{columns}[c]
+    \begin{column}{0.30\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \node[fill=skipcolor!12, rounded corners=4pt, inner sep=8pt, minimum width=32mm] {
+          \begin{minipage}{28mm}\centering
+            {\color{skipcolor}\fontsize{36}{40}\selectfont\textbf{2,78M}}\\[4pt]
+            {\small mortes/ano por\\acidentes de trabalho}\\[2pt]
+            {\tiny\color{sublabelcolor} Fonte: OIT, 2024}
+          \end{minipage}
+        };
+      \end{tikzpicture}
+    \end{column}
+
+    \begin{column}{0.02\textwidth}
+      \centering
+      {\color{dividercolor}\rule{0.4pt}{40mm}}
+    \end{column}
+
+    \begin{column}{0.30\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \node[fill=inputcolor!10, rounded corners=4pt, inner sep=8pt, minimum width=32mm] {
+          \begin{minipage}{28mm}\centering
+            {\color{inputcolor}\fontsize{36}{40}\selectfont\textbf{600k}}\\[4pt]
+            {\small acidentes registrados\\no Brasil em 2022}\\[2pt]
+            {\tiny\color{sublabelcolor} 12\% na constru\c{c}\~{a}o}
+          \end{minipage}
+        };
+      \end{tikzpicture}
+    \end{column}
+
+    \begin{column}{0.02\textwidth}
+      \centering
+      {\color{dividercolor}\rule{0.4pt}{40mm}}
+    \end{column}
+
+    \begin{column}{0.30\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \node[fill=outputcolor!12, rounded corners=4pt, inner sep=8pt, minimum width=32mm] {
+          \begin{minipage}{28mm}\centering
+            {\color{outputcolor}\fontsize{36}{40}\selectfont\textbf{$<$40\%}}\\[4pt]
+            {\small taxa de detec\c{c}\~{a}o\\na vigil\^{a}ncia manual}\\[2pt]
+            {\tiny\color{sublabelcolor} Teizer, 2015}
+          \end{minipage}
+        };
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+
+  \vspace{6mm}
+
+  % --- Problem statement ---
+  \begin{alertblock}{}
+    \centering
+    \textbf{Inspe\c{c}\~{o}es manuais s\~{a}o intermitentes, reativas e sujeitas a erros humanos.}\\[2pt]
+    {\small Como automatizar a vigil\^{a}ncia de seguran\c{c}a em canteiros de obra?}
+  \end{alertblock}
+  \vfill
+\end{frame}
+
+% --- Slide 5: Motivacao ---
+\begin{frame}{Motiva\c{c}\~{a}o --- Por que IA na Borda?}
+  \vfill
+
+  \begin{center}
+    {\small Vis\~{a}o computacional + \textit{deep learning} = vigil\^{a}ncia cont\'{i}nua e autom\'{a}tica.\\[2pt]
+    Mas \textbf{onde} processar os dados?}
+  \end{center}
+
+  \vspace{4mm}
+
+  \begin{columns}[T]
+    \begin{column}{0.46\textwidth}
+      {
+      \setbeamercolor{block title}{fg=white, bg=skipcolor!85}
+      \setbeamercolor{block body}{bg=skipcolor!6}
+      \begin{block}{\centering Nuvem}
+        \smallskip
+        \begin{itemize}
+          \item[\color{skipcolor}$\boldsymbol{\times}$] Lat\^{e}ncia: 200--500\,ms
+          \item[\color{skipcolor}$\boldsymbol{\times}$] Banda: 3--10\,Mbps/c\^{a}m
+          \item[\color{skipcolor}$\boldsymbol{\times}$] Falha se sem internet
+          \item[\color{skipcolor}$\boldsymbol{\times}$] Custo recorrente
+        \end{itemize}
+        \smallskip
+      \end{block}
+      }
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      {
+      \setbeamercolor{block title}{fg=white, bg=headcolor!85}
+      \setbeamercolor{block body}{bg=headcolor!6}
+      \begin{block}{\centering Borda (Edge AI)}
+        \smallskip
+        \begin{itemize}
+          \item[\color{headcolor}$\boldsymbol{\checkmark}$] Lat\^{e}ncia: $<$100\,ms
+          \item[\color{headcolor}$\boldsymbol{\checkmark}$] Sem depend\^{e}ncia de rede
+          \item[\color{headcolor}$\boldsymbol{\checkmark}$] Privacidade local
+          \item[\color{headcolor}$\boldsymbol{\checkmark}$] Custo fixo (hardware)
+        \end{itemize}
+        \smallskip
+      \end{block}
+      }
+    \end{column}
+  \end{columns}
+
+  \vspace{5mm}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \node[fill=headcolor!12, rounded corners=3pt, inner sep=6pt, text width=0.82\textwidth, align=center] {
+        {\small\textbf{Canteiros de obra} t\^{e}m conectividade inst\'{a}vel e exigem resposta imediata.\\
+        A \textbf{computa\c{c}\~{a}o de borda} \'{e} a escolha natural.}
+      };
+    \end{tikzpicture}
+  \end{center}
+  \vfill
+\end{frame}
+
+% --- Slide 6: Hipotese ---
+\begin{frame}{Hip\'{o}tese}
+  \vfill
+
+  \begin{center}
+    \begin{tikzpicture}
+      \node[fill=stagecolor!8, rounded corners=4pt, inner sep=8pt, text width=0.9\textwidth, align=center] {
+        {\small Uma arquitetura de \textbf{infer\^{e}ncia em cascata} na borda,\\[2pt]
+        com modelo prim\'{a}rio generalista + modelos secund\'{a}rios especializados,\\[2pt]
+        pode monitorar seguran\c{c}a em \textbf{tempo real} com m\'{u}ltiplas categorias.}
+      };
+    \end{tikzpicture}
+  \end{center}
+
+  \vspace{3mm}
+
+  % --- Cascade Diagram - Vertical flow ---
+  \begin{center}
+    \resizebox{0.92\textwidth}{!}{%
+    \begin{tikzpicture}[
+      node distance=6mm and 12mm,
+      every node/.style={font=\small, align=center},
+      sgienode/.style={draw, rounded corners=3pt, minimum height=13mm, minimum width=30mm, font=\small, align=center},
+    ]
+      % Camera
+      \node[inputblock, minimum width=26mm, minimum height=14mm] (cam) {
+        \textbf{C\^{a}mera}\\{\scriptsize RTSP Stream}
+      };
+
+      % PGIE
+      \node[backboneblock, right=14mm of cam, minimum width=32mm, minimum height=14mm] (pgie) {
+        \textbf{PGIE}\\{\scriptsize 5 classes gerais}
+      };
+
+      % SGIEs - spread vertically
+      \node[sgienode, fill=roicolor!15, right=16mm of pgie, yshift=18mm] (sgie1) {
+        \textbf{SGIE-EPI}\\{\scriptsize 14 classes}
+      };
+      \node[sgienode, fill=neckcolor!12, right=16mm of pgie] (sgie2) {
+        \textbf{SGIE-Maq}\\{\scriptsize 9 classes}
+      };
+      \node[sgienode, fill=gridcolor!15, right=16mm of pgie, yshift=-18mm] (sgie3) {
+        \textbf{SGIE-Fer}\\{\scriptsize 23 classes}
+      };
+
+      % Output
+      \node[outputblock, right=16mm of sgie2, minimum width=26mm, minimum height=14mm] (alerta) {
+        \textbf{Alerta}\\{\scriptsize Tempo Real}
+      };
+
+      % Arrows
+      \draw[arrow, line width=1pt] (cam) -- (pgie);
+
+      % PGIE to SGIEs with ROI labels
+      \draw[arrow, line width=1pt] (pgie.east) -- (sgie1.west)
+        node[midway, above, font=\tiny\itshape, text=sublabelcolor] {ROI: pessoa};
+      \draw[arrow, line width=1pt] (pgie.east) -- (sgie2.west)
+        node[midway, above, font=\tiny\itshape, text=sublabelcolor] {ROI: ve\'{i}culo};
+      \draw[arrow, line width=1pt] (pgie.east) -- (sgie3.west)
+        node[midway, below, font=\tiny\itshape, text=sublabelcolor] {ROI: ferramenta};
+
+      % SGIEs to Alert
+      \draw[arrow, line width=1pt] (sgie1.east) -- (alerta.west |- sgie1.east);
+      \draw[arrow, line width=1pt] (sgie2.east) -- (alerta.west);
+      \draw[arrow, line width=1pt] (sgie3.east) -- (alerta.west |- sgie3.east);
+
+      % Annotations below
+      \node[below=3mm of cam, font=\tiny, text=sublabelcolor] {Entrada};
+      \node[below=3mm of pgie, font=\tiny, text=sublabelcolor] {Detector Prim\'{a}rio};
+      \node[below=3mm of sgie3, font=\tiny, text=sublabelcolor] {Detectores Secund\'{a}rios};
+      \node[below=3mm of alerta, font=\tiny, text=sublabelcolor] {Sa\'{i}da};
+
+      % Total classes annotation
+      \node[below=22mm of sgie2, font=\scriptsize\bfseries, text=stagecolor] {
+        46 categorias \'{u}nicas --- 4 modelos YOLOv8
+      };
+    \end{tikzpicture}
+    }
+  \end{center}
+
+  \vspace{1mm}
+  \centering
+  {\footnotesize\color{stagecolor}\textbf{Infer\^{e}ncia em cascata na borda} --- NVIDIA Jetson AGX Xavier | DeepStream SDK}
+  \vfill
+\end{frame}

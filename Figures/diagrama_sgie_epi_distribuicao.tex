@@ -1,0 +1,110 @@
+% ============================================================================
+% Gráfico de Barras Horizontais - AP@0.5 por Classe do SGIE-EPI
+% Para dissertação de mestrado PPGC/UFRGS
+% Uso: \input{figuras/diagrama_sgie_epi_distribuicao.tex}
+% ============================================================================
+
+\begin{tikzpicture}
+\begin{axis}[
+    xbar,
+    width=0.92\textwidth,
+    height=10cm,
+    bar width=8pt,
+    enlarge y limits=0.05,
+    xlabel={AP@0.5},
+    xlabel style={font=\small},
+    xmin=0,
+    xmax=1.12,
+    xtick={0, 0.2, 0.4, 0.6, 0.8, 1.0},
+    xticklabel style={font=\footnotesize},
+    ytick=data,
+    yticklabels={
+        NO-Safety Vest,
+        Mask,
+        Safety Cone,
+        NO-Mask,
+        Safety Vest,
+        NO-Hardhat,
+        Fall-Detected,
+        Hardhat,
+        NO-Gloves,
+        Person,
+        NO-Goggles,
+        Ladder,
+        Gloves,
+        Goggles
+    },
+    yticklabel style={font=\footnotesize},
+    y dir=normal,
+    nodes near coords,
+    nodes near coords align={horizontal},
+    nodes near coords style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=3},
+    every node near coord/.append style={anchor=west, xshift=1pt},
+    grid=major,
+    grid style={gray!20, very thin},
+    major x grid style={gray!30, thin},
+    tick align=outside,
+    axis line style={gray!60},
+    legend style={at={(0.97,0.03)}, anchor=south east, font=\footnotesize},
+]
+
+% Barras com cores baseadas no desempenho
+% AP >= 0.90: detectioncolor (verde escuro) - excelente
+% AP >= 0.70: headcolor (verde) - bom
+% AP >= 0.50: neckcolor (roxo) - moderado
+% AP < 0.50: skipcolor (vermelho) - baixo
+
+% Faixa excelente (AP >= 0.90)
+\addplot[
+    xbar,
+    fill=detectioncolor!70,
+    draw=detectioncolor!90,
+    bar width=8pt,
+] coordinates {
+    (0.971, 13)
+    (0.948, 12)
+    (0.946, 11)
+    (0.939, 10)
+    (0.931, 9)
+    (0.908, 8)
+};
+
+% Faixa boa (0.70 <= AP < 0.90)
+\addplot[
+    xbar,
+    fill=headcolor!50,
+    draw=headcolor!80,
+    bar width=8pt,
+] coordinates {
+    (0.896, 7)
+    (0.859, 6)
+    (0.724, 5)
+    (0.682, 4)
+};
+
+% Faixa moderada (0.50 <= AP < 0.70)
+\addplot[
+    xbar,
+    fill=neckcolor!40,
+    draw=neckcolor!70,
+    bar width=8pt,
+] coordinates {
+    (0.611, 3)
+    (0.608, 2)
+    (0.524, 1)
+};
+
+% Faixa baixa (AP < 0.50)
+\addplot[
+    xbar,
+    fill=skipcolor!40,
+    draw=skipcolor!70,
+    bar width=8pt,
+] coordinates {
+    (0.236, 0)
+};
+
+\legend{AP $\geq$ 0{,}90, 0{,}70 $\leq$ AP $<$ 0{,}90, 0{,}50 $\leq$ AP $<$ 0{,}70, AP $<$ 0{,}50}
+
+\end{axis}
+\end{tikzpicture}

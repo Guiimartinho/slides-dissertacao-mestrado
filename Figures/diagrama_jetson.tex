@@ -1,0 +1,216 @@
+% ============================================================================
+% Diagrama de Arquitetura de Hardware - NVIDIA Jetson AGX Xavier
+% Para uso em dissertacao de mestrado PPGC/UFRGS
+% Uso: \input{figuras/diagrama_jetson.tex}
+% ============================================================================
+
+\begin{tikzpicture}[
+    % Estilos para os blocos principais
+    mainblock/.style={
+        rectangle,
+        rounded corners=3pt,
+        draw=#1!80!black,
+        fill=#1!20,
+        line width=1pt,
+        minimum width=4.2cm,
+        minimum height=2.2cm,
+        align=center,
+        font=\sffamily\small
+    },
+    % Estilo para blocos menores
+    smallblock/.style={
+        rectangle,
+        rounded corners=2pt,
+        draw=#1!80!black,
+        fill=#1!15,
+        line width=0.8pt,
+        minimum width=2.8cm,
+        minimum height=1.4cm,
+        align=center,
+        font=\sffamily\footnotesize
+    },
+    % Estilo para a memoria compartilhada
+    memblock/.style={
+        rectangle,
+        rounded corners=3pt,
+        draw=memcolor!80!black,
+        fill=memcolor!15,
+        line width=1.2pt,
+        minimum width=10cm,
+        minimum height=1.2cm,
+        align=center,
+        font=\sffamily\small\bfseries
+    },
+    % Estilo para interfaces I/O
+    ioblock/.style={
+        rectangle,
+        rounded corners=2pt,
+        draw=iocolor!80!black,
+        fill=iocolor!10,
+        line width=0.6pt,
+        minimum width=1.8cm,
+        minimum height=0.9cm,
+        align=center,
+        font=\sffamily\scriptsize
+    },
+    % Estilo para setas de conexao
+    busarrow/.style={
+        -{Stealth[length=3mm, width=2mm]},
+        line width=1.5pt,
+        draw=buscolor
+    },
+    doublearrow/.style={
+        {Stealth[length=2.5mm, width=2mm]}-{Stealth[length=2.5mm, width=2mm]},
+        line width=1.2pt,
+        draw=buscolor
+    },
+    % Estilo para labels
+    labelstyle/.style={
+        font=\sffamily\scriptsize,
+        text=black!70
+    }
+]
+
+% ============================================================================
+% Bloco de Memoria Compartilhada (topo)
+% ============================================================================
+\node[memblock] (mem) at (0, 4.5) {
+    \textbf{Memoria Unificada LPDDR4x}\\
+    32 GB | 136.5 GB/s
+};
+
+% ============================================================================
+% CPU - Lado esquerdo
+% ============================================================================
+\node[mainblock=cpucolor] (cpu) at (-3.5, 1.5) {
+    \textbf{CPU}\\[2pt]
+    8 nucleos ARM Carmel\\
+    64-bit v8.2\\
+    2.26 GHz
+};
+
+% ============================================================================
+% GPU - Lado direito
+% ============================================================================
+\node[mainblock=gpucolor] (gpu) at (3.5, 1.5) {
+    \textbf{GPU Volta}\\[2pt]
+    512 CUDA Cores\\
+    64 Tensor Cores\\
+    32 TOPS (INT8)
+};
+
+% ============================================================================
+% DLA - Deep Learning Accelerators
+% ============================================================================
+\node[smallblock=dlacolor] (dla) at (-3.5, -1.5) {
+    \textbf{DLA}\\[2pt]
+    2x Deep Learning\\
+    Accelerators
+};
+
+% ============================================================================
+% Video Engine
+% ============================================================================
+\node[smallblock=videocolor] (video) at (0, -1.5) {
+    \textbf{Motor de Video}\\[2pt]
+    NVENC/NVDEC\\
+    H.264/H.265
+};
+
+% ============================================================================
+% Vision Accelerator
+% ============================================================================
+\node[smallblock=dlacolor] (vision) at (3.5, -1.5) {
+    \textbf{Vision Accelerator}\\[2pt]
+    PVA\\
+    7-Way VLIW
+};
+
+% ============================================================================
+% Interfaces de I/O (parte inferior)
+% ============================================================================
+\node[ioblock] (csi) at (-4.5, -4) {
+    \textbf{CSI}\\
+    16 Cameras
+};
+
+\node[ioblock] (usb) at (-2.25, -4) {
+    \textbf{USB}\\
+    3.0/2.0
+};
+
+\node[ioblock] (pcie) at (0, -4) {
+    \textbf{PCIe}\\
+    Gen4 x8
+};
+
+\node[ioblock] (eth) at (2.25, -4) {
+    \textbf{Ethernet}\\
+    10 GbE
+};
+
+\node[ioblock] (gpio) at (4.5, -4) {
+    \textbf{GPIO}\\
+    40 pinos
+};
+
+% ============================================================================
+% Conexoes - Memoria para CPU e GPU
+% ============================================================================
+\draw[doublearrow] (mem.south -| cpu.north) -- (cpu.north);
+\draw[doublearrow] (mem.south -| gpu.north) -- (gpu.north);
+
+% ============================================================================
+% Conexoes - CPU/GPU para blocos inferiores via barramento
+% ============================================================================
+% Linha de barramento horizontal
+\draw[line width=2pt, draw=buscolor!60] (-5, -0.3) -- (5, -0.3);
+
+% Conexoes verticais para o barramento
+\draw[line width=1.2pt, draw=buscolor!60] (cpu.south) -- (cpu.south |- 0,-0.3);
+\draw[line width=1.2pt, draw=buscolor!60] (gpu.south) -- (gpu.south |- 0,-0.3);
+\draw[line width=1.2pt, draw=buscolor!60] (dla.north) -- (dla.north |- 0,-0.3);
+\draw[line width=1.2pt, draw=buscolor!60] (video.north) -- (video.north |- 0,-0.3);
+\draw[line width=1.2pt, draw=buscolor!60] (vision.north) -- (vision.north |- 0,-0.3);
+
+% ============================================================================
+% Conexoes - Blocos para I/O
+% ============================================================================
+% Linha de barramento I/O
+\draw[line width=1.5pt, draw=iocolor!60] (-5, -2.8) -- (5, -2.8);
+
+% Conexoes para I/O
+\draw[line width=0.8pt, draw=iocolor!60] (dla.south) -- (dla.south |- 0,-2.8);
+\draw[line width=0.8pt, draw=iocolor!60] (video.south) -- (video.south |- 0,-2.8);
+\draw[line width=0.8pt, draw=iocolor!60] (vision.south) -- (vision.south |- 0,-2.8);
+
+\draw[line width=0.8pt, draw=iocolor!60] (csi.north) -- (csi.north |- 0,-2.8);
+\draw[line width=0.8pt, draw=iocolor!60] (usb.north) -- (usb.north |- 0,-2.8);
+\draw[line width=0.8pt, draw=iocolor!60] (pcie.north) -- (pcie.north |- 0,-2.8);
+\draw[line width=0.8pt, draw=iocolor!60] (eth.north) -- (eth.north |- 0,-2.8);
+\draw[line width=0.8pt, draw=iocolor!60] (gpio.north) -- (gpio.north |- 0,-2.8);
+
+% ============================================================================
+% Labels para barramentos
+% ============================================================================
+\node[labelstyle, anchor=east] at (-5.2, -0.3) {Barramento};
+\node[labelstyle, anchor=east] at (-5.2, -0.6) {de Sistema};
+
+\node[labelstyle, anchor=east] at (-5.2, -2.8) {Barramento};
+\node[labelstyle, anchor=east] at (-5.2, -3.1) {de I/O};
+
+% ============================================================================
+% Titulo do diagrama
+% ============================================================================
+\node[font=\sffamily\large\bfseries, anchor=south] at (0, 5.3) {
+    Arquitetura NVIDIA Jetson AGX Xavier
+};
+
+% ============================================================================
+% Legenda de potencia
+% ============================================================================
+\node[font=\sffamily\scriptsize, text=black!60, anchor=north west] at (-5.5, -4.8) {
+    Consumo: 10W -- 30W (configuravel)
+};
+
+\end{tikzpicture}

@@ -1,0 +1,102 @@
+% ============================================================================
+% Diagrama Comparativo: Detectores de Dois Estágios vs Um Estágio
+% Para uso em dissertação de mestrado - PPGC/UFRGS
+% Uso: \input{figuras/diagrama_detectores.tex}
+% ============================================================================
+
+\begin{tikzpicture}[
+    node distance=0.6cm and 0.8cm,
+    scale=0.85, transform shape,
+    % Estilos dos blocos
+    block/.style={
+        rectangle,
+        rounded corners=3pt,
+        minimum width=2.6cm,
+        minimum height=0.7cm,
+        text centered,
+        font=\small\sffamily,
+        text=white,
+        draw=none,
+    },
+    inputblock/.style={block, fill=inputcolor, minimum height=0.9cm},
+    backboneblock/.style={block, fill=backbonecolor},
+    rpnblock/.style={block, fill=rpncolor},
+    roiblock/.style={block, fill=roicolor},
+    headblock/.style={block, fill=headcolor},
+    outputblock/.style={block, fill=outputcolor, minimum height=0.8cm},
+    detectionblock/.style={block, fill=detectioncolor},
+    gridblock/.style={block, fill=gridcolor},
+    % Estilos das setas
+    arrow/.style={-{Stealth[length=2mm, width=1.5mm]}, thick, arrowcolor},
+    dashedarrow/.style={-{Stealth[length=2mm, width=1.5mm]}, thick, arrowcolor, dashed},
+    % Estilos das labels
+    titlelabel/.style={font=\normalsize\sffamily\bfseries, text=labelcolor},
+    stagelabel/.style={font=\tiny\sffamily\bfseries, text=white, fill=stagecolor, rounded corners=2pt, inner sep=3pt},
+    sublabel/.style={font=\tiny\sffamily, text=sublabelcolor},
+    divider/.style={thick, dashed, dividercolor},
+]
+
+% ============================================================================
+% TÍTULO
+% ============================================================================
+\node[titlelabel] at (0, 0.3) {Comparação de Arquiteturas de Detectores};
+
+% ============================================================================
+% DOIS ESTÁGIOS (Faster R-CNN)
+% ============================================================================
+\begin{scope}[shift={(-4, 0)}]
+    \node[titlelabel] at (0, -0.5) {Dois Estágios};
+    \node[sublabel] at (0, -0.9) {(Faster R-CNN)};
+
+    \node[stagelabel] at (-1.8, -1.6) {Estágio 1};
+    \node[inputblock] (input2) at (0, -1.6) {Imagem};
+    \node[backboneblock] (bb2) at (0, -2.7) {Backbone};
+    \node[rpnblock] (rpn) at (0, -3.8) {RPN};
+    \node[sublabel, below=0.02cm of rpn] {Propostas de regiões};
+
+    \node[stagelabel] at (-1.8, -4.9) {Estágio 2};
+    \node[roiblock] (roi) at (0, -5.0) {ROI Pooling};
+    \node[headblock] (head2) at (0, -6.1) {Classificação};
+    \node[outputblock] (out2) at (0, -7.2) {Detecções};
+
+    \draw[arrow] (input2) -- (bb2);
+    \draw[arrow] (bb2) -- (rpn);
+    \draw[arrow] (rpn) -- (roi);
+    \draw[arrow] (roi) -- (head2);
+    \draw[arrow] (head2) -- (out2);
+    \draw[dashedarrow] (bb2.east) -- ++(0.5,0) |- (roi.east);
+
+    \node[sublabel] at (0, -8.0) {Alta precisão | Maior latência};
+\end{scope}
+
+% ============================================================================
+% LINHA DIVISÓRIA
+% ============================================================================
+\draw[divider] (0, -0.3) -- (0, -8.2);
+
+% ============================================================================
+% UM ESTÁGIO (YOLO)
+% ============================================================================
+\begin{scope}[shift={(4, 0)}]
+    \node[titlelabel] at (0, -0.5) {Um Estágio};
+    \node[sublabel] at (0, -0.9) {(YOLO, SSD)};
+
+    \node[stagelabel] at (1.8, -1.6) {Único};
+    \node[inputblock] (input1) at (0, -1.6) {Imagem};
+    \node[backboneblock] (bb1) at (0, -2.7) {Backbone};
+    \node[detectionblock] (det) at (0, -3.8) {Detecção Direta};
+    \node[sublabel, below=0.02cm of det] {Predição em grid};
+    \node[gridblock] (grid) at (0, -5.0) {Grid $S \times S$};
+    \node[outputblock] (out1) at (0, -6.1) {Boxes + Classes};
+
+    \draw[arrow] (input1) -- (bb1);
+    \draw[arrow] (bb1) -- (det);
+    \draw[arrow] (det) -- (grid);
+    \draw[arrow] (grid) -- (out1);
+    \draw[dashedarrow] (bb1.west) -- ++(-0.5,0) |- (det.west);
+    \node[sublabel, rotate=90] at (-1.0, -3.2) {Multi-escala};
+
+    \node[sublabel] at (0, -6.9) {Baixa latência | Eficiente};
+\end{scope}
+
+\end{tikzpicture}

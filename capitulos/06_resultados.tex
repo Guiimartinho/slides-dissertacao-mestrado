@@ -1,0 +1,493 @@
+% ============================================================================
+% CAPITULO 6 - RESULTADOS
+% ============================================================================
+
+\section{Resultados}
+
+% --- Slide 25: Dashboard Geral ---
+\begin{frame}{Resultados --- Visão Geral}
+  \vspace{2mm}
+  \centering
+  {\small Desempenho consolidado dos quatro modelos treinados (mAP@0,5).}
+
+  \vspace{4mm}
+
+  \begin{center}
+    \renewcommand{\arraystretch}{1.6}
+    \begin{tabular}{@{}lcccc@{}}
+      \toprule
+      \textbf{\normalsize Modelo} &
+      \textbf{\normalsize Classes} &
+      \textbf{\normalsize mAP@0,5} &
+      \textbf{\normalsize Precisão} &
+      \textbf{\normalsize Recall} \\
+      \midrule
+      \rowcolor{inputcolor!10}
+      {\normalsize PGIE} & {\normalsize 5} & {\normalsize \textbf{0,83}} & {\normalsize 0,84} & {\normalsize 0,78} \\
+      \rowcolor{headcolor!10}
+      {\normalsize SGIE-EPI} & {\normalsize 14} & {\normalsize \textbf{0,77}} & {\normalsize 0,80} & {\normalsize 0,71} \\
+      \rowcolor{neckcolor!10}
+      {\normalsize SGIE-Maquinário} & {\normalsize 9} & {\normalsize \cellcolor{headcolor!20}\textbf{0,84}} & {\normalsize 0,86} & {\normalsize 0,79} \\
+      \rowcolor{outputcolor!10}
+      {\normalsize SGIE-Ferramentas} & {\normalsize 23} & {\normalsize \cellcolor{skipcolor!15}\textbf{0,71}} & {\normalsize 0,74} & {\normalsize 0,66} \\
+      \midrule
+      \textbf{\normalsize Total} & \textbf{\normalsize 46 únicas} & \textbf{\normalsize 0,71--0,84} & --- & --- \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+  \vspace{4mm}
+
+  \begin{center}
+    \small
+    \textcolor{headcolor!80!black}{$\blacktriangle$} Melhor: \textbf{SGIE-Maquinário} (0,84) --- objetos grandes, visualmente distintos.\quad
+    \textcolor{skipcolor!80!black}{$\blacktriangledown$} Menor: \textbf{SGIE-Ferramentas} (0,71) --- 23 classes, muitas ferramentas pequenas.
+  \end{center}
+
+  \vfill
+\end{frame}
+
+% --- Slide 26: PGIE - Treinamento ---
+\begin{frame}{PGIE --- Curvas de Treinamento}
+  \smallskip
+  \centering
+  {\small 187 épocas, melhor resultado na época 137 (early stopping com paciência de 50).}
+
+  \vfill
+
+  \begin{center}
+    \includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{results_pgie.png}
+  \end{center}
+
+  \vspace{2mm}
+
+  \begin{center}
+    \footnotesize
+    \textcolor{labelcolor}{Convergência estável após época 80 --- perdas decrescem monotonicamente, mAP estabiliza em $\sim$0,83.}
+  \end{center}
+
+  \vfill
+\end{frame}
+
+% --- Slide 27: PGIE - Avaliação ---
+\begin{frame}{PGIE --- Avaliação}
+  \smallskip
+  \centering
+  {\small Matriz de confusão normalizada e curvas Precision-Recall (5 classes, mAP@0,5 = 0,83).}
+
+  \vspace{3mm}
+
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{confusion_matrix_pgie.png}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{PR_curve_pgie.png}
+    \end{column}
+  \end{columns}
+
+  \vspace{3mm}
+
+  \begin{center}
+    \footnotesize
+    \textcolor{labelcolor}{%
+      Todas as classes com AP $\geq$ 0,68.
+      Melhor: \textbf{Vehicle} (0,90).
+      Pior: \textbf{Safety-vest} (0,68) --- poucas instâncias de treino (6.500).}
+  \end{center}
+
+  \vfill
+\end{frame}
+
+% --- Slide 28: SGIE-EPI --- AP por Classe ---
+\begin{frame}{SGIE-EPI --- AP por Classe}
+  \smallskip
+  \centering
+  {\small Desempenho das 14 classes de EPI ordenadas por AP@0,5 --- mAP geral = 0,77.}
+
+  \vspace{2mm}
+
+  \begin{center}
+    \resizebox{0.95\textwidth}{!}{\input{Figures/diagrama_sgie_epi_distribuicao.tex}}
+  \end{center}
+
+  \vspace{2mm}
+
+  \begin{center}
+    \footnotesize
+    \textcolor{detectioncolor!80!black}{$\blacksquare$} 6 classes com AP $>$ 0,90 (Goggles, Gloves, Ladder, NO-Goggles, Person, NO-Gloves).\\
+    \textcolor{skipcolor!80!black}{$\blacksquare$} NO-Safety Vest (0,24) --- poucas amostras (890) e alta ambiguidade visual com Safety Vest.
+  \end{center}
+
+  \vfill
+\end{frame}
+
+% --- Slide 29: SGIE-EPI --- Avaliação ---
+\begin{frame}{SGIE-EPI --- Avaliação}
+  \smallskip
+  \centering
+  {\small Matriz de confusão e curvas PR para 14 classes de EPIs e situações de risco.}
+
+  \vspace{3mm}
+
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{confusion_matrix_sgie_epi.png}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{PR_curve_sgie_epi.png}
+    \end{column}
+  \end{columns}
+
+  \vspace{3mm}
+
+  \begin{center}
+    \footnotesize
+    \textcolor{labelcolor}{%
+      mAP@0,5 = 0,77 com 14 classes. Confusões principais: Safety Vest $\leftrightarrow$ NO-Safety Vest\\
+      e Mask $\leftrightarrow$ NO-Mask --- classes de ausência são inerentemente ambíguas.}
+  \end{center}
+
+  \vfill
+\end{frame}
+
+% --- Slide 30: SGIE-Maquinário --- Avaliação ---
+\begin{frame}{SGIE-Maquinário --- Avaliação}
+  \smallskip
+  \centering
+  {\small Melhor SGIE: mAP@0,5 = 0,84 com 9 classes de maquinário pesado.}
+
+  \vspace{3mm}
+
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{confusion_matrix_sgie_machinery.png}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{val_pred_sgie_machinery.jpg}
+    \end{column}
+  \end{columns}
+
+  \vspace{3mm}
+
+  \begin{center}
+    \footnotesize
+    \textcolor{labelcolor}{%
+      Objetos grandes e visualmente distintos favorecem alta precisão.
+      Melhor: \textbf{Excavator} (0,91).
+      Menor: \textbf{Grader} (0,77) --- menos amostras (350).}
+  \end{center}
+
+  \vfill
+\end{frame}
+
+% --- Slide 31: SGIE-Ferramentas ---
+\begin{frame}{SGIE-Ferramentas --- Avaliação (\textbf{23 classes})}
+  \vspace{-2mm}
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \centering
+      {\small\textbf{Matriz de Confusão}}\\[3pt]
+      \includegraphics[width=\textwidth]{confusion_matrix_sgie_equipment.png}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      {\small\textbf{Predições na Validação}}\\[3pt]
+      \includegraphics[width=\textwidth]{val_pred_sgie_equipment.jpg}
+    \end{column}
+  \end{columns}
+
+  \vspace{3mm}
+
+  \begin{block}{Análise}
+    \centering
+    {\small Maior desafio do sistema: \textbf{23 classes} com alta variabilidade.\\
+    Objetos grandes (Safety Cone: 0,86 / Ladder: 0,82) \textcolor{headcolor}{\textbf{superam 0,80}}.\\
+    Ferramentas manuais pequenas (Cutter: 0,54 / Trowel: 0,56) \textcolor{skipcolor}{\textbf{abaixo de 0,60}}.\\
+    \textcolor{arrowcolor}{Causa}: tamanho reduzido + alta similaridade visual entre ferramentas.}
+  \end{block}
+\end{frame}
+
+% --- Slide 32: Performance do Pipeline ---
+\begin{frame}{Performance do Pipeline --- Jetson AGX Xavier}
+  \vspace{-2mm}
+  \begin{columns}[c]
+    \begin{column}{0.46\textwidth}
+      \centering
+      {\normalsize\textbf{Throughput (FP16)}}\\[4pt]
+      \renewcommand{\arraystretch}{1.5}
+      \begin{tabular}{@{}lc@{}}
+        \toprule
+        \textbf{Configuração} & \textbf{FPS} \\
+        \midrule
+        Apenas PGIE & 38 \\
+        PGIE + SGIE-EPI & 28 \\
+        \rowcolor{headcolor!15}
+        \textbf{Pipeline completo} & \textcolor{headcolor}{\fontsize{14}{16}\selectfont\textbf{20}} \\
+        \midrule
+        {\scriptsize Pipeline FP32} & {\scriptsize 12} \\
+        \bottomrule
+      \end{tabular}\\[4pt]
+      {\scriptsize\textcolor{arrowcolor}{FP16: speedup de \textbf{1,7$\times$} vs FP32}}
+    \end{column}
+    \begin{column}{0.50\textwidth}
+      \centering
+      {\normalsize\textbf{Latência por Componente}}\\[4pt]
+      \renewcommand{\arraystretch}{1.35}
+      \begin{tabular}{@{}lrc@{}}
+        \toprule
+        \textbf{Componente} & \textbf{ms} & \textbf{\%} \\
+        \midrule
+        Decodificação & 5,0 & 9\% \\
+        \rowcolor{skipcolor!12}
+        \textbf{PGIE (inferência)} & \textcolor{skipcolor}{\textbf{18,5}} & \textcolor{skipcolor}{\textbf{32\%}} \\
+        SGIE-EPI & 8,4 & 14\% \\
+        SGIE-Maquinário & 7,8 & 13\% \\
+        SGIE-Ferramentas & 7,2 & 12\% \\
+        Tracker & 4,8 & 8\% \\
+        OSD + Render & 6,3 & 11\% \\
+        \midrule
+        \textbf{Total} & \textbf{58,0} & 100\% \\
+        \bottomrule
+      \end{tabular}
+    \end{column}
+  \end{columns}
+
+  \vspace{3mm}
+
+  % Visual latency bar
+  \begin{center}
+    \begin{tikzpicture}[x=0.155cm, y=0.6cm]
+      % Background bar
+      \fill[backbonecolor!60] (0,0) rectangle (18.5,0.55);
+      \fill[detectioncolor!50] (18.5,0) rectangle (26.9,0.55);
+      \fill[headcolor!40] (26.9,0) rectangle (34.7,0.55);
+      \fill[neckcolor!40] (34.7,0) rectangle (41.9,0.55);
+      \fill[arrowcolor!30] (41.9,0) rectangle (46.7,0.55);
+      \fill[gridcolor!40] (46.7,0) rectangle (53.0,0.55);
+      \fill[outputcolor!40] (53.0,0) rectangle (58.0,0.55);
+      % Labels
+      \node[font=\tiny\bfseries, text=white] at (9.25, 0.275) {PGIE 18,5ms};
+      \node[font=\tiny, text=white] at (22.7, 0.275) {EPI};
+      \node[font=\tiny, text=white] at (30.8, 0.275) {Maq};
+      \node[font=\tiny, text=white] at (38.3, 0.275) {Fer};
+      \node[font=\tiny] at (44.3, 0.275) {Trk};
+      \node[font=\tiny] at (55.5, 0.275) {Ren};
+      % Brace for inference
+      \draw[decorate, decoration={brace, amplitude=3pt, mirror}, thick, draw=skipcolor!70]
+        (0, -0.15) -- (41.9, -0.15) node[midway, below=4pt, font=\tiny\bfseries, text=skipcolor] {Inferência: 41,9ms (72\% do total)};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+% --- Slide 33: Recursos Jetson ---
+\begin{frame}{Utilização de Recursos --- Jetson AGX Xavier}
+  \vspace{-1mm}
+
+  \begin{columns}[c]
+    \begin{column}{0.42\textwidth}
+      \centering
+      \renewcommand{\arraystretch}{1.5}
+      {\small
+      \begin{tabular}{@{}lc@{}}
+        \toprule
+        \textbf{Recurso} & \textbf{Valor} \\
+        \midrule
+        \rowcolor{gpucolor!15}
+        GPU & \textbf{82\%} \\
+        \rowcolor{cpucolor!10}
+        CPU (8-core) & 38\% \\
+        \rowcolor{memcolor!10}
+        RAM & 5,8 GB / 18\% \\
+        \rowcolor{gridcolor!10}
+        Consumo & 24 W \\
+        \rowcolor{outputcolor!10}
+        Temperatura & 56 $^\circ$C \\
+        \bottomrule
+      \end{tabular}}
+    \end{column}
+    \begin{column}{0.54\textwidth}
+      \centering
+      % Visual bars
+      \begin{tikzpicture}[y=0.9cm, x=0.048\textwidth]
+        % GPU bar
+        \node[font=\small\bfseries, anchor=east] at (-0.5, 3) {GPU};
+        \fill[black!8] (0, 2.7) rectangle (10, 3.3);
+        \fill[gpucolor!70] (0, 2.7) rectangle (8.2, 3.3);
+        \node[font=\footnotesize\bfseries, text=white] at (4.1, 3) {82\%};
+        \draw[gpucolor!90, thick] (0, 2.7) rectangle (10, 3.3);
+
+        % CPU bar
+        \node[font=\small\bfseries, anchor=east] at (-0.5, 2) {CPU};
+        \fill[black!8] (0, 1.7) rectangle (10, 2.3);
+        \fill[cpucolor!60] (0, 1.7) rectangle (3.8, 2.3);
+        \node[font=\footnotesize\bfseries, text=white] at (1.9, 2) {38\%};
+        \draw[cpucolor!80, thick] (0, 1.7) rectangle (10, 2.3);
+
+        % RAM bar
+        \node[font=\small\bfseries, anchor=east] at (-0.5, 1) {RAM};
+        \fill[black!8] (0, 0.7) rectangle (10, 1.3);
+        \fill[memcolor!50] (0, 0.7) rectangle (1.8, 1.3);
+        \node[font=\footnotesize\bfseries, anchor=west] at (2.0, 1) {18\%};
+        \draw[memcolor!70, thick] (0, 0.7) rectangle (10, 1.3);
+
+        % Power bar
+        \node[font=\small\bfseries, anchor=east] at (-0.5, 0) {Energia};
+        \fill[black!8] (0, -0.3) rectangle (10, 0.3);
+        \fill[gridcolor!50] (0, -0.3) rectangle (8.0, 0.3);
+        \node[font=\footnotesize\bfseries] at (4.0, 0) {24W / 30W};
+        \draw[gridcolor!70, thick] (0, -0.3) rectangle (10, 0.3);
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+
+  \vspace{4mm}
+
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{\small Gargalo}
+        \centering
+        {\small GPU é o recurso limitante.\\
+        CPU e RAM com \textbf{folga significativa}.}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{\small Otimização Possível}
+        \centering
+        {\small Quantização \textbf{INT8} ou uso de\\
+        \textbf{DLA} (Deep Learning Accelerator).}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% --- Slide 34: Propagação de Erros ---
+\begin{frame}{Propagação de Erros --- Pipeline End-to-End}
+  \vspace{-2mm}
+  \begin{center}
+    \resizebox{0.92\textwidth}{!}{\input{Figures/diagrama_end_to_end.tex}}
+  \end{center}
+
+  \vspace{2mm}
+
+  \begin{center}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{@{}lccc@{}}
+      \toprule
+      \textbf{Cadeia de Detecção} & \textbf{AP PGIE} & \textbf{mAP SGIE} & \textbf{Cobertura Efetiva} \\
+      \midrule
+      \rowcolor{headcolor!10}
+      Person $\to$ SGIE-EPI & 0,865 & 0,770 & \textcolor{headcolor}{\textbf{0,67}} \\
+      \rowcolor{headcolor!10}
+      Vehicle $\to$ SGIE-Maq & 0,900 & 0,840 & \textcolor{detectioncolor}{\textbf{0,76}} \\
+      \rowcolor{skipcolor!8}
+      Tool $\to$ SGIE-Fer & 0,826 & 0,710 & \textcolor{skipcolor}{\textbf{0,59}} \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+
+  \vspace{2mm}
+
+  \begin{block}{Penalidade da Cascata}
+    \centering
+    {\small Cobertura Efetiva $\approx$ AP\textsubscript{PGIE} $\times$ mAP\textsubscript{SGIE}.
+    A cadeia de ferramentas perde \textbf{41\%} dos objetos.\\
+    \textcolor{arrowcolor}{Mitigação: reduzir threshold do PGIE} $\to$ \textcolor{arrowcolor}{aumentar recall no 1\textordmasculine\ estágio.}}
+  \end{block}
+\end{frame}
+
+% --- Slide 35: Comparação com a Literatura ---
+\begin{frame}{Comparação com a Literatura}
+  \vspace{-3mm}
+  \begin{center}
+    \renewcommand{\arraystretch}{1.5}
+    \small
+    \begin{tabular}{@{}p{2.2cm}ccccc@{}}
+      \toprule
+      \textbf{Trabalho} & \textbf{Classes} & \textbf{mAP@0,5} & \textbf{FPS} & \textbf{Hardware} & \textbf{Cascata} \\
+      \midrule
+      Nath et al.\newline{\scriptsize (2020)} & 5 & 0,72 & 8 & RTX 2080 & Não \\
+      \midrule
+      Wang et al.\newline{\scriptsize (2021)} & 5 & 0,90 & 45 & RTX 3080 & Não \\
+      \midrule
+      Shin et al.\newline{\scriptsize (2022)} & 5 & 0,82 & 45 & Jetson Xavier & Não \\
+      \midrule
+      \rowcolor{headcolor!20}
+      \textbf{Este trabalho} & \textcolor{headcolor}{\fontsize{12}{14}\selectfont\textbf{46\textsuperscript{*}}} & \textbf{0,71--0,84} & \textcolor{headcolor}{\textbf{20}} & \textbf{Jetson Xavier} & \textcolor{headcolor}{\textbf{Sim}} \\
+      \bottomrule
+    \end{tabular}\\[2pt]
+    {\tiny * 46 categorias únicas (51 saídas totais: 5 PGIE + 14 EPI + 9 Maq + 23 Fer)}
+  \end{center}
+
+  \vspace{3mm}
+
+  % Three differential blocks side by side
+  \begin{columns}[c]
+    \begin{column}{0.31\textwidth}
+      \centering
+      \colorbox{headcolor!12}{%
+        \parbox{0.9\textwidth}{\centering\vspace{2pt}
+          {\fontsize{18}{20}\selectfont\textcolor{headcolor}{\textbf{10$\times$}}}\\[1pt]
+          {\scriptsize\textbf{mais classes} que\\trabalhos relacionados}
+        \vspace{2pt}}%
+      }
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \centering
+      \colorbox{inputcolor!12}{%
+        \parbox{0.9\textwidth}{\centering\vspace{2pt}
+          {\fontsize{18}{20}\selectfont\textcolor{inputcolor}{\textbf{4}}}\\[1pt]
+          {\scriptsize\textbf{modelos em cascata}\\na mesma GPU}
+        \vspace{2pt}}%
+      }
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \centering
+      \colorbox{outputcolor!12}{%
+        \parbox{0.9\textwidth}{\centering\vspace{2pt}
+          {\fontsize{18}{20}\selectfont\textcolor{outputcolor}{\textbf{24W}}}\\[1pt]
+          {\scriptsize\textbf{edge deployment}\\sem nuvem}
+        \vspace{2pt}}%
+      }
+    \end{column}
+  \end{columns}
+
+  \vspace{3mm}
+
+  \begin{center}
+    {\small\textcolor{stagecolor}{\textbf{Abordagem inédita}: inferência multiestágio em cascata na borda\\para monitoramento de segurança em construção civil.}}
+  \end{center}
+\end{frame}
+
+% --- Slide 36: Resultados Qualitativos ---
+\begin{frame}{Resultados Qualitativos --- Detecções do Sistema}
+  \vspace{-2mm}
+
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \centering
+      {\small\textbf{SGIE-Ferramentas (23 classes)}}\\[3pt]
+      \includegraphics[width=\textwidth, height=0.55\textheight, keepaspectratio]{val_pred_sgie_equipment.jpg}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      {\small\textbf{SGIE-Maquinário (9 classes)}}\\[3pt]
+      \includegraphics[width=\textwidth, height=0.55\textheight, keepaspectratio]{val_pred_sgie_machinery.jpg}
+    \end{column}
+  \end{columns}
+
+  \vspace{4mm}
+
+  \begin{block}{Observações}
+    \centering
+    {\small Predições no conjunto de validação demonstram capacidade do sistema de\\
+    identificar \textbf{múltiplos objetos simultâneos} com \textit{bounding boxes} e classes corretas.\\
+    Os modelos diferenciam objetos visualmente similares (ex.: Drill vs.\ Grinder).}
+  \end{block}
+\end{frame}

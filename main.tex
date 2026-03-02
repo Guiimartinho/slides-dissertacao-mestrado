@@ -1,0 +1,185 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defesa de Dissertação de Mestrado - PPGC/UFRGS
+% Monitoramento de Segurança em Canteiros de Obra
+% Inferência Multiestágio em IA na Borda
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{beamer}
+
+% ============================================================================
+% PACOTES
+% ============================================================================
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{
+  shapes.geometric,
+  arrows.meta,
+  positioning,
+  fit,
+  calc,
+  backgrounds,
+  decorations.pathreplacing
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{array}
+
+% ============================================================================
+% TEMA
+% ============================================================================
+\usetheme{Inf}
+\graphicspath{{Figures/}}
+
+% ============================================================================
+% CORES TikZ (da dissertação)
+% ============================================================================
+\definecolor{inputcolor}{RGB}{66, 133, 244}
+\definecolor{backbonecolor}{RGB}{52, 73, 94}
+\definecolor{cspcolor}{RGB}{41, 128, 185}
+\definecolor{c3color}{RGB}{26, 82, 118}
+\definecolor{neckcolor}{RGB}{142, 68, 173}
+\definecolor{panetcolor}{RGB}{155, 89, 182}
+\definecolor{headcolor}{RGB}{39, 174, 96}
+\definecolor{outputcolor}{RGB}{230, 126, 34}
+\definecolor{arrowcolor}{RGB}{127, 140, 141}
+\definecolor{skipcolor}{RGB}{192, 57, 43}
+\definecolor{labelcolor}{RGB}{44, 62, 80}
+\definecolor{bgbox}{RGB}{236, 240, 241}
+\definecolor{cpucolor}{RGB}{76, 114, 176}
+\definecolor{gpucolor}{RGB}{85, 168, 104}
+\definecolor{memcolor}{RGB}{196, 78, 82}
+\definecolor{dlacolor}{RGB}{129, 114, 179}
+\definecolor{videocolor}{RGB}{204, 153, 0}
+\definecolor{iocolor}{RGB}{100, 100, 100}
+\definecolor{buscolor}{RGB}{50, 50, 50}
+\definecolor{bgblock}{RGB}{245, 245, 250}
+\definecolor{rpncolor}{RGB}{155, 89, 182}
+\definecolor{roicolor}{RGB}{52, 152, 219}
+\definecolor{detectioncolor}{RGB}{22, 160, 133}
+\definecolor{gridcolor}{RGB}{241, 196, 15}
+\definecolor{stagecolor}{RGB}{52, 73, 94}
+\definecolor{charactercolor}{RGB}{127, 140, 141}
+\definecolor{sublabelcolor}{RGB}{100, 100, 100}
+\definecolor{dividercolor}{RGB}{189, 195, 199}
+
+% ============================================================================
+% ESTILOS TikZ (da dissertação)
+% ============================================================================
+\tikzset{
+blocktext/.style={
+  align=center,
+  font=\small,
+  text=labelcolor
+},
+inputblock/.style={
+  draw,
+  rounded corners,
+  fill=inputcolor!15,
+  minimum height=10mm,
+  minimum width=22mm,
+  blocktext
+},
+backboneblock/.style={
+  draw,
+  rounded corners,
+  fill=backbonecolor!10,
+  minimum height=10mm,
+  minimum width=28mm,
+  blocktext
+},
+detectionblock/.style={
+  draw,
+  rounded corners,
+  fill=detectioncolor!12,
+  minimum height=10mm,
+  minimum width=28mm,
+  blocktext
+},
+outputblock/.style={
+  draw,
+  rounded corners,
+  fill=outputcolor!15,
+  minimum height=10mm,
+  minimum width=22mm,
+  blocktext
+},
+block/.style={
+  draw,
+  rounded corners,
+  fill=bgblock,
+  minimum height=9mm,
+  minimum width=22mm,
+  blocktext
+},
+titlelabel/.style={
+  font=\bfseries\small,
+  text=labelcolor,
+  align=center
+},
+stagelabel/.style={
+  font=\bfseries\footnotesize,
+  text=stagecolor,
+  align=center
+},
+sublabel/.style={
+  font=\footnotesize,
+  text=sublabelcolor,
+  align=center
+},
+divider/.style={
+  draw=dividercolor,
+  line width=0.6pt
+},
+arrow/.style={
+  -{Latex[length=2.0mm,width=1.5mm]},
+  line width=0.7pt,
+  draw=arrowcolor
+},
+dashedarrow/.style={
+  arrow,
+  dashed
+}
+}
+
+% ============================================================================
+% INFORMAÇÕES DO TRABALHO
+% ============================================================================
+\title[Monitoramento de Segurança com Edge AI]{%
+  Monitoramento de Segurança em Canteiros de Obra utilizando
+  Inferência Multiestágio em Inteligência Artificial na Borda}
+
+\subtitle{Defesa de Dissertação de Mestrado}
+
+\author[Luiz Guilherme Ito]{%
+  Luiz Guilherme Martinho Sampaio Ito\\[4pt]
+  {\small Orientador: Prof.~Dr.~José Rodrigo Furlanetto de Azambuja}}
+
+\institute{%
+  Instituto de Informática --- UFRGS\\
+  Programa de Pós-Graduação em Computação}
+
+\date{Março de 2026}
+
+% ============================================================================
+% DOCUMENTO
+% ============================================================================
+\begin{document}
+
+\input{capitulos/01_introducao}
+\input{capitulos/02_objetivos}
+\input{capitulos/03_fundamentacao}
+\input{capitulos/04_metodologia}
+\input{capitulos/05_implementacao}
+\input{capitulos/06_resultados}
+\input{capitulos/07_conclusao}
+
+\end{document}

@@ -1,0 +1,133 @@
+% ============================================================================
+% Diagrama End-to-End - Propagação de Erros no Pipeline em Cascata
+% Para dissertação de mestrado PPGC/UFRGS
+% Uso: \input{figuras/diagrama_end_to_end.tex}
+% ============================================================================
+
+\begin{tikzpicture}[
+    scale=0.85, transform shape,
+    % Estilos dos nós
+    framenode/.style={
+        rectangle,
+        rounded corners=4pt,
+        draw=inputcolor!80,
+        fill=inputcolor!15,
+        minimum width=2.0cm,
+        minimum height=1.2cm,
+        align=center,
+        font=\footnotesize\bfseries,
+        line width=0.8pt
+    },
+    pgienode/.style={
+        rectangle,
+        rounded corners=4pt,
+        draw=backbonecolor!80,
+        fill=backbonecolor!12,
+        minimum width=2.8cm,
+        minimum height=1.2cm,
+        align=center,
+        font=\footnotesize\bfseries,
+        line width=1pt
+    },
+    sgienode/.style={
+        rectangle,
+        rounded corners=4pt,
+        draw=detectioncolor!80,
+        fill=detectioncolor!12,
+        minimum width=3.0cm,
+        minimum height=1.0cm,
+        align=center,
+        font=\footnotesize\bfseries,
+        line width=0.8pt
+    },
+    resultnode/.style={
+        rectangle,
+        rounded corners=4pt,
+        draw=outputcolor!80,
+        fill=outputcolor!12,
+        minimum width=2.6cm,
+        minimum height=1.0cm,
+        align=center,
+        font=\footnotesize\bfseries,
+        line width=0.8pt
+    },
+    pctlabel/.style={
+        font=\scriptsize,
+        fill=white,
+        inner sep=2pt,
+        text=stagecolor
+    },
+    resultlabel/.style={
+        font=\scriptsize\bfseries,
+        text=skipcolor,
+        align=center
+    },
+    myarrow/.style={->, >=stealth, thick, draw=arrowcolor},
+    lossarrow/.style={->, >=stealth, dashed, draw=skipcolor!60, thick}
+]
+
+% ============================================================================
+% Frame de Entrada
+% ============================================================================
+\node[framenode] (frame) at (0, 0) {Frame de\\Vídeo};
+
+% ============================================================================
+% PGIE
+% ============================================================================
+\node[pgienode] (pgie) at (3.5, 0) {PGIE\\{\scriptsize (5 classes)}};
+
+% ============================================================================
+% SGIEs - três ramos
+% ============================================================================
+\node[sgienode] (sgie_epi) at (8.0, 2.2) {SGIE-EPI\\{\scriptsize mAP = 0,770}};
+\node[sgienode] (sgie_maq) at (8.0, 0.0) {SGIE-Maquinário\\{\scriptsize mAP = 0,840}};
+\node[sgienode] (sgie_fer) at (8.0, -2.2) {SGIE-Ferramentas\\{\scriptsize mAP = 0,710}};
+
+% ============================================================================
+% Resultados Efetivos
+% ============================================================================
+\node[resultnode] (res_epi) at (12.5, 2.2) {Cobertura\\{\scriptsize Efetiva: \textbf{0,67}}};
+\node[resultnode] (res_maq) at (12.5, 0.0) {Cobertura\\{\scriptsize Efetiva: \textbf{0,76}}};
+\node[resultnode] (res_fer) at (12.5, -2.2) {Cobertura\\{\scriptsize Efetiva: \textbf{0,59}}};
+
+% ============================================================================
+% Setas Frame -> PGIE
+% ============================================================================
+\draw[myarrow] (frame.east) -- (pgie.west);
+
+% ============================================================================
+% Setas PGIE -> SGIEs com labels de AP
+% ============================================================================
+\draw[myarrow] (pgie.east) -- ++(0.6,0) |- node[pctlabel, pos=0.75, above] {Person: AP=0,865} (sgie_epi.west);
+\draw[myarrow] (pgie.east) -- ++(0.6,0) -- node[pctlabel, above] {Vehicle: AP=0,900} (sgie_maq.west);
+\draw[myarrow] (pgie.east) -- ++(0.6,0) |- node[pctlabel, pos=0.75, below] {Tool: AP=0,826} (sgie_fer.west);
+
+% ============================================================================
+% Setas SGIEs -> Resultados com multiplicação
+% ============================================================================
+\draw[myarrow] (sgie_epi.east) -- node[pctlabel, above] {$\times$} (res_epi.west);
+\draw[myarrow] (sgie_maq.east) -- node[pctlabel, above] {$\times$} (res_maq.west);
+\draw[myarrow] (sgie_fer.east) -- node[pctlabel, above] {$\times$} (res_fer.west);
+
+% ============================================================================
+% Indicação de perda acumulada (seta tracejada para baixo)
+% ============================================================================
+\draw[lossarrow] (pgie.south) -- ++(0, -1.0) node[below, font=\scriptsize, text=skipcolor, align=center] {Falsos negativos\\(objetos não detectados)};
+
+% ============================================================================
+% Fórmula explicativa
+% ============================================================================
+\node[font=\scriptsize, text=stagecolor, align=center] at (10.3, -3.6) {Cobertura Efetiva $\approx$ AP\textsubscript{PGIE} $\times$ mAP\textsubscript{SGIE}};
+
+% ============================================================================
+% Título
+% ============================================================================
+\node[font=\small\bfseries, text=labelcolor] at (6.2, 3.8) {Propagação de Erros no \textit{Pipeline} em Cascata};
+
+% ============================================================================
+% Colchete indicando perda acumulada
+% ============================================================================
+\draw[decorate, decoration={brace, amplitude=5pt, mirror}, thick, draw=skipcolor!60]
+    (13.9, 2.7) -- (13.9, -2.7) node[midway, right=8pt, resultlabel] {Perda\\acumulada\\em cada\\cadeia};
+
+\end{tikzpicture}
