@@ -1,165 +1,71 @@
 % ============================================================================
 % Diagrama do Pipeline GStreamer/DeepStream
-% Para inclusao na dissertacao de mestrado - PPGC/UFRGS
-% ============================================================================
-% Uso: \input{figuras/diagrama_pipeline.tex}
-% Requer: \usepackage{tikz}
-%         \usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, calc}
+% Layout compacto: Row 1 horizontal, SGIEs empilhados verticalmente
 % ============================================================================
 
 \begin{tikzpicture}[
-    % Definicao de estilos
-    node distance=0.6cm and 0.8cm,
-    % Estilo base para blocos do pipeline (sem parametro #1)
-    blockbase/.style={
-        rectangle,
-        line width=1pt,
-        minimum width=2.2cm,
-        minimum height=1.2cm,
-        align=center,
-        font=\small\sffamily,
-        rounded corners=2pt
+    node distance=5mm,
+    block/.style={
+        rectangle, rounded corners=3pt,
+        minimum width=20mm, minimum height=11mm,
+        align=center, font=\small\sffamily\bfseries,
+        text=white, draw=none
     },
-    % Estilo para setas
-    arrow/.style={
-        ->,
-        >=Stealth,
-        line width=0.8pt,
-        draw=black!70
+    sblock/.style={
+        rectangle, rounded corners=2pt,
+        minimum width=22mm, minimum height=8mm,
+        align=center, font=\footnotesize\sffamily\bfseries,
+        text=white, draw=none
     },
-    % Estilo para grupo/container
-    containerbase/.style={
-        rectangle,
-        dashed,
-        line width=0.8pt,
-        rounded corners=4pt,
-        inner sep=8pt
-    },
+    arr/.style={->, >=Stealth, line width=0.8pt, draw=black!60},
+    plbl/.style={font=\tiny\ttfamily, text=black!50},
 ]
 
 % ============================================================================
-% Primeira linha: Source -> Decoder -> Streammux
+% Row 1: Source -> Decoder -> Streammux -> PGIE -> Tracker
 % ============================================================================
 
-% Source
-\node[blockbase, draw=teal!80!black, fill=teal!80!black!10] (source) {
-    \textbf{Source}\\[2pt]
-    Camera/Arquivo
-};
-\node[font=\scriptsize\ttfamily, text=teal!80!black!80, below=0.1cm of source] {\textit{nvv4l2camerasrc}};
-\node[font=\scriptsize\ttfamily, text=teal!80!black!80, below=0.35cm of source] {\textit{filesrc}};
+\node[block, fill=teal!70!black] (src) {Source\\[-1pt]{\tiny Camera/File}};
+\node[block, fill=cyan!65!black, right=of src] (dec) {Decoder\\[-1pt]{\tiny NVDEC}};
+\node[block, fill=blue!65!black, right=of dec] (mux) {Streammux\\[-1pt]{\tiny Batching}};
+\node[block, fill=purple!65!black, right=of mux] (pgie) {PGIE\\[-1pt]{\tiny nvinfer}};
+\node[block, fill=violet!65!black, right=of pgie] (trk) {Tracker\\[-1pt]{\tiny NvDCF}};
 
-% Decoder
-\node[blockbase, draw=cyan!70!black, fill=cyan!70!black!10, right=of source] (decoder) {
-    \textbf{Decoder}\\[2pt]
-    Decodificacao
-};
-\node[font=\scriptsize\ttfamily, text=cyan!70!black!80, below=0.1cm of decoder] {\textit{nvv4l2decoder}};
-
-% Streammux
-\node[blockbase, draw=blue!70!black, fill=blue!70!black!10, right=of decoder] (streammux) {
-    \textbf{Streammux}\\[2pt]
-    Batching
-};
-\node[font=\scriptsize\ttfamily, text=blue!70!black!80, below=0.1cm of streammux] {\textit{nvstreammux}};
+% Row 1 arrows
+\draw[arr] (src) -- (dec);
+\draw[arr] (dec) -- (mux);
+\draw[arr] (mux) -- (pgie);
+\draw[arr] (pgie) -- (trk);
 
 % ============================================================================
-% Segunda linha: PGIE
+% Row 2: SGIEs (stacked vertically) + OSD + Sink
 % ============================================================================
 
-% PGIE
-\node[blockbase, draw=purple!70!black, fill=purple!70!black!10, right=of streammux] (pgie) {
-    \textbf{PGIE}\\[2pt]
-    Primary Inference
-};
-\node[font=\scriptsize\ttfamily, text=purple!70!black!80, below=0.1cm of pgie] {\textit{nvinfer}};
+% SGIEs stacked vertically below PGIE/Tracker area
+\node[sblock, fill=orange!70!black, below=12mm of pgie] (s1) {SGIE-1 (EPI)};
+\node[sblock, fill=orange!70!black, below=1.5mm of s1] (s2) {SGIE-2 (Maq)};
+\node[sblock, fill=orange!70!black, below=1.5mm of s2] (s3) {SGIE-3 (Fer)};
+
+% Container around SGIEs
+\node[draw=orange!50, dashed, rounded corners=3pt, inner sep=5pt,
+      fit=(s1)(s2)(s3),
+      label={[font=\small\sffamily\bfseries, orange!70!black]above:SGIEs}] (sg) {};
+
+% OSD and Sink
+\node[block, fill=green!55!black, right=10mm of sg.east, anchor=west] (osd) {OSD\\[-1pt]{\tiny nvdsosd}};
+\node[block, fill=red!55!black, right=of osd] (sink) {Sink\\[-1pt]{\tiny Output}};
 
 % ============================================================================
-% Tracker
+% Connecting arrows between rows
 % ============================================================================
 
-% Tracker
-\node[blockbase, draw=violet!70!black, fill=violet!70!black!10, right=of pgie] (tracker) {
-    \textbf{Tracker}\\[2pt]
-    Object Tracking
-};
-\node[font=\scriptsize\ttfamily, text=violet!70!black!80, below=0.1cm of tracker] {\textit{nvtracker}};
+% Tracker down to SGIE group
+\draw[arr] (trk.south) -- ++(0,-4mm) -| (sg.north);
 
-% ============================================================================
-% Container para SGIEs
-% ============================================================================
+% SGIEs to OSD
+\draw[arr] (sg.east) -- (osd.west);
 
-% SGIE-1
-\node[blockbase, draw=orange!70!black, fill=orange!70!black!10, right=1.5cm of tracker, yshift=1.2cm] (sgie1) {
-    \textbf{SGIE-1}\\[2pt]
-    EPI Detection
-};
-\node[font=\scriptsize\ttfamily, text=orange!70!black!80, below=0.1cm of sgie1] {\textit{nvinfer}};
-
-% SGIE-2
-\node[blockbase, draw=orange!70!black, fill=orange!70!black!10, right=1.5cm of tracker] (sgie2) {
-    \textbf{SGIE-2}\\[2pt]
-    Machinery ID
-};
-\node[font=\scriptsize\ttfamily, text=orange!70!black!80, below=0.1cm of sgie2] {\textit{nvinfer}};
-
-% SGIE-3
-\node[blockbase, draw=orange!70!black, fill=orange!70!black!10, right=1.5cm of tracker, yshift=-1.2cm] (sgie3) {
-    \textbf{SGIE-3}\\[2pt]
-    Tools Detection
-};
-\node[font=\scriptsize\ttfamily, text=orange!70!black!80, below=0.1cm of sgie3] {\textit{nvinfer}};
-
-% Container para SGIEs
-\node[containerbase, draw=orange!60, fill=orange!5, fit=(sgie1)(sgie2)(sgie3), label={[font=\small\sffamily,orange!70!black]above:Secondary Inference Engines}] (sgiegroup) {};
-
-% ============================================================================
-% OSD e Sink
-% ============================================================================
-
-% OSD
-\node[blockbase, draw=green!60!black, fill=green!60!black!10, right=1.5cm of sgie2] (osd) {
-    \textbf{OSD}\\[2pt]
-    On-Screen Display
-};
-\node[font=\scriptsize\ttfamily, text=green!60!black!80, below=0.1cm of osd] {\textit{nvdsosd}};
-
-% Sink
-\node[blockbase, draw=red!60!black, fill=red!60!black!10, right=of osd] (sink) {
-    \textbf{Sink}\\[2pt]
-    Output
-};
-\node[font=\scriptsize\ttfamily, text=red!60!black!80, below=0.1cm of sink] {\textit{nveglglessink}};
-\node[font=\scriptsize\ttfamily, text=red!60!black!80, below=0.35cm of sink] {\textit{filesink}};
-
-% ============================================================================
-% Setas de conexao
-% ============================================================================
-
-% Fluxo principal
-\draw[arrow] (source) -- (decoder);
-\draw[arrow] (decoder) -- (streammux);
-\draw[arrow] (streammux) -- (pgie);
-\draw[arrow] (pgie) -- (tracker);
-
-% Tracker para SGIEs
-\draw[arrow] (tracker.east) -- ++(0.3,0) |- (sgie1.west);
-\draw[arrow] (tracker.east) -- (sgie2.west);
-\draw[arrow] (tracker.east) -- ++(0.3,0) |- (sgie3.west);
-
-% SGIEs para OSD
-\draw[arrow] (sgie1.east) -| ($(osd.west)+(-0.3,0)$) -- (osd.west);
-\draw[arrow] (sgie2.east) -- (osd.west);
-\draw[arrow] (sgie3.east) -| ($(osd.west)+(-0.3,0)$) -- (osd.west);
-
-% OSD para Sink
-\draw[arrow] (osd) -- (sink);
-
-% ============================================================================
-% Legenda de fluxo de dados
-% ============================================================================
-
-% Indicador de direcao do fluxo
-\node[font=\small\sffamily, text=black!60, below=2.5cm of streammux] (flowlabel) {Fluxo de dados $\longrightarrow$};
+% OSD to Sink
+\draw[arr] (osd) -- (sink);
 
 \end{tikzpicture}

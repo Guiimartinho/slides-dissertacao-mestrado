@@ -48,14 +48,14 @@
     \node[titlelabel] at (0, -0.5) {Dois Estágios};
     \node[sublabel] at (0, -0.9) {(Faster R-CNN)};
 
-    \node[stagelabel] at (-1.8, -1.6) {Estágio 1};
     \node[inputblock] (input2) at (0, -1.6) {Imagem};
+    \node[stagelabel, anchor=east] at (-1.6, -1.6) {Estágio 1};
     \node[backboneblock] (bb2) at (0, -2.7) {Backbone};
     \node[rpnblock] (rpn) at (0, -3.8) {RPN};
-    \node[sublabel, below=0.02cm of rpn] {Propostas de regiões};
+    \node[sublabel, anchor=west] at (1.5, -3.8) {Propostas de regiões};
 
-    \node[stagelabel] at (-1.8, -4.9) {Estágio 2};
     \node[roiblock] (roi) at (0, -5.0) {ROI Pooling};
+    \node[stagelabel, anchor=east] at (-1.6, -5.0) {Estágio 2};
     \node[headblock] (head2) at (0, -6.1) {Classificação};
     \node[outputblock] (out2) at (0, -7.2) {Detecções};
 
@@ -85,7 +85,7 @@
     \node[inputblock] (input1) at (0, -1.6) {Imagem};
     \node[backboneblock] (bb1) at (0, -2.7) {Backbone};
     \node[detectionblock] (det) at (0, -3.8) {Detecção Direta};
-    \node[sublabel, below=0.02cm of det] {Predição em grid};
+    \node[sublabel, anchor=west] at (1.5, -3.8) {Predição em grid};
     \node[gridblock] (grid) at (0, -5.0) {Grid $S \times S$};
     \node[outputblock] (out1) at (0, -6.1) {Boxes + Classes};
 
@@ -94,7 +94,7 @@
     \draw[arrow] (det) -- (grid);
     \draw[arrow] (grid) -- (out1);
     \draw[dashedarrow] (bb1.west) -- ++(-0.5,0) |- (det.west);
-    \node[sublabel, rotate=90] at (-1.8, -3.2) {Multi-escala};
+    \node[sublabel, rotate=90] at (-2.2, -4.0) {Multi-escala};
 
     \node[sublabel] at (0, -6.9) {Baixa latência | Eficiente};
 \end{scope}

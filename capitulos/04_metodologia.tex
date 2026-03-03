@@ -8,10 +8,10 @@
 \begin{frame}{Arquitetura em Cascata}
   \vspace{-2mm}
   \begin{center}
-    \resizebox{0.92\textwidth}{!}{\input{Figures/diagrama_cascata.tex}}
+    \resizebox{0.90\textwidth}{!}{\input{Figures/diagrama_cascata.tex}}
   \end{center}
 
-  \vspace{1mm}
+  \vspace{-1mm}
 
   % Annotation bar
   \begin{center}
@@ -27,7 +27,7 @@
     \end{tikzpicture}
   \end{center}
 
-  \vspace{1mm}
+  \vspace{-1mm}
 
   \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
     \centering
@@ -66,22 +66,41 @@
     \end{column}
     \begin{column}{0.35\textwidth}
       \centering
+      \hfill
       \begin{tikzpicture}[
-        every node/.style={font=\scriptsize, align=center, minimum width=22mm,
-                           minimum height=7mm, rounded corners=2pt},
+        every node/.style={font=\scriptsize, align=center, minimum width=15mm,
+                           minimum height=6mm, rounded corners=2pt},
         arr/.style={-{Latex[length=1.5mm]}, thick}
       ]
-        \node[fill=inputcolor!20, draw=inputcolor!60] (pgie) at (0,0) {\textbf{PGIE}\\5 classes};
-        \node[fill=headcolor!15, draw=headcolor!60] (s1) at (-0.8,-1.4) {\textbf{SGIE-EPI}\\14 cls};
-        \node[fill=neckcolor!15, draw=neckcolor!60] (s2) at (0,-2.5) {\textbf{SGIE-Maq}\\9 cls};
-        \node[fill=outputcolor!15, draw=outputcolor!60] (s3) at (0.8,-3.6) {\textbf{SGIE-Fer}\\23 cls};
+        % PGIE at top-left, SGIEs branching to the right (shifted right)
+        \node[fill=inputcolor!20, draw=inputcolor!60] (pgie) at (0.6,0) {\textbf{PGIE}\\5 cls};
+        \node[fill=headcolor!15, draw=headcolor!60] (s1) at (2.2,-0.9) {\textbf{EPI}\\14 cls};
+        \node[fill=neckcolor!15, draw=neckcolor!60] (s2) at (2.2,-1.8) {\textbf{Maq}\\9 cls};
+        \node[fill=outputcolor!15, draw=outputcolor!60] (s3) at (2.2,-2.7) {\textbf{Fer}\\23 cls};
 
-        \draw[arr, headcolor!70] (pgie.south west) -- node[left, font=\tiny] {Person} (s1.north);
-        \draw[arr, neckcolor!70] (pgie.south) -- node[right, font=\tiny] {Vehicle} (s2.north);
-        \draw[arr, outputcolor!70] (pgie.south east) -- node[right, font=\tiny] {Tool} (s3.north);
+        % Vertical trunk from PGIE down
+        \draw[thick, black!35] (0.6,-0.3) -- ++(0,-2.4);
+
+        % Right-angle branches with labels on horizontal segment
+        \draw[arr, headcolor!70] (0.6,-0.9) -- node[above, font=\tiny] {Person} (s1.west);
+        \draw[arr, neckcolor!70] (0.6,-1.8) -- node[above, font=\tiny] {Vehicle} (s2.west);
+        \draw[arr, outputcolor!70] (0.6,-2.7) -- node[above, font=\tiny] {Tool} (s3.west);
+
+        % Junction dots
+        \fill[black!40] (0.6,-0.9) circle (1pt);
+        \fill[black!40] (0.6,-1.8) circle (1pt);
+        \fill[black!40] (0.6,-2.7) circle (1pt);
       \end{tikzpicture}
     \end{column}
   \end{columns}
+
+  \vspace{1mm}
+
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\footnotesize\color{stagecolor}%
+      \textbf{46 categorias \'{u}nicas}: PGIE detecta 5 classes gerais e roteia cada ROI para o SGIE especializado.}
+  \end{beamercolorbox}
   \vfill
 \end{frame}
 

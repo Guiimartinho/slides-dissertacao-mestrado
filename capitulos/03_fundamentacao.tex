@@ -50,25 +50,27 @@
 
   \vspace{1mm}
 
-  \begin{columns}[T]
-    \begin{column}{0.48\textwidth}
+  \begin{columns}[c]
+    \begin{column}{0.50\textwidth}
       \centering
-      {\footnotesize\color{inputcolor}\textbf{Transfer Learning}}
-      \vspace{0.5mm}
+      {\small\color{inputcolor}\textbf{Transfer Learning}}
+      \vspace{1mm}
 
-      \resizebox{\textwidth}{!}{\input{Figures/diagrama_transfer_learning.tex}}
+      \resizebox{1.05\textwidth}{!}{\input{Figures/diagrama_transfer_learning.tex}}
 
-      {\tiny\color{stagecolor}
-        COCO $\rightarrow$ domínio específico: camadas iniciais reutilizadas.}
+      \vspace{1mm}
+      {\scriptsize\color{stagecolor}
+        COCO $\rightarrow$ dom\'{i}nio espec\'{i}fico: camadas iniciais reutilizadas.}
     \end{column}
-    \begin{column}{0.48\textwidth}
+    \begin{column}{0.50\textwidth}
       \centering
-      {\footnotesize\color{neckcolor}\textbf{Non-Maximum Suppression}}
-      \vspace{0.5mm}
+      {\small\color{neckcolor}\textbf{Non-Maximum Suppression}}
+      \vspace{1mm}
 
-      \resizebox{\textwidth}{!}{\input{Figures/diagrama_nms.tex}}
+      \resizebox{1.05\textwidth}{!}{\input{Figures/diagrama_nms.tex}}
 
-      {\tiny\color{stagecolor}
+      \vspace{1mm}
+      {\scriptsize\color{stagecolor}
         IoU $>$ 0,5: caixas redundantes suprimidas.}
     \end{column}
   \end{columns}

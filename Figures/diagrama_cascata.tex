@@ -123,9 +123,9 @@
 % ============================================================================
 \draw[arrow] (input.east) -- (pgie.west);
 
-\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- node[label_arrow, pos=0.7, above] {\tiny Person} (sgie_epi.west);
-\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- node[label_arrow, pos=0.5, above] {\tiny Vehicle} (sgie_maq.west);
-\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- node[label_arrow, pos=0.7, below] {\tiny Tool} (sgie_fer.west);
+\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- (sgie_epi.west) node[label_arrow, pos=0.25, above=2pt] {\scriptsize Person};
+\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- (sgie_maq.west) node[label_arrow, pos=0.25, above=2pt] {\scriptsize Vehicle};
+\draw[arrow_pgie] (pgie.east) -- ++(0.5,0) |- (sgie_fer.west) node[label_arrow, pos=0.25, below=2pt] {\scriptsize Tool};
 
 \draw[arrow_sgie] (sgie_epi.east) -- ++(0.4,0) |- (output.north west);
 \draw[arrow_sgie] (sgie_maq.east) -- (output.west);
@@ -141,6 +141,6 @@
 
 % Labels das seções
 \node[font=\scriptsize, gray] at (1.9, -2.5) {Detector Primário};
-\node[font=\scriptsize, gray] at (10.5, -4.0) {Detectores Secundários};
+\node[font=\scriptsize, gray] at (10.5, -4.6) {Detectores Secundários};
 
 \end{tikzpicture}

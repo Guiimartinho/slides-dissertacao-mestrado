@@ -55,11 +55,11 @@
     \end{tabular}
   \end{center}
 
-  \vspace{4mm}
+  \vspace{2mm}
 
   \begin{center}
-    \small
-    \textcolor{headcolor!80!black}{$\blacktriangle$} Melhor: \textbf{SGIE-Maquinário} (0,84) --- objetos grandes, visualmente distintos.\quad
+    \footnotesize
+    \textcolor{headcolor!80!black}{$\blacktriangle$} Melhor: \textbf{SGIE-Maquinário} (0,84) --- objetos grandes, visualmente distintos.\\[1pt]
     \textcolor{skipcolor!80!black}{$\blacktriangledown$} Menor: \textbf{SGIE-Ferramentas} (0,71) --- 23 classes, muitas ferramentas pequenas.
   \end{center}
 
@@ -484,18 +484,18 @@
 
 % --- Slide 36: Resultados Qualitativos ---
 \begin{frame}{Resultados Qualitativos --- Detecções do Sistema}
-  \vspace{-2mm}
+  \smallskip
 
   \begin{columns}[c]
     \begin{column}{0.48\textwidth}
       \centering
       {\small\textbf{SGIE-Ferramentas (23 classes)}}\\[3pt]
-      \includegraphics[width=\textwidth, height=0.55\textheight, keepaspectratio]{val_pred_sgie_equipment.jpg}
+      \adjustbox{clip, trim=0 0 {.5\width} 0}{\includegraphics[width=2\textwidth, height=0.55\textheight, keepaspectratio]{val_pred_sgie_equipment.jpg}}
     \end{column}
     \begin{column}{0.48\textwidth}
       \centering
       {\small\textbf{SGIE-Maquinário (9 classes)}}\\[3pt]
-      \includegraphics[width=\textwidth, height=0.55\textheight, keepaspectratio]{val_pred_sgie_machinery.jpg}
+      \adjustbox{clip, trim=0 0 {.5\width} 0}{\includegraphics[width=2\textwidth, height=0.55\textheight, keepaspectratio]{val_pred_sgie_machinery.jpg}}
     \end{column}
   \end{columns}
 

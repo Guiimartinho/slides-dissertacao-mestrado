@@ -80,44 +80,23 @@
 
 % --- Slide 20: Pipeline DeepStream (mesclado com detalhado) ---
 \begin{frame}{Pipeline DeepStream}
-  \smallskip
+  \vspace{-2mm}
   \centering
   {\small Pipeline GStreamer com aceleração por hardware --- captura $\to$ inferência em cascata $\to$ alertas.}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
   \begin{center}
     \resizebox{0.98\textwidth}{!}{\input{Figures/diagrama_pipeline.tex}}
   \end{center}
 
-  \vspace{2mm}
-
-  \begin{center}
-    \scriptsize
-    \renewcommand{\arraystretch}{1.1}
-    \begin{tabular}{@{}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}@{}}
-      \textcolor{teal!80!black}{\textbf{Source}} &
-      \textcolor{cyan!70!black}{\textbf{Decoder}} &
-      \textcolor{blue!70!black}{\textbf{Streammux}} &
-      \textcolor{purple!70!black}{\textbf{PGIE}} &
-      \textcolor{violet!70!black}{\textbf{Tracker}} &
-      \textcolor{orange!70!black}{\textbf{SGIEs}} \\
-      Captura RTSP &
-      NVDEC (hw) &
-      Batching &
-      Detec\c{c}\~{a}o prim\'{a}ria &
-      Rastreamento IDs &
-      Classifica\c{c}\~{a}o fina \\
-    \end{tabular}
-  \end{center}
-
-  \vspace{2mm}
-
-  \begin{block}{}
-    \centering\footnotesize
-    Cada componente \'{e} um plugin GStreamer otimizado --- aceleração por \textbf{GPU/TensorRT} entre Streammux e SGIEs.
-  \end{block}
   \vfill
+
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\footnotesize\color{stagecolor}%
+      Cada componente \'{e} um plugin GStreamer otimizado --- aceleração por \textbf{GPU/TensorRT} entre Streammux e SGIEs.}
+  \end{beamercolorbox}
 \end{frame}
 
 % --- Slide 22: Parser C++ Customizado (NOVO) ---
