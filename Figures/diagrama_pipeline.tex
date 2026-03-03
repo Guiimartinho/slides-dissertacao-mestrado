@@ -10,22 +10,15 @@
 \begin{tikzpicture}[
     % Definicao de estilos
     node distance=0.6cm and 0.8cm,
-    % Estilo para blocos do pipeline
-    block/.style={
+    % Estilo base para blocos do pipeline (sem parametro #1)
+    blockbase/.style={
         rectangle,
-        draw=#1,
-        fill=#1!10,
         line width=1pt,
         minimum width=2.2cm,
         minimum height=1.2cm,
         align=center,
-        font=\footnotesize\sffamily,
+        font=\small\sffamily,
         rounded corners=2pt
-    },
-    % Estilo para labels dos plugins (abaixo dos blocos)
-    plugin/.style={
-        font=\tiny\ttfamily,
-        text=#1!80!black
     },
     % Estilo para setas
     arrow/.style={
@@ -34,32 +27,14 @@
         line width=0.8pt,
         draw=black!70
     },
-    % Estilo para setas de dados
-    dataarrow/.style={
-        ->,
-        >=Stealth,
-        line width=1.2pt,
-        draw=blue!60!black
-    },
     % Estilo para grupo/container
-    container/.style={
+    containerbase/.style={
         rectangle,
-        draw=#1!60,
-        fill=#1!5,
         dashed,
         line width=0.8pt,
         rounded corners=4pt,
         inner sep=8pt
     },
-    % Cores academicas profissionais
-    sourcecolor/.style={block=teal!80!black},
-    decodecolor/.style={block=cyan!70!black},
-    muxcolor/.style={block=blue!70!black},
-    pgiecolor/.style={block=purple!70!black},
-    trackercolor/.style={block=violet!70!black},
-    sgiecolor/.style={block=orange!70!black},
-    osdcolor/.style={block=green!60!black},
-    sinkcolor/.style={block=red!60!black}
 ]
 
 % ============================================================================
@@ -67,95 +42,95 @@
 % ============================================================================
 
 % Source
-\node[sourcecolor] (source) {
+\node[blockbase, draw=teal!80!black, fill=teal!80!black!10] (source) {
     \textbf{Source}\\[2pt]
     Camera/Arquivo
 };
-\node[plugin=teal!80!black, below=0.1cm of source] {\textit{nvv4l2camerasrc}};
-\node[plugin=teal!80!black, below=0.35cm of source] {\textit{filesrc}};
+\node[font=\scriptsize\ttfamily, text=teal!80!black!80, below=0.1cm of source] {\textit{nvv4l2camerasrc}};
+\node[font=\scriptsize\ttfamily, text=teal!80!black!80, below=0.35cm of source] {\textit{filesrc}};
 
 % Decoder
-\node[decodecolor, right=of source] (decoder) {
+\node[blockbase, draw=cyan!70!black, fill=cyan!70!black!10, right=of source] (decoder) {
     \textbf{Decoder}\\[2pt]
     Decodificacao
 };
-\node[plugin=cyan!70!black, below=0.1cm of decoder] {\textit{nvv4l2decoder}};
+\node[font=\scriptsize\ttfamily, text=cyan!70!black!80, below=0.1cm of decoder] {\textit{nvv4l2decoder}};
 
 % Streammux
-\node[muxcolor, right=of decoder] (streammux) {
+\node[blockbase, draw=blue!70!black, fill=blue!70!black!10, right=of decoder] (streammux) {
     \textbf{Streammux}\\[2pt]
     Batching
 };
-\node[plugin=blue!70!black, below=0.1cm of streammux] {\textit{nvstreammux}};
+\node[font=\scriptsize\ttfamily, text=blue!70!black!80, below=0.1cm of streammux] {\textit{nvstreammux}};
 
 % ============================================================================
 % Segunda linha: PGIE
 % ============================================================================
 
 % PGIE
-\node[pgiecolor, right=of streammux] (pgie) {
+\node[blockbase, draw=purple!70!black, fill=purple!70!black!10, right=of streammux] (pgie) {
     \textbf{PGIE}\\[2pt]
     Primary Inference
 };
-\node[plugin=purple!70!black, below=0.1cm of pgie] {\textit{nvinfer}};
+\node[font=\scriptsize\ttfamily, text=purple!70!black!80, below=0.1cm of pgie] {\textit{nvinfer}};
 
 % ============================================================================
 % Tracker
 % ============================================================================
 
 % Tracker
-\node[trackercolor, right=of pgie] (tracker) {
+\node[blockbase, draw=violet!70!black, fill=violet!70!black!10, right=of pgie] (tracker) {
     \textbf{Tracker}\\[2pt]
     Object Tracking
 };
-\node[plugin=violet!70!black, below=0.1cm of tracker] {\textit{nvtracker}};
+\node[font=\scriptsize\ttfamily, text=violet!70!black!80, below=0.1cm of tracker] {\textit{nvtracker}};
 
 % ============================================================================
 % Container para SGIEs
 % ============================================================================
 
 % SGIE-1
-\node[sgiecolor, right=1.5cm of tracker, yshift=1.2cm] (sgie1) {
+\node[blockbase, draw=orange!70!black, fill=orange!70!black!10, right=1.5cm of tracker, yshift=1.2cm] (sgie1) {
     \textbf{SGIE-1}\\[2pt]
     EPI Detection
 };
-\node[plugin=orange!70!black, below=0.1cm of sgie1] {\textit{nvinfer}};
+\node[font=\scriptsize\ttfamily, text=orange!70!black!80, below=0.1cm of sgie1] {\textit{nvinfer}};
 
 % SGIE-2
-\node[sgiecolor, right=1.5cm of tracker] (sgie2) {
+\node[blockbase, draw=orange!70!black, fill=orange!70!black!10, right=1.5cm of tracker] (sgie2) {
     \textbf{SGIE-2}\\[2pt]
     Machinery ID
 };
-\node[plugin=orange!70!black, below=0.1cm of sgie2] {\textit{nvinfer}};
+\node[font=\scriptsize\ttfamily, text=orange!70!black!80, below=0.1cm of sgie2] {\textit{nvinfer}};
 
 % SGIE-3
-\node[sgiecolor, right=1.5cm of tracker, yshift=-1.2cm] (sgie3) {
+\node[blockbase, draw=orange!70!black, fill=orange!70!black!10, right=1.5cm of tracker, yshift=-1.2cm] (sgie3) {
     \textbf{SGIE-3}\\[2pt]
     Tools Detection
 };
-\node[plugin=orange!70!black, below=0.1cm of sgie3] {\textit{nvinfer}};
+\node[font=\scriptsize\ttfamily, text=orange!70!black!80, below=0.1cm of sgie3] {\textit{nvinfer}};
 
 % Container para SGIEs
-\node[container=orange, fit=(sgie1)(sgie2)(sgie3), label={[font=\footnotesize\sffamily,orange!70!black]above:Secondary Inference Engines}] (sgiegroup) {};
+\node[containerbase, draw=orange!60, fill=orange!5, fit=(sgie1)(sgie2)(sgie3), label={[font=\small\sffamily,orange!70!black]above:Secondary Inference Engines}] (sgiegroup) {};
 
 % ============================================================================
 % OSD e Sink
 % ============================================================================
 
 % OSD
-\node[osdcolor, right=1.5cm of sgie2] (osd) {
+\node[blockbase, draw=green!60!black, fill=green!60!black!10, right=1.5cm of sgie2] (osd) {
     \textbf{OSD}\\[2pt]
     On-Screen Display
 };
-\node[plugin=green!60!black, below=0.1cm of osd] {\textit{nvdsosd}};
+\node[font=\scriptsize\ttfamily, text=green!60!black!80, below=0.1cm of osd] {\textit{nvdsosd}};
 
 % Sink
-\node[sinkcolor, right=of osd] (sink) {
+\node[blockbase, draw=red!60!black, fill=red!60!black!10, right=of osd] (sink) {
     \textbf{Sink}\\[2pt]
     Output
 };
-\node[plugin=red!60!black, below=0.1cm of sink] {\textit{nveglglessink}};
-\node[plugin=red!60!black, below=0.35cm of sink] {\textit{filesink}};
+\node[font=\scriptsize\ttfamily, text=red!60!black!80, below=0.1cm of sink] {\textit{nveglglessink}};
+\node[font=\scriptsize\ttfamily, text=red!60!black!80, below=0.35cm of sink] {\textit{filesink}};
 
 % ============================================================================
 % Setas de conexao
@@ -185,6 +160,6 @@
 % ============================================================================
 
 % Indicador de direcao do fluxo
-\node[font=\footnotesize\sffamily, text=black!60, below=2.5cm of streammux] (flowlabel) {Fluxo de dados $\longrightarrow$};
+\node[font=\small\sffamily, text=black!60, below=2.5cm of streammux] (flowlabel) {Fluxo de dados $\longrightarrow$};
 
 \end{tikzpicture}

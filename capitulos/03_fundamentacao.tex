@@ -12,7 +12,7 @@
 
   \vfill
   \begin{center}
-    \resizebox{!}{0.65\textheight}{\input{Figures/diagrama_detectores.tex}}
+    \resizebox{!}{0.56\textheight}{\input{Figures/diagrama_detectores.tex}}
   \end{center}
   \vfill
 
@@ -42,41 +42,43 @@
   \end{beamercolorbox}
 \end{frame}
 
-% --- Slide: Transfer Learning ---
-\begin{frame}{Transfer Learning}
+% --- Slide: Transfer Learning + NMS (mesclado) ---
+\begin{frame}{Transfer Learning e NMS}
   \vspace{-2mm}
   {\small\color{sublabelcolor}%
-    Transferência de conhecimento: \textbf{COCO} (milhões de imagens) $\rightarrow$ \textbf{domínio específico} (EPIs)}
+    \textbf{Reutilização de conhecimento} e \textbf{supressão de redundância}}
 
-  \vfill
-  \begin{center}
-    \resizebox{0.95\textwidth}{!}{\input{Figures/diagrama_transfer_learning.tex}}
-  \end{center}
+  \vspace{1mm}
+
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \centering
+      {\footnotesize\color{inputcolor}\textbf{Transfer Learning}}
+      \vspace{0.5mm}
+
+      \resizebox{\textwidth}{!}{\input{Figures/diagrama_transfer_learning.tex}}
+
+      {\tiny\color{stagecolor}
+        COCO $\rightarrow$ domínio específico: camadas iniciais reutilizadas.}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      {\footnotesize\color{neckcolor}\textbf{Non-Maximum Suppression}}
+      \vspace{0.5mm}
+
+      \resizebox{\textwidth}{!}{\input{Figures/diagrama_nms.tex}}
+
+      {\tiny\color{stagecolor}
+        IoU $>$ 0,5: caixas redundantes suprimidas.}
+    \end{column}
+  \end{columns}
+
   \vfill
 
   \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
     \centering
-    {\footnotesize\color{stagecolor}%
-      Essencial para \textit{datasets} pequenos: camadas iniciais (bordas, texturas) são \textbf{reutilizadas}, apenas camadas finais são ajustadas}
-  \end{beamercolorbox}
-\end{frame}
-
-% --- Slide: Non-Maximum Suppression ---
-\begin{frame}{Non-Maximum Suppression (NMS)}
-  \vspace{-2mm}
-  {\small\color{sublabelcolor}%
-    Supressão de detecções redundantes: mantém apenas a predição de \textbf{maior confiança} por objeto}
-
-  \vfill
-  \begin{center}
-    \resizebox{!}{0.58\textheight}{\input{Figures/diagrama_nms.tex}}
-  \end{center}
-  \vfill
-
-  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
-    \centering
-    {\footnotesize\color{stagecolor}%
-      Limiar \textbf{IoU $>$ 0,5}: caixas com sobreposição acima desse valor são suprimidas --- etapa final do \textit{pipeline} YOLO}
+    {\scriptsize\color{stagecolor}%
+      \textbf{Transfer learning}: poucos dados --- \textbf{NMS}: etapa final do pipeline YOLO}
   \end{beamercolorbox}
 \end{frame}
 
@@ -94,165 +96,107 @@
       \end{center}
     \end{column}
     \begin{column}{0.40\textwidth}
-      \vspace{4mm}
+      \vspace{2mm}
       {\small\color{labelcolor}\textbf{Especificações:}}
 
-      \vspace{3mm}
-      {\footnotesize
+      \vspace{1mm}
+      {\scriptsize
       \begin{itemize}
-        \setlength{\itemsep}{3pt}
-        \item \textbf{GPU Volta}: 512 CUDA cores + 64 Tensor Cores
-        \item \textbf{CPU}: 8x ARM Carmel @ 2,26\,GHz
-        \item \textbf{Memória}: 32\,GB LPDDR4x unificada (136,5\,GB/s)
+        \setlength{\itemsep}{1pt}
+        \item \textbf{GPU Volta}: 512 CUDA + 64 Tensor Cores
+        \item \textbf{CPU}: 8x ARM @ 2,26\,GHz
+        \item \textbf{RAM}: 32\,GB LPDDR4x (136,5\,GB/s)
         \item \textbf{IA}: 32 TOPS (INT8)
         \item \textbf{DLA}: 2x aceleradores dedicados
         \item \textbf{Consumo}: 10--30\,W configurável
       \end{itemize}
       }
 
-      \vspace{4mm}
-      {\footnotesize\color{stagecolor}\textbf{Escolha:} equilíbrio entre desempenho e eficiência energética para operação contínua.}
+      \vspace{1mm}
+      {\scriptsize\color{stagecolor}\textbf{Escolha:} equilíbrio entre desempenho e eficiência energética.}
     \end{column}
   \end{columns}
 \end{frame}
 
-% --- Slide: DeepStream Framework ---
-\begin{frame}{NVIDIA DeepStream SDK}
+% --- Slide: DeepStream + Edge Computing (mesclado) ---
+\begin{frame}{DeepStream SDK e Computa\c{c}\~{a}o de Borda}
   \vspace{-2mm}
   {\small\color{sublabelcolor}%
-    \textit{Framework} para análise de vídeo inteligente com aceleração por \textit{hardware}}
+    Pipeline acelerado por hardware para análise de vídeo \textbf{100\% na borda}}
 
-  \vfill
+  \vspace{2mm}
+
+  % DeepStream pipeline (compact)
   \begin{center}
     \resizebox{0.95\textwidth}{!}{%
     \begin{tikzpicture}[
-      node distance=6mm and 8mm,
+      node distance=5mm and 6mm,
       pipeblock/.style={
-        rectangle, rounded corners=4pt,
-        minimum width=22mm, minimum height=12mm,
-        text centered, font=\small\sffamily,
+        rectangle, rounded corners=3pt,
+        minimum width=18mm, minimum height=10mm,
+        align=center, font=\scriptsize\sffamily,
         text=white, draw=none
       },
-      arrow/.style={-{Stealth[length=2mm, width=1.5mm]}, thick, arrowcolor},
-      grouplabel/.style={font=\footnotesize\sffamily\bfseries, text=labelcolor},
-      annot/.style={font=\tiny\sffamily, text=sublabelcolor, align=center},
+      arr/.style={-{Stealth[length=1.5mm, width=1.2mm]}, thick, arrowcolor},
     ]
-      % Pipeline stages
-      \node[pipeblock, fill=inputcolor] (src) {Fonte\\de Vídeo};
-      \node[pipeblock, fill=backbonecolor, right=of src] (mux) {\texttt{nvstreammux}\\Batch};
-      \node[pipeblock, fill=headcolor, right=of mux, minimum width=26mm] (pgie) {PGIE\\\texttt{nvinfer}};
-      \node[pipeblock, fill=neckcolor, right=of pgie, minimum width=26mm] (sgie) {SGIEs\\\texttt{nvinfer}};
-      \node[pipeblock, fill=cspcolor, right=of sgie] (tracker) {\texttt{nvtracker}\\Rastreamento};
-      \node[pipeblock, fill=outputcolor, right=of tracker] (out) {Saída\\Alertas};
+      \node[pipeblock, fill=inputcolor] (src) {Fonte\\V\'{i}deo};
+      \node[pipeblock, fill=backbonecolor, right=of src] (mux) {Streammux\\Batch};
+      \node[pipeblock, fill=headcolor, right=of mux] (pgie) {PGIE};
+      \node[pipeblock, fill=neckcolor, right=of pgie] (sgie) {SGIEs};
+      \node[pipeblock, fill=cspcolor, right=of sgie] (tracker) {Tracker};
+      \node[pipeblock, fill=outputcolor, right=of tracker] (out) {Sa\'{i}da};
 
-      % Arrows
-      \draw[arrow] (src) -- (mux);
-      \draw[arrow] (mux) -- (pgie);
-      \draw[arrow] (pgie) -- (sgie);
-      \draw[arrow] (sgie) -- (tracker);
-      \draw[arrow] (tracker) -- (out);
+      \draw[arr] (src) -- (mux);
+      \draw[arr] (mux) -- (pgie);
+      \draw[arr] (pgie) -- (sgie);
+      \draw[arr] (sgie) -- (tracker);
+      \draw[arr] (tracker) -- (out);
 
-      % Annotations below
-      \node[annot, below=4mm of src] {RTSP / USB\\Câmeras};
-      \node[annot, below=4mm of mux] {Multi-stream\\Multiplexação};
-      \node[annot, below=4mm of pgie] {Detecção\\(frame completo)};
-      \node[annot, below=4mm of sgie] {Classificação\\(crops)};
-      \node[annot, below=4mm of tracker] {DeepSORT\\NvDCF};
-      \node[annot, below=4mm of out] {Metadados\\Visualização};
-
-      % Top: acceleration bar
-      \draw[thick, skipcolor, decorate, decoration={brace, amplitude=4pt, raise=4pt}]
+      \draw[thick, skipcolor, decorate, decoration={brace, amplitude=3pt, raise=3pt}]
         (mux.north west) -- (tracker.north east)
-        node[midway, above=8pt, font=\footnotesize\sffamily\bfseries, text=skipcolor]
-        {Aceleração por GPU / TensorRT};
-
-      % GStreamer base
-      \draw[thick, dividercolor, decorate, decoration={brace, amplitude=4pt, raise=4pt, mirror}]
-        (src.south west |- 0,-1.5) -- (out.south east |- 0,-1.5)
-        node[midway, below=8pt, font=\footnotesize\sffamily\bfseries, text=dividercolor]
-        {Pipeline GStreamer};
+        node[midway, above=6pt, font=\tiny\sffamily\bfseries, text=skipcolor]
+        {Aceleração GPU / TensorRT};
     \end{tikzpicture}
     }
   \end{center}
-  \vfill
 
-  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
-    \centering
-    {\footnotesize\color{stagecolor}%
-      Inferência em \textbf{cascata nativa} (PGIE $\rightarrow$ SGIEs) --- zero-copy entre CPU/GPU --- suporte a \textbf{múltiplos streams} simultâneos}
-  \end{beamercolorbox}
-\end{frame}
+  \vspace{2mm}
 
-% --- Slide: Edge Computing vs Cloud ---
-\begin{frame}{Edge Computing vs Cloud}
-  \vspace{-2mm}
-  {\small\color{sublabelcolor}%
-    Por que processar na \textbf{borda}? Comparação de paradigmas para análise de vídeo}
-
-  \vfill
-  \begin{columns}[c]
-    % --- Cloud Column ---
+  % Edge vs Cloud comparison (compact)
+  \begin{columns}[T]
     \begin{column}{0.46\textwidth}
-      \begin{center}
-        {\normalsize\color{inputcolor}\textbf{Cloud Computing}}
-      \end{center}
-      \vspace{2mm}
-
-      \begin{tikzpicture}
-        \fill[inputcolor!10, rounded corners=5pt] (0,0) rectangle (\textwidth, -4.2);
-        \draw[inputcolor, line width=1pt, rounded corners=5pt] (0,0) rectangle (\textwidth, -4.2);
-
-        \node[anchor=north west, font=\footnotesize\sffamily, text=labelcolor, text width=0.9\textwidth]
-          at (0.15, -0.25) {
-            \begin{itemize}
-              \setlength{\itemsep}{3pt}
-              \setlength{\leftskip}{-4mm}
-              \item[\color{skipcolor}$\boldsymbol\times$] Latência \textbf{alta} (50--200\,ms)
-              \item[\color{skipcolor}$\boldsymbol\times$] Requer \textbf{conexão} constante
-              \item[\color{headcolor}\checkmark] Computação \textbf{ilimitada}
-              \item[\color{skipcolor}$\boldsymbol\times$] Custo com \textbf{largura de banda}
-              \item[\color{skipcolor}$\boldsymbol\times$] Riscos de \textbf{privacidade} (LGPD)
-            \end{itemize}
-          };
-      \end{tikzpicture}
+      {
+      \setbeamercolor{block title}{fg=white, bg=skipcolor!80}
+      \setbeamercolor{block body}{bg=skipcolor!6}
+      \begin{block}{\centering Nuvem}
+        \begin{itemize}\scriptsize
+          \item[\color{skipcolor}$\boldsymbol{\times}$] Lat\^{e}ncia 50--200\,ms
+          \item[\color{skipcolor}$\boldsymbol{\times}$] Requer conex\~{a}o constante
+          \item[\color{skipcolor}$\boldsymbol{\times}$] Custo com largura de banda
+        \end{itemize}
+      \end{block}
+      }
     \end{column}
-
-    % --- Separator ---
-    \hfill
-    {\color{dividercolor}\vrule width 0.5pt}
-    \hfill
-
-    % --- Edge Column ---
     \begin{column}{0.46\textwidth}
-      \begin{center}
-        {\normalsize\color{headcolor}\textbf{Edge Computing}}
-      \end{center}
-      \vspace{2mm}
-
-      \begin{tikzpicture}
-        \fill[headcolor!8, rounded corners=5pt] (0,0) rectangle (\textwidth, -4.2);
-        \draw[headcolor, line width=1pt, rounded corners=5pt] (0,0) rectangle (\textwidth, -4.2);
-
-        \node[anchor=north west, font=\footnotesize\sffamily, text=labelcolor, text width=0.9\textwidth]
-          at (0.15, -0.25) {
-            \begin{itemize}
-              \setlength{\itemsep}{3pt}
-              \setlength{\leftskip}{-4mm}
-              \item[\color{headcolor}\checkmark] Latência \textbf{ultra-baixa} ($<$50\,ms)
-              \item[\color{headcolor}\checkmark] Opera \textbf{offline}
-              \item[\color{skipcolor}$\boldsymbol\times$] Recursos \textbf{limitados}
-              \item[\color{headcolor}\checkmark] Dados processados \textbf{localmente}
-              \item[\color{headcolor}\checkmark] Conformidade com \textbf{LGPD}
-            \end{itemize}
-          };
-      \end{tikzpicture}
+      {
+      \setbeamercolor{block title}{fg=white, bg=headcolor!85}
+      \setbeamercolor{block body}{bg=headcolor!6}
+      \begin{block}{\centering Borda (Edge AI)}
+        \begin{itemize}\scriptsize
+          \item[\color{headcolor}$\boldsymbol{\checkmark}$] Lat\^{e}ncia $<$50\,ms
+          \item[\color{headcolor}$\boldsymbol{\checkmark}$] Opera offline
+          \item[\color{headcolor}$\boldsymbol{\checkmark}$] Dados locais (LGPD)
+        \end{itemize}
+      \end{block}
+      }
     \end{column}
   \end{columns}
 
-  \vfill
+  \vspace{2mm}
+
   \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
     \centering
     {\footnotesize\color{stagecolor}%
-      \textbf{Este trabalho}: processamento \textbf{100\% na borda} --- operação autônoma, tempo real, sem dependência de rede}
+      \textbf{DeepStream}: cascata nativa PGIE$\to$SGIEs, zero-copy CPU/GPU --- processamento \textbf{100\% na borda}}
   \end{beamercolorbox}
 \end{frame}

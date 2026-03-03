@@ -1,0 +1,149 @@
+% ============================================================================
+% CAPITULO 3B - TRABALHOS RELACIONADOS
+% ============================================================================
+
+\section{Trabalhos Relacionados}
+
+% --- Frame 1: Trabalhos Relacionados - Visão Geral ---
+\begin{frame}{Trabalhos Relacionados}
+  \vfill
+
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      {
+      \setbeamercolor{block title}{fg=white, bg=inputcolor}
+      \setbeamercolor{block body}{bg=inputcolor!8}
+      \begin{block}{\centering Detec\c{c}\~{a}o de EPIs}
+        \smallskip
+        \begin{itemize}\small
+          \item[\color{inputcolor}$\blacktriangleright$] \textbf{Nath et al.} (2020)\\
+            {\scriptsize YOLOv3 + Faster R-CNN, 5 classes}
+          \item[\color{inputcolor}$\blacktriangleright$] \textbf{Wang et al.} (2021)\\
+            {\scriptsize YOLOv5 otimizado, mAP 0,90}
+          \item[\color{inputcolor}$\blacktriangleright$] \textbf{Delhi et al.} (2020)\\
+            {\scriptsize SSD MobileNet, detec\c{c}\~{a}o de capacete}
+        \end{itemize}
+        \smallskip
+      \end{block}
+      }
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      {
+      \setbeamercolor{block title}{fg=white, bg=neckcolor}
+      \setbeamercolor{block body}{bg=neckcolor!8}
+      \begin{block}{\centering IA na Borda}
+        \smallskip
+        \begin{itemize}\small
+          \item[\color{neckcolor}$\blacktriangleright$] \textbf{Shin et al.} (2022)\\
+            {\scriptsize YOLO no Jetson Xavier, 45 FPS}
+          \item[\color{neckcolor}$\blacktriangleright$] \textbf{Ren et al.} (2021)\\
+            {\scriptsize TensorRT + DeepStream, ve\'{i}culos}
+          \item[\color{neckcolor}$\blacktriangleright$] \textbf{Bhatti et al.} (2021)\\
+            {\scriptsize YOLO compacto para IoT edge}
+        \end{itemize}
+        \smallskip
+      \end{block}
+      }
+    \end{column}
+  \end{columns}
+
+  \vspace{5mm}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \node[fill=stagecolor!10, rounded corners=3pt, inner sep=6pt, text width=0.88\textwidth, align=center] {
+        {\footnotesize Trabalhos existentes focam em \textbf{poucas classes} (3--5) com \textbf{modelo \'{u}nico}.\\[2pt]
+        Nenhum combina infer\^{e}ncia em \textbf{cascata multidom\'{i}nio} com \textbf{computa\c{c}\~{a}o de borda}.}
+      };
+    \end{tikzpicture}
+  \end{center}
+  \vfill
+\end{frame}
+
+% --- Frame 2: Comparação com a Literatura ---
+\begin{frame}{Compara\c{c}\~{a}o com a Literatura}
+  \vspace{-2mm}
+  {\small\color{sublabelcolor}%
+    Posicionamento do trabalho frente ao estado da arte em detec\c{c}\~{a}o de EPIs e IA na borda}
+
+  \vfill
+  \begin{center}
+    \resizebox{0.95\textwidth}{!}{\input{Figures/diagrama_trabalhos_relacionados.tex}}
+  \end{center}
+  \vfill
+\end{frame}
+
+% --- Frame 3: Lacunas e Posicionamento ---
+\begin{frame}{Lacunas e Posicionamento}
+  \vspace{-2mm}
+
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      {\small\textcolor{skipcolor}{\textbf{Lacunas Identificadas}}}
+
+      \vspace{1mm}
+
+      {
+      \setbeamercolor{block title}{fg=white, bg=skipcolor!80}
+      \setbeamercolor{block body}{bg=skipcolor!6}
+      \begin{block}{\scriptsize L1: Cobertura limitada de classes}
+        \scriptsize
+        Trabalhos detectam \textbf{3--5 classes} (capacete, colete).
+        Ferramentas e maquin\'{a}rio n\~{a}o cobertos.
+      \end{block}
+      }
+
+      \vspace{1mm}
+
+      {
+      \setbeamercolor{block title}{fg=white, bg=skipcolor!80}
+      \setbeamercolor{block body}{bg=skipcolor!6}
+      \begin{block}{\scriptsize L2: Aus\^{e}ncia de cascata multidom\'{i}nio}
+        \scriptsize
+        Modelo \'{u}nico para todas as classes.
+        Sem especializa\c{c}\~{a}o por dom\'{i}nio.
+      \end{block}
+      }
+
+      \vspace{1mm}
+
+      {
+      \setbeamercolor{block title}{fg=white, bg=skipcolor!80}
+      \setbeamercolor{block body}{bg=skipcolor!6}
+      \begin{block}{\scriptsize L3: Hardware n\~{a}o compat\'{i}vel com borda}
+        \scriptsize
+        Maioria usa GPUs desktop (RTX 2080/3080).
+        Invi\'{a}vel para canteiros remotos.
+      \end{block}
+      }
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      {\small\textcolor{headcolor}{\textbf{Nosso Posicionamento}}}
+
+      \vspace{1mm}
+
+      {
+      \setbeamercolor{block title}{fg=white, bg=headcolor}
+      \setbeamercolor{block body}{bg=headcolor!6}
+      \begin{block}{\centering\scriptsize Contribui\c{c}\~{a}o}
+        \begin{itemize}\scriptsize
+          \setlength{\itemsep}{0pt}
+          \item[\color{headcolor}$\checkmark$] \textbf{46 categorias} --- 10$\times$ mais
+          \item[\color{headcolor}$\checkmark$] \textbf{Cascata PGIE+SGIEs} por dom\'{i}nio
+          \item[\color{headcolor}$\checkmark$] \textbf{Jetson Xavier} --- 24\,W, offline
+          \item[\color{headcolor}$\checkmark$] \textbf{20 FPS} --- 4 modelos
+        \end{itemize}
+      \end{block}
+      }
+
+      \vspace{2mm}
+
+      \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+        \centering
+        {\scriptsize\color{stagecolor}%
+          \textbf{In\'{e}dito}: cascata multidom\'{i}nio na borda para seguran\c{c}a em constru\c{c}\~{a}o civil}
+      \end{beamercolorbox}
+    \end{column}
+  \end{columns}
+  \vfill
+\end{frame}

@@ -12,69 +12,67 @@
   \begin{columns}[c]
     \begin{column}{0.18\textwidth}
       \raggedleft
-      {\fontsize{28}{30}\selectfont\textcolor{headcolor}{\textbf{46}}}
+      {\fontsize{26}{28}\selectfont\textcolor{headcolor}{\textbf{46}}}
     \end{column}
     \begin{column}{0.02\textwidth}
       \centering
-      \textcolor{arrowcolor}{\rule{0.4pt}{1.8em}}
+      \textcolor{arrowcolor}{\rule{0.4pt}{1.5em}}
     \end{column}
     \begin{column}{0.75\textwidth}
-      {\small\textbf{Categorias Únicas} --- Arquitetura em cascata (PGIE + 3 SGIEs) validada para\\
-      monitoramento abrangente: \textbf{EPIs}, \textbf{maquinário pesado} e \textbf{ferramentas}.}
+      {\small\textbf{Categorias Únicas} --- Cascata PGIE + 3 SGIEs para\\
+      \textbf{EPIs}, \textbf{maquinário pesado} e \textbf{ferramentas}.}
     \end{column}
   \end{columns}
 
-  \vspace{4mm}
+  \vspace{3mm}
 
   % Row 2: mAP
   \begin{columns}[c]
     \begin{column}{0.18\textwidth}
       \raggedleft
-      {\fontsize{22}{24}\selectfont\textcolor{inputcolor}{\textbf{0,71--0,84}}}
+      {\fontsize{20}{22}\selectfont\textcolor{inputcolor}{\textbf{0,71--0,84}}}
     \end{column}
     \begin{column}{0.02\textwidth}
       \centering
-      \textcolor{arrowcolor}{\rule{0.4pt}{1.8em}}
+      \textcolor{arrowcolor}{\rule{0.4pt}{1.5em}}
     \end{column}
     \begin{column}{0.75\textwidth}
-      {\small\textbf{mAP@0,5} --- 4 modelos YOLOv8s treinados e otimizados.\\
-      PGIE: 0,83 / SGIE-EPI: 0,77 / SGIE-Maq: \textbf{0,84} / SGIE-Fer: 0,71.}
+      {\small\textbf{mAP@0,5} --- PGIE: 0,83 / EPI: 0,77 / Maq: \textbf{0,84} / Fer: 0,71.}
     \end{column}
   \end{columns}
 
-  \vspace{4mm}
+  \vspace{3mm}
 
   % Row 3: FPS
   \begin{columns}[c]
     \begin{column}{0.18\textwidth}
       \raggedleft
-      {\fontsize{22}{24}\selectfont\textcolor{neckcolor}{\textbf{20\,\scriptsize{FPS}}}}\\[-2pt]
-      {\footnotesize\textcolor{neckcolor}{58\,ms}}
+      {\fontsize{20}{22}\selectfont\textcolor{neckcolor}{\textbf{20\,\scriptsize{FPS}}}}\\[-2pt]
+      {\scriptsize\textcolor{neckcolor}{58\,ms}}
     \end{column}
     \begin{column}{0.02\textwidth}
       \centering
-      \textcolor{arrowcolor}{\rule{0.4pt}{1.8em}}
+      \textcolor{arrowcolor}{\rule{0.4pt}{1.5em}}
     \end{column}
     \begin{column}{0.75\textwidth}
-      {\small\textbf{Tempo Real} --- Pipeline DeepStream completo com 4 modelos simultâneos.\\
-      Adequado para monitoramento contínuo sem resposta sub-milissegundo.}
+      {\small\textbf{Tempo Real} --- Pipeline completo com 4 modelos simultâneos.}
     \end{column}
   \end{columns}
 
-  \vspace{4mm}
+  \vspace{3mm}
 
   % Row 4: Power
   \begin{columns}[c]
     \begin{column}{0.18\textwidth}
       \raggedleft
-      {\fontsize{28}{30}\selectfont\textcolor{outputcolor}{\textbf{24\,\scriptsize{W}}}}
+      {\fontsize{26}{28}\selectfont\textcolor{outputcolor}{\textbf{24\,\scriptsize{W}}}}
     \end{column}
     \begin{column}{0.02\textwidth}
       \centering
-      \textcolor{arrowcolor}{\rule{0.4pt}{1.8em}}
+      \textcolor{arrowcolor}{\rule{0.4pt}{1.5em}}
     \end{column}
     \begin{column}{0.75\textwidth}
-      {\small\textbf{Computação na Borda} --- Jetson AGX Xavier, sem dependência de nuvem.\\
+      {\small\textbf{Computação na Borda} --- Jetson AGX Xavier, sem nuvem.\\
       Aplicável em canteiros remotos com conectividade limitada.}
     \end{column}
   \end{columns}
@@ -82,40 +80,49 @@
   \vfill
 \end{frame}
 
+% --- Slide: Objetivos Atingidos (NOVO) ---
+\begin{frame}{Objetivos Atingidos}
+  \vspace{-2mm}
+  {\small\color{sublabelcolor}%
+    Mapeamento entre objetivos espec\'{i}ficos (OE1--OE4) e resultados alcan\c{c}ados}
+
+  \vfill
+  \begin{center}
+    \resizebox{0.95\textwidth}{!}{\input{Figures/diagrama_objetivos_atingidos.tex}}
+  \end{center}
+  \vfill
+
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\footnotesize\color{stagecolor}%
+      Todos os \textbf{4 objetivos espec\'{i}ficos} foram atingidos --- sistema funcional validado no Jetson AGX Xavier}
+  \end{beamercolorbox}
+\end{frame}
+
 % --- Slide 36: Limitações e Trabalhos Futuros ---
 \begin{frame}{Limitações e Trabalhos Futuros}
-  \vfill
+  \vspace{-2mm}
   \begin{columns}[t]
     \begin{column}{0.46\textwidth}
-      {\normalsize\textcolor{skipcolor}{\textbf{Limitações}}}
-      \vspace{3mm}
-      \begin{itemize}\setlength{\itemsep}{3mm}
-        \item \textbf{Propagação de erros}\\
-              {\scriptsize PGIE limita SGIEs: cobertura\\efetiva cai para 0,59--0,76}
-        \item \textbf{Objetos pequenos}\\
-              {\scriptsize Ferramentas manuais com\\AP < 0,60 (Cutter, Trowel)}
-        \item \textbf{Validação controlada}\\
-              {\scriptsize Benchmark, sem canteiro real\\com poeira, chuva, iluminação}
-        \item \textbf{Dataset sem dados locais}\\
-              {\scriptsize Canteiros brasileiros não\\representados no treinamento}
-        \item \textbf{Desbalanceamento}\\
-              {\scriptsize NO-Safety Vest: AP=0,236\\com apenas 890 instâncias}
+      {\small\textcolor{skipcolor}{\textbf{Limitações}}}
+      \vspace{1mm}
+      \begin{itemize}\setlength{\itemsep}{0.5mm}\scriptsize
+        \item \textbf{Propagação de erros} --- cobertura efetiva 0,59--0,76
+        \item \textbf{Objetos pequenos} --- AP $<$ 0,60 (Cutter, Trowel)
+        \item \textbf{Validação controlada} --- benchmark, sem canteiro real
+        \item \textbf{Dataset sem dados locais} --- canteiros BR não representados
+        \item \textbf{Desbalanceamento} --- NO-Safety Vest: AP=0,236
       \end{itemize}
     \end{column}
     \begin{column}{0.50\textwidth}
-      {\normalsize\textcolor{headcolor}{\textbf{Trabalhos Futuros}}}
-      \vspace{3mm}
-      \begin{itemize}\setlength{\itemsep}{3mm}
-        \item \textcolor{headcolor}{$\boldsymbol{\checkmark}$} \textbf{SAHI} para objetos pequenos\\
-              {\scriptsize Slicing Aided Hyper Inference:\\melhora detecção a distância}
-        \item \textcolor{headcolor}{$\boldsymbol{\checkmark}$} \textbf{Dataset brasileiro}\\
-              {\scriptsize Coleta em canteiros reais com\\foco em classes sub-representadas}
-        \item \textcolor{headcolor}{$\boldsymbol{\checkmark}$} \textbf{YOLOv9 / YOLOv10 / RT-DETR}\\
-              {\scriptsize Arquiteturas mais recentes com\\melhor trade-off precisão/velocidade}
-        \item \textcolor{headcolor}{$\boldsymbol{\checkmark}$} \textbf{Piloto em canteiro real}\\
-              {\scriptsize Validação com profissionais de\\segurança do trabalho (NR-18)}
-        \item \textcolor{headcolor}{$\boldsymbol{\checkmark}$} \textbf{Quantização INT8 + DLA}\\
-              {\scriptsize Potencial para $>$30 FPS com\\acelerador dedicado do Jetson}
+      {\small\textcolor{headcolor}{\textbf{Trabalhos Futuros}}}
+      \vspace{1mm}
+      \begin{itemize}\setlength{\itemsep}{0.5mm}\scriptsize
+        \item \textcolor{headcolor}{$\checkmark$} \textbf{SAHI} para objetos pequenos
+        \item \textcolor{headcolor}{$\checkmark$} \textbf{Dataset brasileiro} com classes sub-representadas
+        \item \textcolor{headcolor}{$\checkmark$} \textbf{YOLOv9 / YOLOv10 / RT-DETR}
+        \item \textcolor{headcolor}{$\checkmark$} \textbf{Piloto em canteiro real} (NR-18)
+        \item \textcolor{headcolor}{$\checkmark$} \textbf{Quantização INT8 + DLA} ($>$30 FPS)
       \end{itemize}
     \end{column}
   \end{columns}
@@ -124,53 +131,50 @@
 
 % --- Slide 37: Impacto e Aplicabilidade ---
 \begin{frame}{Impacto e Aplicabilidade Real}
-  \vfill
+  \vspace{-1mm}
 
   \begin{columns}[c]
     \begin{column}{0.48\textwidth}
       \centering
       \colorbox{skipcolor!10}{%
-        \parbox{0.88\textwidth}{\centering\vspace{4pt}
-          {\fontsize{24}{26}\selectfont\textcolor{skipcolor}{\textbf{2.538}}}\\[2pt]
-          {\small mortes na construção civil\\brasileira (2012--2021)}\\[1pt]
+        \parbox{0.88\textwidth}{\centering\vspace{2pt}
+          {\fontsize{22}{24}\selectfont\textcolor{skipcolor}{\textbf{2.538}}}\\[1pt]
+          {\footnotesize mortes na construção civil\\brasileira (2012--2021)}\\[1pt]
           {\tiny Fonte: SmartLab / MPT / OIT}
-        \vspace{4pt}}%
+        \vspace{2pt}}%
       }
 
-      \vspace{4mm}
+      \vspace{2mm}
 
       \colorbox{gridcolor!15}{%
-        \parbox{0.88\textwidth}{\centering\vspace{4pt}
-          {\normalsize\textbf{NR-18}}\\[2pt]
-          {\small Conformidade automatizada\\com norma de segurança\\em canteiros de obras}
-        \vspace{4pt}}%
+        \parbox{0.88\textwidth}{\centering\vspace{2pt}
+          {\small\textbf{NR-18}}\\[1pt]
+          {\footnotesize Conformidade automatizada\\com norma de segurança}
+        \vspace{2pt}}%
       }
     \end{column}
     \begin{column}{0.48\textwidth}
       \centering
-      {\normalsize\textbf{Cenários de Implantação}}
+      {\small\textbf{Cenários de Implantação}}
 
-      \vspace{3mm}
+      \vspace{2mm}
 
-      \begin{itemize}\setlength{\itemsep}{4mm}
-        \item \textbf{Grandes construtoras}\\
-              {\scriptsize Monitoramento 24h com alertas\\automáticos para gestores}
-        \item \textbf{Obras públicas}\\
-              {\scriptsize Fiscalização remota de\\conformidade com NR-18}
-        \item \textbf{Canteiros remotos}\\
-              {\scriptsize Edge AI: sem internet,\\processamento local a 24W}
-        \item \textbf{Seguradoras}\\
-              {\scriptsize Avaliação contínua de risco\\para precificação de apólices}
+      \begin{itemize}\setlength{\itemsep}{1.5mm}\footnotesize
+        \item \textbf{Grandes construtoras} --- {\scriptsize alertas 24h}
+        \item \textbf{Obras públicas} --- {\scriptsize fiscalização NR-18}
+        \item \textbf{Canteiros remotos} --- {\scriptsize Edge AI a 24W}
+        \item \textbf{Seguradoras} --- {\scriptsize avaliação de risco}
       \end{itemize}
     \end{column}
   \end{columns}
 
-  \vspace{4mm}
+  \vspace{2mm}
 
-  \begin{center}
-    {\small\textcolor{stagecolor}{\textbf{Tecnologia acessível}: Jetson AGX Xavier (\raise.17ex\hbox{$\scriptstyle\sim$}US\$\,700) + câmera IP\\
-    pode monitorar um canteiro inteiro com \textbf{custo operacional mínimo}.}}
-  \end{center}
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\footnotesize\color{stagecolor}%
+      \textbf{Tecnologia acessível}: Jetson AGX Xavier ({\raise.17ex\hbox{$\scriptstyle\sim$}}US\$\,700) + câmera IP --- custo operacional mínimo.}
+  \end{beamercolorbox}
   \vfill
 \end{frame}
 

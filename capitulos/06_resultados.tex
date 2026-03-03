@@ -4,16 +4,35 @@
 
 \section{Resultados}
 
+% --- Slide: Resumo de Treinamento (NOVO) ---
+\begin{frame}{Resumo de Treinamento}
+  \vspace{-2mm}
+  {\small\color{sublabelcolor}%
+    Vis\~{a}o consolidada dos 4 modelos: arquitetura, resolu\c{c}\~{a}o, \'{e}pocas e m\'{e}tricas finais}
+
+  \vfill
+  \begin{center}
+    \resizebox{0.95\textwidth}{!}{\input{Figures/diagrama_treinamento_resumo.tex}}
+  \end{center}
+  \vfill
+
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\footnotesize\color{stagecolor}%
+      \textbf{SGIE-Maquin\'{a}rio} com melhor mAP (0,84) --- \textbf{SGIE-Ferramentas} com menor (0,71) devido a 23 classes com alta variabilidade}
+  \end{beamercolorbox}
+\end{frame}
+
 % --- Slide 25: Dashboard Geral ---
 \begin{frame}{Resultados --- Visão Geral}
-  \vspace{2mm}
+  \vspace{1mm}
   \centering
   {\small Desempenho consolidado dos quatro modelos treinados (mAP@0,5).}
 
-  \vspace{4mm}
+  \vspace{3mm}
 
   \begin{center}
-    \renewcommand{\arraystretch}{1.6}
+    \renewcommand{\arraystretch}{1.4}
     \begin{tabular}{@{}lcccc@{}}
       \toprule
       \textbf{\normalsize Modelo} &
@@ -49,21 +68,21 @@
 
 % --- Slide 26: PGIE - Treinamento ---
 \begin{frame}{PGIE --- Curvas de Treinamento}
-  \smallskip
+  \vspace{-2mm}
   \centering
   {\small 187 épocas, melhor resultado na época 137 (early stopping com paciência de 50).}
 
   \vfill
 
   \begin{center}
-    \includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{results_pgie.png}
+    \includegraphics[width=\textwidth,height=0.58\textheight,keepaspectratio]{results_pgie.png}
   \end{center}
 
-  \vspace{2mm}
+  \vspace{1mm}
 
   \begin{center}
-    \footnotesize
-    \textcolor{labelcolor}{Convergência estável após época 80 --- perdas decrescem monotonicamente, mAP estabiliza em $\sim$0,83.}
+    \scriptsize
+    \textcolor{labelcolor}{Convergência estável após época 80 --- mAP estabiliza em $\sim$0,83.}
   \end{center}
 
   \vfill
@@ -80,22 +99,22 @@
   \begin{columns}[c]
     \begin{column}{0.48\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{confusion_matrix_pgie.png}
+      \includegraphics[width=\textwidth,height=0.60\textheight,keepaspectratio]{confusion_matrix_pgie.png}
     \end{column}
     \begin{column}{0.48\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{PR_curve_pgie.png}
+      \includegraphics[width=\textwidth,height=0.60\textheight,keepaspectratio]{PR_curve_pgie.png}
     \end{column}
   \end{columns}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
   \begin{center}
     \footnotesize
     \textcolor{labelcolor}{%
-      Todas as classes com AP $\geq$ 0,68.
+      Todas com AP $\geq$ 0,68.
       Melhor: \textbf{Vehicle} (0,90).
-      Pior: \textbf{Safety-vest} (0,68) --- poucas instâncias de treino (6.500).}
+      Pior: \textbf{Safety-vest} (0,68) --- poucas instâncias (6.500).}
   \end{center}
 
   \vfill
@@ -103,22 +122,22 @@
 
 % --- Slide 28: SGIE-EPI --- AP por Classe ---
 \begin{frame}{SGIE-EPI --- AP por Classe}
-  \smallskip
-  \centering
-  {\small Desempenho das 14 classes de EPI ordenadas por AP@0,5 --- mAP geral = 0,77.}
+  \vspace{-2mm}
+  {\small\color{sublabelcolor}%
+    Desempenho das 14 classes de EPI ordenadas por AP@0,5 --- mAP geral = 0,77.}
 
-  \vspace{2mm}
+  \vspace{1mm}
 
   \begin{center}
     \resizebox{0.95\textwidth}{!}{\input{Figures/diagrama_sgie_epi_distribuicao.tex}}
   \end{center}
 
-  \vspace{2mm}
+  \vspace{1mm}
 
   \begin{center}
-    \footnotesize
-    \textcolor{detectioncolor!80!black}{$\blacksquare$} 6 classes com AP $>$ 0,90 (Goggles, Gloves, Ladder, NO-Goggles, Person, NO-Gloves).\\
-    \textcolor{skipcolor!80!black}{$\blacksquare$} NO-Safety Vest (0,24) --- poucas amostras (890) e alta ambiguidade visual com Safety Vest.
+    \scriptsize
+    \textcolor{detectioncolor!80!black}{$\blacksquare$} 6 classes com AP $>$ 0,90 (Goggles, Gloves, Ladder, NO-Goggles, Person, NO-Gloves).\quad
+    \textcolor{skipcolor!80!black}{$\blacksquare$} NO-Safety Vest (0,24) --- poucas amostras (890).
   \end{center}
 
   \vfill
@@ -135,11 +154,11 @@
   \begin{columns}[c]
     \begin{column}{0.48\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{confusion_matrix_sgie_epi.png}
+      \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{confusion_matrix_sgie_epi.png}
     \end{column}
     \begin{column}{0.48\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{PR_curve_sgie_epi.png}
+      \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{PR_curve_sgie_epi.png}
     \end{column}
   \end{columns}
 
@@ -166,7 +185,7 @@
   \begin{columns}[c]
     \begin{column}{0.48\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{confusion_matrix_sgie_machinery.png}
+      \includegraphics[width=\textwidth,height=0.60\textheight,keepaspectratio]{confusion_matrix_sgie_machinery.png}
     \end{column}
     \begin{column}{0.48\textwidth}
       \centering
@@ -188,30 +207,30 @@
 \end{frame}
 
 % --- Slide 31: SGIE-Ferramentas ---
-\begin{frame}{SGIE-Ferramentas --- Avaliação (\textbf{23 classes})}
+\begin{frame}{SGIE-Ferramentas --- Avalia\c{c}\~{a}o (\textbf{23 classes})}
   \vspace{-2mm}
   \begin{columns}[c]
     \begin{column}{0.48\textwidth}
       \centering
-      {\small\textbf{Matriz de Confusão}}\\[3pt]
+      {\small\textbf{Matriz de Confus\~{a}o}}\\[3pt]
       \includegraphics[width=\textwidth]{confusion_matrix_sgie_equipment.png}
     \end{column}
     \begin{column}{0.48\textwidth}
       \centering
-      {\small\textbf{Predições na Validação}}\\[3pt]
-      \includegraphics[width=\textwidth]{val_pred_sgie_equipment.jpg}
+      {\small\textbf{Predi\c{c}\~{o}es na Valida\c{c}\~{a}o}}\\[3pt]
+      \adjustbox{clip, trim=0 0 {.5\width} 0}{\includegraphics[width=\textwidth]{val_pred_sgie_equipment.jpg}}
     \end{column}
   \end{columns}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
-  \begin{block}{Análise}
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
     \centering
-    {\small Maior desafio do sistema: \textbf{23 classes} com alta variabilidade.\\
-    Objetos grandes (Safety Cone: 0,86 / Ladder: 0,82) \textcolor{headcolor}{\textbf{superam 0,80}}.\\
-    Ferramentas manuais pequenas (Cutter: 0,54 / Trowel: 0,56) \textcolor{skipcolor}{\textbf{abaixo de 0,60}}.\\
-    \textcolor{arrowcolor}{Causa}: tamanho reduzido + alta similaridade visual entre ferramentas.}
-  \end{block}
+    {\scriptsize Maior desafio: \textbf{23 classes} com alta variabilidade.
+    Objetos grandes (Cone: 0,86 / Ladder: 0,82) \textcolor{headcolor}{\textbf{superam 0,80}}.
+    Ferramentas pequenas (Cutter: 0,54 / Trowel: 0,56) \textcolor{skipcolor}{\textbf{abaixo de 0,60}}.
+    \textcolor{arrowcolor}{Causa}: tamanho reduzido + similaridade visual.}
+  \end{beamercolorbox}
 \end{frame}
 
 % --- Slide 32: Performance do Pipeline ---
@@ -220,8 +239,8 @@
   \begin{columns}[c]
     \begin{column}{0.46\textwidth}
       \centering
-      {\normalsize\textbf{Throughput (FP16)}}\\[4pt]
-      \renewcommand{\arraystretch}{1.5}
+      {\normalsize\textbf{Throughput (FP16)}}\\[3pt]
+      \renewcommand{\arraystretch}{1.3}
       \begin{tabular}{@{}lc@{}}
         \toprule
         \textbf{Configuração} & \textbf{FPS} \\
@@ -238,17 +257,19 @@
     \end{column}
     \begin{column}{0.50\textwidth}
       \centering
-      {\normalsize\textbf{Latência por Componente}}\\[4pt]
-      \renewcommand{\arraystretch}{1.35}
+      \vspace{2mm}
+      {\small\textbf{Lat\^{e}ncia por Componente}}\\[2pt]
+      \renewcommand{\arraystretch}{1.05}
+      \scriptsize
       \begin{tabular}{@{}lrc@{}}
         \toprule
         \textbf{Componente} & \textbf{ms} & \textbf{\%} \\
         \midrule
-        Decodificação & 5,0 & 9\% \\
+        Decodifica\c{c}\~{a}o & 5,0 & 9\% \\
         \rowcolor{skipcolor!12}
-        \textbf{PGIE (inferência)} & \textcolor{skipcolor}{\textbf{18,5}} & \textcolor{skipcolor}{\textbf{32\%}} \\
+        \textbf{PGIE (infer\^{e}ncia)} & \textcolor{skipcolor}{\textbf{18,5}} & \textcolor{skipcolor}{\textbf{32\%}} \\
         SGIE-EPI & 8,4 & 14\% \\
-        SGIE-Maquinário & 7,8 & 13\% \\
+        SGIE-Maquin\'{a}rio & 7,8 & 13\% \\
         SGIE-Ferramentas & 7,2 & 12\% \\
         Tracker & 4,8 & 8\% \\
         OSD + Render & 6,3 & 11\% \\
@@ -259,7 +280,7 @@
     \end{column}
   \end{columns}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
   % Visual latency bar
   \begin{center}
@@ -371,98 +392,94 @@
 \begin{frame}{Propagação de Erros --- Pipeline End-to-End}
   \vspace{-2mm}
   \begin{center}
-    \resizebox{0.92\textwidth}{!}{\input{Figures/diagrama_end_to_end.tex}}
+    \resizebox{0.85\textwidth}{!}{\input{Figures/diagrama_end_to_end.tex}}
   \end{center}
 
-  \vspace{2mm}
-
   \begin{center}
-    \renewcommand{\arraystretch}{1.4}
+    \scriptsize
+    \renewcommand{\arraystretch}{1.05}
     \begin{tabular}{@{}lccc@{}}
       \toprule
-      \textbf{Cadeia de Detecção} & \textbf{AP PGIE} & \textbf{mAP SGIE} & \textbf{Cobertura Efetiva} \\
+      \textbf{Cadeia} & \textbf{AP PGIE} & \textbf{mAP SGIE} & \textbf{Cobertura Efetiva} \\
       \midrule
       \rowcolor{headcolor!10}
-      Person $\to$ SGIE-EPI & 0,865 & 0,770 & \textcolor{headcolor}{\textbf{0,67}} \\
+      Person $\to$ EPI & 0,865 & 0,770 & \textcolor{headcolor}{\textbf{0,67}} \\
       \rowcolor{headcolor!10}
-      Vehicle $\to$ SGIE-Maq & 0,900 & 0,840 & \textcolor{detectioncolor}{\textbf{0,76}} \\
+      Vehicle $\to$ Maq & 0,900 & 0,840 & \textcolor{detectioncolor}{\textbf{0,76}} \\
       \rowcolor{skipcolor!8}
-      Tool $\to$ SGIE-Fer & 0,826 & 0,710 & \textcolor{skipcolor}{\textbf{0,59}} \\
+      Tool $\to$ Fer & 0,826 & 0,710 & \textcolor{skipcolor}{\textbf{0,59}} \\
       \bottomrule
     \end{tabular}
   \end{center}
 
-  \vspace{2mm}
-
-  \begin{block}{Penalidade da Cascata}
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
     \centering
-    {\small Cobertura Efetiva $\approx$ AP\textsubscript{PGIE} $\times$ mAP\textsubscript{SGIE}.
-    A cadeia de ferramentas perde \textbf{41\%} dos objetos.\\
-    \textcolor{arrowcolor}{Mitigação: reduzir threshold do PGIE} $\to$ \textcolor{arrowcolor}{aumentar recall no 1\textordmasculine\ estágio.}}
-  \end{block}
+    {\scriptsize\color{stagecolor}%
+      Cobertura $\approx$ AP\textsubscript{PGIE} $\times$ mAP\textsubscript{SGIE}.
+      Ferramentas perde \textbf{41\%}. Mitigação: reduzir threshold do PGIE.}
+  \end{beamercolorbox}
 \end{frame}
 
 % --- Slide 35: Comparação com a Literatura ---
 \begin{frame}{Comparação com a Literatura}
   \vspace{-3mm}
   \begin{center}
-    \renewcommand{\arraystretch}{1.5}
-    \small
-    \begin{tabular}{@{}p{2.2cm}ccccc@{}}
+    \renewcommand{\arraystretch}{1.2}
+    \scriptsize
+    \begin{tabular}{@{}lccccl@{}}
       \toprule
       \textbf{Trabalho} & \textbf{Classes} & \textbf{mAP@0,5} & \textbf{FPS} & \textbf{Hardware} & \textbf{Cascata} \\
       \midrule
-      Nath et al.\newline{\scriptsize (2020)} & 5 & 0,72 & 8 & RTX 2080 & Não \\
-      \midrule
-      Wang et al.\newline{\scriptsize (2021)} & 5 & 0,90 & 45 & RTX 3080 & Não \\
-      \midrule
-      Shin et al.\newline{\scriptsize (2022)} & 5 & 0,82 & 45 & Jetson Xavier & Não \\
-      \midrule
+      Nath et al.\ (2020) & 5 & 0,72 & 8 & RTX 2080 & Não \\
+      Wang et al.\ (2021) & 5 & 0,90 & 45 & RTX 3080 & Não \\
+      Shin et al.\ (2022) & 5 & 0,82 & 45 & Jetson Xavier & Não \\
       \rowcolor{headcolor!20}
-      \textbf{Este trabalho} & \textcolor{headcolor}{\fontsize{12}{14}\selectfont\textbf{46\textsuperscript{*}}} & \textbf{0,71--0,84} & \textcolor{headcolor}{\textbf{20}} & \textbf{Jetson Xavier} & \textcolor{headcolor}{\textbf{Sim}} \\
+      \textbf{Este trabalho} & \textcolor{headcolor}{\textbf{46*}} & \textbf{0,71--0,84} & \textcolor{headcolor}{\textbf{20}} & \textbf{Jetson Xavier} & \textcolor{headcolor}{\textbf{Sim}} \\
       \bottomrule
-    \end{tabular}\\[2pt]
-    {\tiny * 46 categorias únicas (51 saídas totais: 5 PGIE + 14 EPI + 9 Maq + 23 Fer)}
+    \end{tabular}\\[1pt]
+    {\tiny * 46 categorias únicas (5 PGIE + 14 EPI + 9 Maq + 23 Fer)}
   \end{center}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
   % Three differential blocks side by side
   \begin{columns}[c]
     \begin{column}{0.31\textwidth}
       \centering
       \colorbox{headcolor!12}{%
-        \parbox{0.9\textwidth}{\centering\vspace{2pt}
-          {\fontsize{18}{20}\selectfont\textcolor{headcolor}{\textbf{10$\times$}}}\\[1pt]
-          {\scriptsize\textbf{mais classes} que\\trabalhos relacionados}
-        \vspace{2pt}}%
+        \parbox{0.9\textwidth}{\centering\vspace{1pt}
+          {\fontsize{16}{18}\selectfont\textcolor{headcolor}{\textbf{10$\times$}}}\\[1pt]
+          {\tiny\textbf{mais classes} que\\trabalhos relacionados}
+        \vspace{1pt}}%
       }
     \end{column}
     \begin{column}{0.31\textwidth}
       \centering
       \colorbox{inputcolor!12}{%
-        \parbox{0.9\textwidth}{\centering\vspace{2pt}
-          {\fontsize{18}{20}\selectfont\textcolor{inputcolor}{\textbf{4}}}\\[1pt]
-          {\scriptsize\textbf{modelos em cascata}\\na mesma GPU}
-        \vspace{2pt}}%
+        \parbox{0.9\textwidth}{\centering\vspace{1pt}
+          {\fontsize{16}{18}\selectfont\textcolor{inputcolor}{\textbf{4}}}\\[1pt]
+          {\tiny\textbf{modelos em cascata}\\na mesma GPU}
+        \vspace{1pt}}%
       }
     \end{column}
     \begin{column}{0.31\textwidth}
       \centering
       \colorbox{outputcolor!12}{%
-        \parbox{0.9\textwidth}{\centering\vspace{2pt}
-          {\fontsize{18}{20}\selectfont\textcolor{outputcolor}{\textbf{24W}}}\\[1pt]
-          {\scriptsize\textbf{edge deployment}\\sem nuvem}
-        \vspace{2pt}}%
+        \parbox{0.9\textwidth}{\centering\vspace{1pt}
+          {\fontsize{16}{18}\selectfont\textcolor{outputcolor}{\textbf{24W}}}\\[1pt]
+          {\tiny\textbf{edge deployment}\\sem nuvem}
+        \vspace{1pt}}%
       }
     \end{column}
   \end{columns}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
-  \begin{center}
-    {\small\textcolor{stagecolor}{\textbf{Abordagem inédita}: inferência multiestágio em cascata na borda\\para monitoramento de segurança em construção civil.}}
-  \end{center}
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\footnotesize\color{stagecolor}%
+      \textbf{Abordagem inédita}: inferência multiestágio em cascata na borda para monitoramento de segurança}
+  \end{beamercolorbox}
 \end{frame}
 
 % --- Slide 36: Resultados Qualitativos ---
@@ -482,12 +499,12 @@
     \end{column}
   \end{columns}
 
-  \vspace{4mm}
+  \vspace{2mm}
 
-  \begin{block}{Observações}
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
     \centering
-    {\small Predições no conjunto de validação demonstram capacidade do sistema de\\
-    identificar \textbf{múltiplos objetos simultâneos} com \textit{bounding boxes} e classes corretas.\\
-    Os modelos diferenciam objetos visualmente similares (ex.: Drill vs.\ Grinder).}
-  \end{block}
+    {\footnotesize\color{stagecolor}%
+      Predições na validação demonstram detecção de \textbf{múltiplos objetos simultâneos} com classes corretas.
+      Modelos diferenciam objetos visualmente similares (Drill vs.\ Grinder).}
+  \end{beamercolorbox}
 \end{frame}

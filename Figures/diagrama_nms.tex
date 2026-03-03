@@ -23,13 +23,13 @@
         rounded corners=6pt,
         fill=cspcolor,
         text=white,
-        font=\small\sffamily\bfseries,
+        font=\normalsize\sffamily\bfseries,
         minimum width=2.4cm,
         minimum height=1.0cm,
         align=center,
     },
     sectiontitle/.style={
-        font=\small\sffamily\bfseries,
+        font=\normalsize\sffamily\bfseries,
         text=labelcolor,
     },
     processarrow/.style={
@@ -61,18 +61,18 @@
 
 % Bounding boxes sobrepostas
 \draw[bbox4, line width=1pt, dashed] (-1.1, -1.8) rectangle (1.0, 1.6);
-\node[font=\tiny\bfseries, fill=bbox4, text=white, rounded corners=1pt, inner sep=1pt] at (1.0, 1.6) {0.71};
+\node[font=\scriptsize\bfseries, fill=bbox4, text=white, rounded corners=1pt, inner sep=1pt] at (1.0, 1.6) {0.71};
 
 \draw[bbox3, line width=1.2pt, densely dashed] (-0.95, -1.65) rectangle (0.85, 1.5);
-\node[font=\tiny\bfseries, fill=bbox3, text=white, rounded corners=1pt, inner sep=1pt] at (0.85, 1.5) {0.78};
+\node[font=\scriptsize\bfseries, fill=bbox3, text=white, rounded corners=1pt, inner sep=1pt] at (0.85, 1.5) {0.78};
 
 \draw[bbox2, line width=1.3pt, densely dotted] (-0.8, -1.55) rectangle (0.7, 1.45);
-\node[font=\tiny\bfseries, fill=bbox2, text=white, rounded corners=1pt, inner sep=1pt] at (0.7, 1.45) {0.85};
+\node[font=\scriptsize\bfseries, fill=bbox2, text=white, rounded corners=1pt, inner sep=1pt] at (0.7, 1.45) {0.85};
 
 \draw[bbox1, line width=1.5pt] (-0.7, -1.5) rectangle (0.6, 1.4);
-\node[font=\tiny\bfseries, fill=bbox1, text=white, rounded corners=1pt, inner sep=1pt] at (0.6, 1.4) {0.92};
+\node[font=\scriptsize\bfseries, fill=bbox1, text=white, rounded corners=1pt, inner sep=1pt] at (0.6, 1.4) {0.92};
 
-\node[font=\tiny\sffamily\itshape, text=labelcolor] at (0, -2.2) {Múltiplas detecções};
+\node[font=\scriptsize\sffamily\itshape, text=labelcolor] at (0, -2.2) {Múltiplas detecções};
 
 % ============================================================================
 % PROCESSO NMS
@@ -81,7 +81,7 @@
 \draw[processarrow] (beforebox.east) -- (nmsprocess.west);
 \draw[processarrow] (nmsprocess.east) -- ++(1.5, 0);
 
-\node[font=\tiny\sffamily, text=labelcolor, align=center] at (4.5, -1.0) {Suprime caixas\\redundantes};
+\node[font=\scriptsize\sffamily, text=labelcolor, align=center] at (4.5, -1.0) {Suprime caixas\\redundantes};
 
 % ============================================================================
 % DEPOIS DO NMS
@@ -99,15 +99,15 @@
 
 % Apenas melhor box
 \draw[bbox1, line width=1.8pt] (8.3, -1.5) rectangle (9.6, 1.4);
-\node[font=\tiny\bfseries, fill=bbox1, text=white, rounded corners=1pt, inner sep=1pt] at (9.6, 1.4) {0.92};
+\node[font=\scriptsize\bfseries, fill=bbox1, text=white, rounded corners=1pt, inner sep=1pt] at (9.6, 1.4) {0.92};
 
-\node[font=\tiny\sffamily\itshape, text=labelcolor] at (9.0, -2.2) {Melhor detecção};
+\node[font=\scriptsize\sffamily\itshape, text=labelcolor] at (9.0, -2.2) {Melhor detecção};
 
 % ============================================================================
 % LEGENDA COMPACTA
 % ============================================================================
-\node[font=\footnotesize\sffamily\bfseries, text=labelcolor] at (4.5, -2.8) {Etapas:};
-\node[font=\tiny\sffamily, text=labelcolor, align=left] at (4.5, -3.5) {
+\node[font=\small\sffamily\bfseries, text=labelcolor] at (4.5, -2.8) {Etapas:};
+\node[font=\scriptsize\sffamily, text=labelcolor, align=left] at (4.5, -3.5) {
     1. Ordenar por confiança\\
     2. Manter a melhor caixa\\
     3. Suprimir IoU $>$ limiar\\

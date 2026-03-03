@@ -10,34 +10,33 @@
     layerfrozen/.style={
         rectangle, rounded corners=2pt,
         minimum width=2.0cm, minimum height=0.45cm,
-        text centered, font=\tiny\sffamily,
+        align=center, font=\scriptsize\sffamily,
         fill=cspcolor, text=white,
         draw=cspcolor!80!black, line width=0.5pt
     },
     layerfinetune/.style={
         rectangle, rounded corners=2pt,
         minimum width=2.0cm, minimum height=0.45cm,
-        text centered, font=\tiny\sffamily,
+        align=center, font=\scriptsize\sffamily,
         fill=headcolor, text=white,
         draw=headcolor!80!black, line width=0.5pt
     },
     layernew/.style={
         rectangle, rounded corners=2pt,
         minimum width=2.0cm, minimum height=0.45cm,
-        text centered, font=\tiny\sffamily,
+        align=center, font=\scriptsize\sffamily,
         fill=outputcolor, text=white,
         draw=outputcolor!80!black, line width=0.5pt
     },
     datasetbox/.style={
         rectangle, rounded corners=4pt,
         minimum width=2.5cm, minimum height=1.4cm,
-        text centered, font=\scriptsize\sffamily,
-        fill=#1!10, draw=#1, line width=1pt
+        align=center, font=\small\sffamily,
     },
     arrow/.style={-{Stealth[length=1.8mm, width=1.2mm]}, thick, arrowcolor},
     transferarrow/.style={-{Stealth[length=2.5mm, width=1.8mm]}, very thick, skipcolor},
-    sectionlabel/.style={font=\small\sffamily\bfseries, text=labelcolor},
-    sublabel/.style={font=\tiny\sffamily, text=labelcolor}
+    sectionlabel/.style={font=\normalsize\sffamily\bfseries, text=labelcolor},
+    sublabel/.style={font=\scriptsize\sffamily, text=labelcolor}
 ]
 
 % ============================================================================
@@ -46,9 +45,9 @@
 \node[sectionlabel] at (0, 3.2) {Domínio Fonte};
 \node[sublabel] at (0, 2.8) {(Pré-treinamento)};
 
-\node[datasetbox=inputcolor] (source_data) at (0, 1.5) {};
-\node[font=\scriptsize\sffamily\bfseries, text=inputcolor!80!black] at (0, 1.8) {COCO};
-\node[font=\tiny\sffamily, text=labelcolor] at (0, 1.2) {Milhões de imagens};
+\node[datasetbox, fill=inputcolor!10, draw=inputcolor, line width=1pt] (source_data) at (0, 1.5) {};
+\node[font=\small\sffamily\bfseries, text=inputcolor!80!black] at (0, 1.8) {COCO};
+\node[font=\scriptsize\sffamily, text=labelcolor] at (0, 1.2) {Milhões de imagens};
 
 % Camadas fonte (compactas)
 \node[layerfrozen] (src_conv1) at (0, -0.1) {Conv - Bordas};
@@ -68,7 +67,7 @@
 % ============================================================================
 % PROCESSO DE TRANSFERENCIA (Centro)
 % ============================================================================
-\draw[transferarrow] (1.8, -1.0) -- node[above, font=\scriptsize\sffamily\bfseries, text=skipcolor] {Transfer} node[below, font=\tiny\sffamily, text=skipcolor] {Learning} (4.2, -1.0);
+\draw[transferarrow] (1.8, -1.0) -- node[above, font=\small\sffamily\bfseries, text=skipcolor] {Transfer} node[below, font=\scriptsize\sffamily, text=skipcolor] {Learning} (4.2, -1.0);
 
 % ============================================================================
 % DOMINIO ALVO (Direita)
@@ -76,9 +75,9 @@
 \node[sectionlabel] at (6.0, 3.2) {Domínio Alvo};
 \node[sublabel] at (6.0, 2.8) {(Fine-tuning)};
 
-\node[datasetbox=headcolor] (target_data) at (6.0, 1.5) {};
-\node[font=\scriptsize\sffamily\bfseries, text=headcolor!80!black] at (6.0, 1.8) {Dataset EPI};
-\node[font=\tiny\sffamily, text=labelcolor] at (6.0, 1.2) {Classes específicas};
+\node[datasetbox, fill=headcolor!10, draw=headcolor, line width=1pt] (target_data) at (6.0, 1.5) {};
+\node[font=\small\sffamily\bfseries, text=headcolor!80!black] at (6.0, 1.8) {Dataset EPI};
+\node[font=\scriptsize\sffamily, text=labelcolor] at (6.0, 1.2) {Classes específicas};
 
 % Camadas alvo
 \node[layerfrozen] (tgt_conv1) at (6.0, -0.1) {Conv - Bordas};
@@ -99,21 +98,21 @@
 % LEGENDA COMPACTA
 % ============================================================================
 \begin{scope}[shift={(9.0, 0.5)}]
-    \node[font=\footnotesize\sffamily\bfseries, text=labelcolor] at (0, 0.8) {Legenda:};
+    \node[font=\small\sffamily\bfseries, text=labelcolor] at (0, 0.8) {Legenda:};
 
     \node[layerfrozen, minimum width=1.2cm] at (0, 0.3) {};
-    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.7, 0.3) {Congelada};
+    \node[font=\scriptsize\sffamily, text=labelcolor, anchor=west] at (0.7, 0.3) {Congelada};
 
     \node[layerfinetune, minimum width=1.2cm] at (0, -0.2) {};
-    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.7, -0.2) {Ajustada};
+    \node[font=\scriptsize\sffamily, text=labelcolor, anchor=west] at (0.7, -0.2) {Ajustada};
 
     \node[layernew, minimum width=1.2cm] at (0, -0.7) {};
-    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.7, -0.7) {Nova};
+    \node[font=\scriptsize\sffamily, text=labelcolor, anchor=west] at (0.7, -0.7) {Nova};
 \end{scope}
 
 % Seta de conhecimento transferido
 \draw[dashed, skipcolor, line width=0.6pt, -{Stealth[length=1.5mm]}]
     (0.8, -0.4) .. controls (2.5, 0.8) and (3.5, 0.8) .. (5.2, -0.4);
-\node[font=\tiny\sffamily\itshape, text=skipcolor] at (3.0, 1.2) {Pesos transferidos};
+\node[font=\scriptsize\sffamily\itshape, text=skipcolor] at (3.0, 1.2) {Pesos transferidos};
 
 \end{tikzpicture}

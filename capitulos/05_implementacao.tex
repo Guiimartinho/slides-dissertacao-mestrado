@@ -5,34 +5,92 @@
 \section{Implementação}
 
 % --- Slide 19: Arquitetura Alto Nível ---
-\begin{frame}{Arquitetura de Alto Nível}
-  \smallskip
+\begin{frame}{Arquitetura de Alto N\'{i}vel}
+  \vspace{-2mm}
   \centering
-  {\small Fluxo de vídeo processado pelo pipeline DeepStream no Jetson AGX Xavier,\\
-  com inferência em cascata PGIE $\to$ SGIEs para detecção e classificação.}
+  {\small Fluxo de v\'{i}deo processado pelo pipeline DeepStream no Jetson AGX Xavier.}
 
-  \vfill
+  \vspace{2mm}
 
   \begin{center}
-    \includegraphics[width=0.9\textwidth,height=0.72\textheight,keepaspectratio]{high_level_arch.png}
+    \resizebox{0.95\textwidth}{!}{%
+    \begin{tikzpicture}[
+      node distance=7mm,
+      mainblock/.style={
+        rectangle, rounded corners=4pt,
+        minimum width=22mm, minimum height=13mm,
+        align=center, font=\small\sffamily\bfseries,
+        text=white, draw=none
+      },
+      sgieblock/.style={
+        rectangle, rounded corners=3pt,
+        minimum width=21mm, minimum height=11mm,
+        align=center, font=\footnotesize\sffamily\bfseries,
+        text=white, draw=none
+      },
+      arr/.style={-{Latex[length=2mm,width=1.5mm]}, thick, draw=arrowcolor},
+    ]
+      % Row 1: Input pipeline (left to right)
+      \node[mainblock, fill=inputcolor] (cam) {C\^{a}mera\\{\tiny RTSP 1080p}};
+      \node[mainblock, fill=backbonecolor, right=of cam] (dec) {NVDEC\\{\tiny Decode HW}};
+      \node[mainblock, fill=cspcolor, right=of dec] (mux) {Streammux\\{\tiny Batching}};
+      \node[mainblock, fill=detectioncolor, right=of mux] (pgie) {PGIE\\{\tiny YOLOv8m, 5\,cls}};
+      \node[mainblock, fill=neckcolor, right=of pgie] (trk) {Tracker\\{\tiny NvDCF}};
+
+      % Row 2: SGIEs + Output (right to left)
+      \node[sgieblock, fill=headcolor, below=14mm of pgie, xshift=8mm] (sgie1) {SGIE-EPI\\{\tiny 14 cls}};
+      \node[sgieblock, fill=headcolor, left=5mm of sgie1] (sgie2) {SGIE-Maq\\{\tiny 9 cls}};
+      \node[sgieblock, fill=headcolor, right=5mm of sgie1] (sgie3) {SGIE-Fer\\{\tiny 23 cls}};
+      \node[mainblock, fill=outputcolor, right=10mm of sgie3] (osd) {OSD\\{\tiny Overlay}};
+      \node[mainblock, fill=skipcolor!80, left=10mm of sgie2] (sink) {Sa\'{i}da\\{\tiny Display}};
+
+      % Arrows Row 1
+      \draw[arr] (cam) -- (dec);
+      \draw[arr] (dec) -- (mux);
+      \draw[arr] (mux) -- (pgie);
+      \draw[arr] (pgie) -- (trk);
+
+      % Arrow down from tracker to SGIEs
+      \draw[arr] (trk.south) -- ++(0,-4mm) -| (sgie1.north);
+      \draw[arr] (trk.south) -- ++(0,-4mm) -| (sgie2.north);
+      \draw[arr] (trk.south) -- ++(0,-4mm) -| (sgie3.north);
+
+      % SGIEs to OSD and Sink
+      \draw[arr] (sgie3.east) -- (osd.west);
+      \draw[arr] (sgie2.west) -- (sink.east);
+
+      % Brace for GPU acceleration
+      \draw[thick, skipcolor, decorate, decoration={brace, amplitude=3pt, raise=3pt}]
+        (mux.north west) -- (trk.north east)
+        node[midway, above=6pt, font=\scriptsize\sffamily\bfseries, text=skipcolor]
+        {Aceleração GPU / TensorRT FP16};
+    \end{tikzpicture}
+    }
   \end{center}
 
+  \vspace{2mm}
+
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\footnotesize\color{stagecolor}%
+      Cascata PGIE $\to$ 3 SGIEs com roteamento por classe --- \textbf{20 FPS} / \textbf{58\,ms} de lat\^{e}ncia.}
+  \end{beamercolorbox}
   \vfill
 \end{frame}
 
-% --- Slide 20: Pipeline DeepStream ---
+% --- Slide 20: Pipeline DeepStream (mesclado com detalhado) ---
 \begin{frame}{Pipeline DeepStream}
   \smallskip
   \centering
-  {\small Pipeline GStreamer com aceleração por hardware --- cada componente é um plugin otimizado.}
+  {\small Pipeline GStreamer com aceleração por hardware --- captura $\to$ inferência em cascata $\to$ alertas.}
 
-  \vspace{4mm}
+  \vspace{3mm}
 
   \begin{center}
     \resizebox{0.98\textwidth}{!}{\input{Figures/diagrama_pipeline.tex}}
   \end{center}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
   \begin{center}
     \scriptsize
@@ -44,58 +102,50 @@
       \textcolor{purple!70!black}{\textbf{PGIE}} &
       \textcolor{violet!70!black}{\textbf{Tracker}} &
       \textcolor{orange!70!black}{\textbf{SGIEs}} \\
-      Captura RTSP/arquivo &
-      Decodif. via NVDEC &
-      Batching de frames &
-      Detecção primária &
+      Captura RTSP &
+      NVDEC (hw) &
+      Batching &
+      Detec\c{c}\~{a}o prim\'{a}ria &
       Rastreamento IDs &
-      Classificação fina \\
+      Classifica\c{c}\~{a}o fina \\
     \end{tabular}
   \end{center}
 
-  \vfill
-\end{frame}
+  \vspace{2mm}
 
-% --- Slide 21: Pipeline Detalhado ---
-\begin{frame}{Pipeline Detalhado}
-  \smallskip
-  \centering
-  {\small Diagrama completo: captura de vídeo $\to$ inferência em cascata $\to$ análise de conformidade.}
-
-  \vfill
-
-  \begin{center}
-    \includegraphics[width=0.95\textwidth,height=0.75\textheight,keepaspectratio]{detailed_pipeline.png}
-  \end{center}
-
+  \begin{block}{}
+    \centering\footnotesize
+    Cada componente \'{e} um plugin GStreamer otimizado --- aceleração por \textbf{GPU/TensorRT} entre Streammux e SGIEs.
+  \end{block}
   \vfill
 \end{frame}
 
 % --- Slide 22: Parser C++ Customizado (NOVO) ---
 \begin{frame}{Parser C++ Customizado}
-  \smallskip
+  \vspace{-2mm}
   \centering
   {\small Roteamento de detecções do PGIE para SGIEs especializados via ROI recortada.}
 
-  \vspace{3mm}
+  \vspace{1mm}
 
   \begin{center}
+  \resizebox{0.95\textwidth}{!}{%
   \begin{tikzpicture}[
-    node distance=0.5cm and 1.2cm,
+    node distance=0.5cm and 1.0cm,
     pgiebox/.style={
       rectangle, draw=purple!70!black, fill=purple!10,
-      minimum width=2.8cm, minimum height=1cm,
-      align=center, font=\small\sffamily, rounded corners=3pt, line width=0.8pt
+      minimum width=2.4cm, minimum height=0.8cm,
+      align=center, font=\footnotesize\sffamily, rounded corners=3pt, line width=0.8pt
     },
     sgiebox/.style={
       rectangle, draw=orange!70!black, fill=orange!10,
-      minimum width=2.6cm, minimum height=0.9cm,
-      align=center, font=\small\sffamily, rounded corners=3pt, line width=0.8pt
+      minimum width=2.2cm, minimum height=0.7cm,
+      align=center, font=\footnotesize\sffamily, rounded corners=3pt, line width=0.8pt
     },
     routebox/.style={
       rectangle, draw=labelcolor, fill=bgbox,
-      minimum width=3.2cm, minimum height=0.8cm,
-      align=center, font=\footnotesize\ttfamily, rounded corners=2pt
+      minimum width=2.8cm, minimum height=0.6cm,
+      align=center, font=\scriptsize\ttfamily, rounded corners=2pt
     },
     myarrow/.style={
       -{Latex[length=2mm,width=1.5mm]},
@@ -103,37 +153,39 @@
     }
   ]
     % PGIE
-    \node[pgiebox] (pgie) {\textbf{PGIE}\\{\footnotesize 5 classes}};
+    \node[pgiebox] (pgie) {\textbf{PGIE}\\{\scriptsize 5 classes}};
 
     % Routing conditions
-    \node[routebox, right=1.5cm of pgie, yshift=1.4cm] (r0) {class\_id == 0\\(Person)};
-    \node[routebox, right=1.5cm of pgie] (r1) {class\_id == 1\\(Vehicle)};
-    \node[routebox, right=1.5cm of pgie, yshift=-1.4cm] (r4) {class\_id == 4\\(Tool)};
+    \node[routebox, right=1.2cm of pgie, yshift=1.0cm] (r0) {class\_id == 0 (Person)};
+    \node[routebox, right=1.2cm of pgie] (r1) {class\_id == 1 (Vehicle)};
+    \node[routebox, right=1.2cm of pgie, yshift=-1.0cm] (r4) {class\_id == 4 (Tool)};
 
     % SGIEs
-    \node[sgiebox, right=1.2cm of r0] (sgie1) {\textbf{SGIE-EPI}\\{\footnotesize 14 classes}};
-    \node[sgiebox, right=1.2cm of r1] (sgie2) {\textbf{SGIE-Maq}\\{\footnotesize 9 classes}};
-    \node[sgiebox, right=1.2cm of r4] (sgie3) {\textbf{SGIE-Fer}\\{\footnotesize 23 classes}};
+    \node[sgiebox, right=1.0cm of r0] (sgie1) {\textbf{SGIE-EPI}\\{\scriptsize 14 cls}};
+    \node[sgiebox, right=1.0cm of r1] (sgie2) {\textbf{SGIE-Maq}\\{\scriptsize 9 cls}};
+    \node[sgiebox, right=1.0cm of r4] (sgie3) {\textbf{SGIE-Fer}\\{\scriptsize 23 cls}};
 
     % Arrows PGIE -> routing
-    \draw[myarrow] (pgie.east) -- ++(0.3,0) |- (r0.west);
+    \draw[myarrow] (pgie.east) -- ++(0.25,0) |- (r0.west);
     \draw[myarrow] (pgie.east) -- (r1.west);
-    \draw[myarrow] (pgie.east) -- ++(0.3,0) |- (r4.west);
+    \draw[myarrow] (pgie.east) -- ++(0.25,0) |- (r4.west);
 
     % Arrows routing -> SGIEs
-    \draw[myarrow, draw=detectioncolor] (r0.east) -- node[above, font=\tiny, text=detectioncolor] {crop ROI} (sgie1.west);
-    \draw[myarrow, draw=detectioncolor] (r1.east) -- node[above, font=\tiny, text=detectioncolor] {crop ROI} (sgie2.west);
-    \draw[myarrow, draw=detectioncolor] (r4.east) -- node[above, font=\tiny, text=detectioncolor] {crop ROI} (sgie3.west);
+    \draw[myarrow, draw=detectioncolor] (r0.east) -- node[above, font=\tiny, text=detectioncolor] {crop} (sgie1.west);
+    \draw[myarrow, draw=detectioncolor] (r1.east) -- node[above, font=\tiny, text=detectioncolor] {crop} (sgie2.west);
+    \draw[myarrow, draw=detectioncolor] (r4.east) -- node[above, font=\tiny, text=detectioncolor] {crop} (sgie3.west);
 
   \end{tikzpicture}
+  }
   \end{center}
 
-  \vspace{2mm}
+  \vspace{1mm}
 
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{block}{\footnotesize Função do Parser}
+      \begin{block}{\scriptsize Função do Parser}
         \begin{itemize}\scriptsize
+          \setlength{\itemsep}{0pt}
           \item Decodifica saída \textit{anchor-free} YOLOv8
           \item Filtragem por confiança + NMS
           \item Compilado como \texttt{.so} (C++)
@@ -141,65 +193,56 @@
       \end{block}
     \end{column}
     \begin{column}{0.48\textwidth}
-      \begin{block}{\footnotesize Roteamento}
+      \begin{block}{\scriptsize Roteamento}
         \begin{itemize}\scriptsize
-          \item Cada SGIE opera via \texttt{operate-on-class-ids}
+          \setlength{\itemsep}{0pt}
+          \item SGIE opera via \texttt{operate-on-class-ids}
           \item ROI recortada da bbox do PGIE
-          \item SGIEs processam apenas regiões de interesse
+          \item Processam apenas regiões de interesse
         \end{itemize}
       \end{block}
     \end{column}
   \end{columns}
-
   \vfill
 \end{frame}
 
 % --- Slide 23: Software Stack (Layered TikZ) ---
 \begin{frame}{Software Stack}
-  \smallskip
+  \vspace{-2mm}
   \centering
   {\small Pilha de software otimizada para inferência em borda no Jetson AGX Xavier.}
 
-  \vspace{4mm}
+  \vspace{1mm}
 
   \begin{center}
   \begin{tikzpicture}[
-    layer/.style={
-      rectangle, draw=#1!80!black, fill=#1!15,
-      minimum width=10cm, minimum height=0.85cm,
-      align=center, font=\small\sffamily, rounded corners=2pt,
+    layerbase/.style={
+      rectangle,
+      minimum width=10cm, minimum height=0.7cm,
+      align=center, font=\footnotesize\sffamily, rounded corners=2pt,
       line width=0.8pt
     },
-    layerlabel/.style={
-      font=\tiny\sffamily, text=black!60, anchor=east
-    }
   ]
-    % Layers from bottom to top
-    \node[layer=buscolor] (hw) at (0,0) {\textbf{Hardware} --- Jetson AGX Xavier (512 CUDA cores, 32~GB RAM)};
-    \node[layerlabel] at ([xshift=-2mm]hw.west) {};
-
-    \node[layer=cpucolor] (os) at (0,1.1) {\textbf{JetPack 5.1.2} --- Ubuntu 20.04 + drivers NVIDIA};
-
-    \node[layer=gpucolor] (cuda) at (0,2.2) {\textbf{CUDA 11.4} + \textbf{cuDNN 8.6} --- Aceleração GPU};
-
-    \node[layer=memcolor] (trt) at (0,3.3) {\textbf{TensorRT 8.5.2} --- Otimização e quantização FP16};
-
-    \node[layer=neckcolor] (ds) at (0,4.4) {\textbf{DeepStream SDK 6.2} + \textbf{GStreamer 1.16} --- Pipeline de vídeo};
-
-    \node[layer=headcolor] (app) at (0,5.5) {\textbf{Aplicação Python} + \textbf{Parser C++ (.so)} --- PyDS bindings};
+    % Layers from bottom to top (spacing 0.78cm)
+    \node[layerbase, draw=buscolor!80!black, fill=buscolor!15] (hw) at (0,0) {\textbf{Hardware} --- Jetson AGX Xavier (512 CUDA, 32~GB)};
+    \node[layerbase, draw=cpucolor!80!black, fill=cpucolor!15] (os) at (0,0.78) {\textbf{JetPack 5.1.2} --- Ubuntu 20.04 + drivers NVIDIA};
+    \node[layerbase, draw=gpucolor!80!black, fill=gpucolor!15] (cuda) at (0,1.56) {\textbf{CUDA 11.4} + \textbf{cuDNN 8.6} --- Aceleração GPU};
+    \node[layerbase, draw=memcolor!80!black, fill=memcolor!15] (trt) at (0,2.34) {\textbf{TensorRT 8.5.2} --- Otimização FP16};
+    \node[layerbase, draw=neckcolor!80!black, fill=neckcolor!15] (ds) at (0,3.12) {\textbf{DeepStream 6.2} + \textbf{GStreamer 1.16} --- Pipeline};
+    \node[layerbase, draw=headcolor!80!black, fill=headcolor!15] (app) at (0,3.90) {\textbf{Aplicação Python} + \textbf{Parser C++ (.so)}};
 
     % Side arrows
     \draw[-{Latex[length=2mm]}, line width=1.5pt, draw=arrowcolor]
-      (-5.8,0) -- (-5.8,5.5) node[midway, rotate=90, above, font=\footnotesize\sffamily, text=arrowcolor] {Nível de abstração};
+      (-5.8,0) -- (-5.8,3.90) node[midway, rotate=90, above, font=\footnotesize\sffamily, text=arrowcolor] {Nível de abstração};
 
   \end{tikzpicture}
   \end{center}
 
-  \vspace{3mm}
+  \vspace{1mm}
 
   \begin{center}
-    \footnotesize
-    \textcolor{labelcolor}{Todos os modelos exportados em \textbf{FP16} via TensorRT --- speedup de \textbf{1,7$\times$} sobre FP32.}
+    \scriptsize
+    \textcolor{labelcolor}{Modelos exportados em \textbf{FP16} via TensorRT --- speedup de \textbf{1,7$\times$} sobre FP32.}
   \end{center}
 
   \vfill
@@ -207,55 +250,51 @@
 
 % --- Slide 24: Deployment (NOVO) ---
 \begin{frame}{Deployment na Borda}
-  \smallskip
+  \vspace{-2mm}
   \centering
   {\small Aspectos práticos de implantação do sistema no Jetson AGX Xavier.}
 
-  \vspace{3mm}
+  \vspace{1mm}
 
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{block}{\small Configuração do Dispositivo}
-        \begin{itemize}\small
+      \begin{block}{\scriptsize Configuração do Dispositivo}
+        \begin{itemize}\scriptsize
+          \setlength{\itemsep}{0pt}
           \item Modo de potência: \textbf{MAXN (30\,W)}
           \item 512 CUDA cores ativos
           \item 8 cores ARM v8.2 a 2,26 GHz
           \item 32 GB LPDDR4x compartilhada
-          \item Refrigeração passiva + fan
         \end{itemize}
       \end{block}
 
-      \vspace{2mm}
-
-      \begin{block}{\small Entrada de Vídeo}
-        \begin{itemize}\small
+      \begin{block}{\scriptsize Entrada de Vídeo}
+        \begin{itemize}\scriptsize
+          \setlength{\itemsep}{0pt}
           \item Stream \textbf{RTSP} via rede local
-          \item Suporte a arquivo local (MP4/H.264)
-          \item Decodificação por \textbf{NVDEC} (hardware)
-          \item Resolução: 1920$\times$1080 $\to$ 640$\times$640
+          \item Decodificação por \textbf{NVDEC} (hw)
+          \item 1920$\times$1080 $\to$ 640$\times$640
         \end{itemize}
       \end{block}
     \end{column}
 
     \begin{column}{0.48\textwidth}
-      \begin{block}{\small Saída e Visualização}
-        \begin{itemize}\small
+      \begin{block}{\scriptsize Saída e Visualização}
+        \begin{itemize}\scriptsize
+          \setlength{\itemsep}{0pt}
           \item Display local via \texttt{nveglglessink}
-          \item Gravação em arquivo via \texttt{filesink}
-          \item Anotações: bounding boxes + labels
-          \item Alertas de violação de EPI
+          \item Gravação via \texttt{filesink}
+          \item Bboxes + labels + alertas EPI
         \end{itemize}
       \end{block}
 
-      \vspace{2mm}
-
-      \begin{block}{\small Otimizações Aplicadas}
-        \begin{itemize}\small
+      \begin{block}{\scriptsize Otimizações Aplicadas}
+        \begin{itemize}\scriptsize
+          \setlength{\itemsep}{0pt}
           \item Memória unificada CPU-GPU
           \item Batching de crops para SGIEs
           \item Pipeline assíncrono (GStreamer)
           \item Quantização FP16 em todos os modelos
-          \item Votação temporal para reduzir FP
         \end{itemize}
       \end{block}
     \end{column}
@@ -264,9 +303,8 @@
   \vfill
 
   \begin{center}
-    \footnotesize
+    \scriptsize
     \textcolor{labelcolor}{Pipeline completo: \textbf{20 FPS} / \textbf{58 ms} de latência end-to-end em modo MAXN.}
   \end{center}
-
   \vfill
 \end{frame}

@@ -1,0 +1,97 @@
+% ============================================================================
+% Tabela Comparativa com a Literatura - TikZ
+% Para dissertação de mestrado PPGC/UFRGS
+% Uso: \input{Figures/diagrama_trabalhos_relacionados.tex}
+% ============================================================================
+
+\begin{tikzpicture}[scale=0.85, transform shape]
+  % Column widths
+  \def\colA{0}    % Trabalho
+  \def\colB{2.8}  % Classes
+  \def\colC{4.5}  % mAP@0,5
+  \def\colD{6.5}  % FPS
+  \def\colE{8.2}  % Hardware
+  \def\colF{10.8} % Cascata
+  \def\colEnd{12.2}
+  \def\rowH{0.75} % row height
+
+  % Header row
+  \fill[stagecolor!85] (\colA,0) rectangle (\colEnd,\rowH);
+  \node[font=\small\bfseries, text=white, anchor=west] at (\colA+0.15, \rowH/2) {Trabalho};
+  \node[font=\small\bfseries, text=white] at ({(\colB+\colC)/2}, \rowH/2) {Classes};
+  \node[font=\small\bfseries, text=white] at ({(\colC+\colD)/2}, \rowH/2) {mAP};
+  \node[font=\small\bfseries, text=white] at ({(\colD+\colE)/2}, \rowH/2) {FPS};
+  \node[font=\small\bfseries, text=white] at ({(\colE+\colF)/2}, \rowH/2) {Hardware};
+  \node[font=\small\bfseries, text=white] at ({(\colF+\colEnd)/2}, \rowH/2) {Cascata};
+
+  % Row 1: Nath et al. (2020)
+  \fill[bgbox] (\colA,-0*\rowH) rectangle (\colEnd,-1*\rowH);
+  \node[font=\footnotesize, anchor=west] at (\colA+0.15, -0.5*\rowH) {Nath et al. (2020)};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -0.5*\rowH) {5};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -0.5*\rowH) {0,72};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -0.5*\rowH) {8};
+  \node[font=\footnotesize] at ({(\colE+\colF)/2}, -0.5*\rowH) {RTX 2080};
+  \node[font=\footnotesize, text=skipcolor] at ({(\colF+\colEnd)/2}, -0.5*\rowH) {N\~{a}o};
+
+  % Row 2: Wang et al. (2021)
+  \fill[white] (\colA,-1*\rowH) rectangle (\colEnd,-2*\rowH);
+  \node[font=\footnotesize, anchor=west] at (\colA+0.15, -1.5*\rowH) {Wang et al. (2021)};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -1.5*\rowH) {5};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -1.5*\rowH) {0,90};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -1.5*\rowH) {45};
+  \node[font=\footnotesize] at ({(\colE+\colF)/2}, -1.5*\rowH) {RTX 3080};
+  \node[font=\footnotesize, text=skipcolor] at ({(\colF+\colEnd)/2}, -1.5*\rowH) {N\~{a}o};
+
+  % Row 3: Shin et al. (2022)
+  \fill[bgbox] (\colA,-2*\rowH) rectangle (\colEnd,-3*\rowH);
+  \node[font=\footnotesize, anchor=west] at (\colA+0.15, -2.5*\rowH) {Shin et al. (2022)};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -2.5*\rowH) {5};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -2.5*\rowH) {0,82};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -2.5*\rowH) {45};
+  \node[font=\footnotesize] at ({(\colE+\colF)/2}, -2.5*\rowH) {Jetson Xavier};
+  \node[font=\footnotesize, text=skipcolor] at ({(\colF+\colEnd)/2}, -2.5*\rowH) {N\~{a}o};
+
+  % Row 4: Este trabalho (highlighted)
+  \fill[headcolor!20] (\colA,-3*\rowH) rectangle (\colEnd,-4*\rowH);
+  \draw[headcolor, line width=1.2pt] (\colA,-3*\rowH) rectangle (\colEnd,-4*\rowH);
+  \node[font=\footnotesize\bfseries, anchor=west] at (\colA+0.15, -3.5*\rowH) {Este trabalho};
+  \node[font=\footnotesize\bfseries, text=headcolor] at ({(\colB+\colC)/2}, -3.5*\rowH) {46};
+  \node[font=\footnotesize\bfseries] at ({(\colC+\colD)/2}, -3.5*\rowH) {0,71--0,84};
+  \node[font=\footnotesize\bfseries, text=headcolor] at ({(\colD+\colE)/2}, -3.5*\rowH) {20};
+  \node[font=\footnotesize\bfseries] at ({(\colE+\colF)/2}, -3.5*\rowH) {Jetson Xavier};
+  \node[font=\footnotesize\bfseries, text=headcolor] at ({(\colF+\colEnd)/2}, -3.5*\rowH) {Sim};
+
+  % Grid lines
+  \foreach \y in {0,-1,-2,-3,-4} {
+    \draw[dividercolor, thin] (\colA,\y*\rowH) -- (\colEnd,\y*\rowH);
+  }
+  \foreach \x in {\colB,\colC,\colD,\colE,\colF} {
+    \draw[dividercolor, very thin] (\x,\rowH) -- (\x,-4*\rowH);
+  }
+  \draw[stagecolor, line width=0.8pt] (\colA,\rowH) rectangle (\colEnd,-4*\rowH);
+
+  % Lacunas section below
+  \def\gapY{-4.2}
+  \node[fill=skipcolor!12, rounded corners=3pt, minimum height=10mm, minimum width=35mm,
+        font=\scriptsize, align=center, draw=skipcolor!40] (gap1) at (2.0, \gapY) {
+    \textbf{Lacuna 1}\\Poucas classes ($\leq$5)
+  };
+  \node[fill=skipcolor!12, rounded corners=3pt, minimum height=10mm, minimum width=35mm,
+        font=\scriptsize, align=center, draw=skipcolor!40] (gap2) at (6.1, \gapY) {
+    \textbf{Lacuna 2}\\Sem cascata\\multi-dom\'{i}nio
+  };
+  \node[fill=skipcolor!12, rounded corners=3pt, minimum height=10mm, minimum width=35mm,
+        font=\scriptsize, align=center, draw=skipcolor!40] (gap3) at (10.2, \gapY) {
+    \textbf{Lacuna 3}\\GPU desktop\\(n\~{a}o borda)
+  };
+
+  % Arrow from gaps to positioning
+  \node[fill=headcolor!15, rounded corners=3pt, minimum height=10mm, minimum width=100mm,
+        font=\scriptsize\bfseries, align=center, draw=headcolor!50] (pos) at (6.1, \gapY - 1.2) {
+    \color{headcolor}Este trabalho: 46 classes, cascata multi-dom\'{i}nio, edge deployment (24W)
+  };
+
+  \draw[arrow, draw=skipcolor!60] (gap1.south) -- (pos.north -| gap1.south);
+  \draw[arrow, draw=skipcolor!60] (gap2.south) -- (pos.north);
+  \draw[arrow, draw=skipcolor!60] (gap3.south) -- (pos.north -| gap3.south);
+\end{tikzpicture}

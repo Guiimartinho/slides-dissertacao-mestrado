@@ -13,8 +13,8 @@
         rounded corners=3pt,
         minimum width=1.6cm,
         minimum height=0.6cm,
-        text centered,
-        font=\scriptsize\sffamily,
+        align=center,
+        font=\small\sffamily,
         text=white,
         draw=none,
     },
@@ -29,8 +29,8 @@
     arrow/.style={-{Stealth[length=1.8mm, width=1.2mm]}, thick, arrowcolor},
     skiparrow/.style={-{Stealth[length=1.8mm, width=1.2mm]}, thick, skipcolor},
     % Estilos das labels
-    sectionlabel/.style={font=\footnotesize\sffamily\bfseries, text=labelcolor},
-    sizelabel/.style={font=\tiny\sffamily, text=sublabelcolor},
+    sectionlabel/.style={font=\small\sffamily\bfseries, text=labelcolor},
+    sizelabel/.style={font=\scriptsize\sffamily, text=sublabelcolor},
 ]
 
 % ============================================================================
@@ -114,22 +114,22 @@
 % LEGENDA
 % ============================================================================
 \begin{scope}[shift={($(output) + (4.5, 2.5)$)}]
-    \node[font=\footnotesize\sffamily\bfseries, text=labelcolor] at (0, 1.2) {Legenda:};
+    \node[font=\small\sffamily\bfseries, text=labelcolor] at (0, 1.2) {Legenda:};
 
-    \node[block, fill=backbonecolor, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.8) {\tiny CBS};
-    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.6, 0.8) {Conv+BN+SiLU};
+    \node[block, fill=backbonecolor, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.8) {\scriptsize CBS};
+    \node[font=\scriptsize\sffamily, text=labelcolor, anchor=west] at (0.6, 0.8) {Conv+BN+SiLU};
 
-    \node[block, fill=c3color, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.4) {\tiny C2f};
-    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.6, 0.4) {CSP Bottleneck};
+    \node[block, fill=c3color, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.4) {\scriptsize C2f};
+    \node[font=\scriptsize\sffamily, text=labelcolor, anchor=west] at (0.6, 0.4) {CSP Bottleneck};
 
-    \node[block, fill=headcolor, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.0) {\tiny Head};
-    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.6, 0.0) {Cls + Reg separados};
+    \node[block, fill=headcolor, minimum width=1.0cm, minimum height=0.4cm] at (0, 0.0) {\scriptsize Head};
+    \node[font=\scriptsize\sffamily, text=labelcolor, anchor=west] at (0.6, 0.0) {Cls + Reg separados};
 
     \draw[arrow] (-0.4, -0.4) -- (0.2, -0.4);
-    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.4, -0.4) {Fluxo principal};
+    \node[font=\scriptsize\sffamily, text=labelcolor, anchor=west] at (0.4, -0.4) {Fluxo principal};
 
     \draw[skiparrow] (-0.4, -0.7) -- (0.2, -0.7);
-    \node[font=\tiny\sffamily, text=labelcolor, anchor=west] at (0.4, -0.7) {Skip connection};
+    \node[font=\scriptsize\sffamily, text=labelcolor, anchor=west] at (0.4, -0.7) {Skip connection};
 \end{scope}
 
 \end{tikzpicture}

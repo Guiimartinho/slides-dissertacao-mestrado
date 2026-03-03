@@ -18,7 +18,7 @@
     \end{tikzpicture}
   \end{center}
 
-  \vspace{6mm}
+  \vspace{4mm}
 
   \begin{columns}[c]
     \begin{column}{0.30\textwidth}
@@ -26,11 +26,11 @@
       \setbeamercolor{block title}{fg=white, bg=inputcolor}
       \setbeamercolor{block body}{bg=inputcolor!8}
       \begin{block}{\centering Onde}
-        \centering\medskip
-        {\color{inputcolor}\fontsize{22}{26}\selectfont\textbf{Edge}}\\[4pt]
-        {\small Computa\c{c}\~{a}o na borda\\Jetson AGX Xavier}\\[2pt]
+        \centering\smallskip
+        {\color{inputcolor}\fontsize{18}{22}\selectfont\textbf{Edge}}\\[2pt]
+        {\footnotesize Computa\c{c}\~{a}o na borda\\Jetson AGX Xavier}\\[1pt]
         {\tiny\color{sublabelcolor} 30W | 512-core GPU}
-        \medskip
+        \smallskip
       \end{block}
       }
     \end{column}
@@ -39,11 +39,11 @@
       \setbeamercolor{block title}{fg=white, bg=headcolor}
       \setbeamercolor{block body}{bg=headcolor!8}
       \begin{block}{\centering O qu\^{e}}
-        \centering\medskip
-        {\color{headcolor}\fontsize{22}{26}\selectfont\textbf{20+ FPS}}\\[4pt]
-        {\small Detec\c{c}\~{a}o em\\tempo real}\\[2pt]
+        \centering\smallskip
+        {\color{headcolor}\fontsize{18}{22}\selectfont\textbf{20+ FPS}}\\[2pt]
+        {\footnotesize Detec\c{c}\~{a}o em\\tempo real}\\[1pt]
         {\tiny\color{sublabelcolor} 4 modelos simult\^{a}neos}
-        \medskip
+        \smallskip
       \end{block}
       }
     \end{column}
@@ -52,11 +52,11 @@
       \setbeamercolor{block title}{fg=white, bg=outputcolor}
       \setbeamercolor{block body}{bg=outputcolor!8}
       \begin{block}{\centering Para qu\^{e}}
-        \centering\medskip
-        {\color{outputcolor}\fontsize{22}{26}\selectfont\textbf{46}}\\[4pt]
-        {\small Categorias de\\seguran\c{c}a monitoradas}\\[2pt]
+        \centering\smallskip
+        {\color{outputcolor}\fontsize{18}{22}\selectfont\textbf{46}}\\[2pt]
+        {\footnotesize Categorias de\\seguran\c{c}a monitoradas}\\[1pt]
         {\tiny\color{sublabelcolor} EPIs, m\'{a}quinas, ferramentas}
-        \medskip
+        \smallskip
       \end{block}
       }
     \end{column}
@@ -72,55 +72,37 @@
   {
   \setbeamercolor{block title}{fg=white, bg=backbonecolor}
   \setbeamercolor{block body}{bg=backbonecolor!6}
-  \begin{block}{{\small\textbf{OE1}} --- Treinamento dos Modelos de Detec\c{c}\~{a}o}
-    \smallskip
-    \begin{columns}[c]
-      \begin{column}{0.48\textwidth}
-        \begin{itemize}
-          \item[\color{backbonecolor}$\blacktriangleright$] Treinar o \textbf{PGIE} para 5 classes gerais\\
-            {\tiny pessoa, ve\'{i}culo, capacete, colete, ferramenta}
-        \end{itemize}
-      \end{column}
-      \begin{column}{0.48\textwidth}
-        \begin{itemize}
-          \item[\color{backbonecolor}$\blacktriangleright$] Treinar 3 \textbf{SGIEs} especializados:\\
-            {\tiny EPI (14 cls) | Maquin\'{a}rio (9 cls) | Ferramentas (23 cls)}
-        \end{itemize}
-      \end{column}
-    \end{columns}
-    \smallskip
+  \begin{block}{{\scriptsize\textbf{OE1}} --- {\scriptsize Treinamento dos Modelos}}
+    \begin{itemize}\scriptsize
+      \item[\color{backbonecolor}$\blacktriangleright$] \textbf{PGIE}: 5 classes gerais (pessoa, ve\'{i}culo, capacete, colete, ferramenta)
+      \item[\color{backbonecolor}$\blacktriangleright$] 3 \textbf{SGIEs}: EPI (14 cls) | Maquin\'{a}rio (9 cls) | Ferramentas (23 cls)
+    \end{itemize}
   \end{block}
   }
 
-  \vspace{3mm}
+  \vspace{1mm}
 
-  % --- OE2: Pipeline ---
   {
   \setbeamercolor{block title}{fg=white, bg=neckcolor}
   \setbeamercolor{block body}{bg=neckcolor!6}
-  \begin{block}{{\small\textbf{OE2}} --- Pipeline de Infer\^{e}ncia em Cascata}
-    \smallskip
-    \begin{itemize}
-      \item[\color{neckcolor}$\blacktriangleright$] Implementar pipeline \textbf{DeepStream SDK} com infer\^{e}ncia multiest\'{a}gio
-      \item[\color{neckcolor}$\blacktriangleright$] Orquestra\c{c}\~{a}o: decodifica\c{c}\~{a}o $\to$ infer\^{e}ncia prim\'{a}ria $\to$ infer\^{e}ncia secund\'{a}ria $\to$ visualiza\c{c}\~{a}o
+  \begin{block}{{\scriptsize\textbf{OE2}} --- {\scriptsize Pipeline de Infer\^{e}ncia em Cascata}}
+    \begin{itemize}\scriptsize
+      \item[\color{neckcolor}$\blacktriangleright$] Pipeline \textbf{DeepStream SDK} com infer\^{e}ncia multiest\'{a}gio
+      \item[\color{neckcolor}$\blacktriangleright$] Decodifica\c{c}\~{a}o $\to$ PGIE $\to$ SGIEs $\to$ visualiza\c{c}\~{a}o
     \end{itemize}
-    \smallskip
   \end{block}
   }
 
-  \vspace{3mm}
+  \vspace{1mm}
 
-  % --- OE3: Parser ---
   {
   \setbeamercolor{block title}{fg=white, bg=detectioncolor}
   \setbeamercolor{block body}{bg=detectioncolor!6}
-  \begin{block}{{\small\textbf{OE3}} --- Integra\c{c}\~{a}o YOLO--DeepStream}
-    \smallskip
-    \begin{itemize}
-      \item[\color{detectioncolor}$\blacktriangleright$] Desenvolver fun\c{c}\~{o}es de \textit{parsing} customizadas em \textbf{C++} para modelos YOLOv8
-      \item[\color{detectioncolor}$\blacktriangleright$] Roteamento autom\'{a}tico PGIE $\to$ SGIEs baseado na classe detectada
+  \begin{block}{{\scriptsize\textbf{OE3}} --- {\scriptsize Integra\c{c}\~{a}o YOLO--DeepStream}}
+    \begin{itemize}\scriptsize
+      \item[\color{detectioncolor}$\blacktriangleright$] Fun\c{c}\~{o}es de \textit{parsing} em \textbf{C++} para YOLOv8
+      \item[\color{detectioncolor}$\blacktriangleright$] Roteamento autom\'{a}tico PGIE $\to$ SGIEs por classe
     \end{itemize}
-    \smallskip
   \end{block}
   }
 
@@ -180,24 +162,24 @@
     \begin{column}{0.48\textwidth}
       % --- C1 ---
       \begin{tikzpicture}
-        \fill[inputcolor] (0,0) rectangle (0.12,3.0);
-        \node[right, text width=42mm, align=left, font=\small] at (0.25,1.5) {
-          \textbf{Arquitetura em Cascata}\\[3pt]
-          {\footnotesize PGIE + 3 SGIEs especializados\\operando em ROIs recortadas}\\[5pt]
-          {\color{inputcolor}\fontsize{20}{24}\selectfont\textbf{4}} {\small modelos}\\
-          {\color{inputcolor}\fontsize{20}{24}\selectfont\textbf{46}} {\small categorias}
+        \fill[inputcolor] (0,0) rectangle (0.12,2.1);
+        \node[right, text width=42mm, align=left, font=\footnotesize] at (0.25,1.05) {
+          \textbf{Arquitetura em Cascata}\\[1pt]
+          {\scriptsize PGIE + 3 SGIEs em ROIs}\\[2pt]
+          {\color{inputcolor}\fontsize{14}{18}\selectfont\textbf{4}} {\footnotesize modelos}
+          {\color{inputcolor}\fontsize{14}{18}\selectfont\textbf{46}} {\footnotesize categorias}
         };
       \end{tikzpicture}
 
-      \vspace{4mm}
+      \vspace{1mm}
 
       % --- C3 ---
       \begin{tikzpicture}
-        \fill[neckcolor] (0,0) rectangle (0.12,2.6);
-        \node[right, text width=42mm, align=left, font=\small] at (0.25,1.3) {
-          \textbf{Pipeline DeepStream}\\[3pt]
-          {\footnotesize Processamento acelerado por\\hardware com TensorRT FP16}\\[5pt]
-          {\color{neckcolor}\fontsize{20}{24}\selectfont\textbf{58}} {\small ms lat\^{e}ncia}
+        \fill[neckcolor] (0,0) rectangle (0.12,1.8);
+        \node[right, text width=42mm, align=left, font=\footnotesize] at (0.25,0.9) {
+          \textbf{Pipeline DeepStream}\\[1pt]
+          {\scriptsize Acelerado por TensorRT FP16}\\[2pt]
+          {\color{neckcolor}\fontsize{14}{18}\selectfont\textbf{58}} {\footnotesize ms lat\^{e}ncia}
         };
       \end{tikzpicture}
     \end{column}
@@ -205,25 +187,25 @@
     \begin{column}{0.48\textwidth}
       % --- C2 ---
       \begin{tikzpicture}
-        \fill[headcolor] (0,0) rectangle (0.12,3.0);
-        \node[right, text width=42mm, align=left, font=\small] at (0.25,1.5) {
-          \textbf{Modelos Treinados}\\[3pt]
-          {\footnotesize YOLOv8 com \textit{transfer learning}\\e otimiza\c{c}\~{a}o TensorRT}\\[5pt]
-          {\color{headcolor}\fontsize{20}{24}\selectfont\textbf{FP16}} {\small precis\~{a}o}\\
-          {\color{headcolor}\fontsize{20}{24}\selectfont\textbf{mAP}} {\small validado}
+        \fill[headcolor] (0,0) rectangle (0.12,2.1);
+        \node[right, text width=42mm, align=left, font=\footnotesize] at (0.25,1.05) {
+          \textbf{Modelos Treinados}\\[1pt]
+          {\scriptsize YOLOv8 + transfer learning}\\[2pt]
+          {\color{headcolor}\fontsize{14}{18}\selectfont\textbf{FP16}} {\footnotesize precis\~{a}o}
+          {\color{headcolor}\fontsize{14}{18}\selectfont\textbf{mAP}} {\footnotesize validado}
         };
       \end{tikzpicture}
 
-      \vspace{4mm}
+      \vspace{1mm}
 
       % --- C4 ---
       \begin{tikzpicture}
-        \fill[outputcolor] (0,0) rectangle (0.12,2.6);
-        \node[right, text width=42mm, align=left, font=\small] at (0.25,1.3) {
-          \textbf{Valida\c{c}\~{a}o em Borda}\\[3pt]
-          {\footnotesize M\'{e}tricas reais no\\Jetson AGX Xavier}\\[5pt]
-          {\color{outputcolor}\fontsize{20}{24}\selectfont\textbf{20}} {\small FPS} \quad
-          {\color{outputcolor}\fontsize{20}{24}\selectfont\textbf{24}} {\small W}
+        \fill[outputcolor] (0,0) rectangle (0.12,1.8);
+        \node[right, text width=42mm, align=left, font=\footnotesize] at (0.25,0.9) {
+          \textbf{Valida\c{c}\~{a}o em Borda}\\[1pt]
+          {\scriptsize M\'{e}tricas reais no Jetson Xavier}\\[2pt]
+          {\color{outputcolor}\fontsize{14}{18}\selectfont\textbf{20}} {\footnotesize FPS} \quad
+          {\color{outputcolor}\fontsize{14}{18}\selectfont\textbf{24}} {\footnotesize W}
         };
       \end{tikzpicture}
     \end{column}

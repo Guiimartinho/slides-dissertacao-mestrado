@@ -15,7 +15,7 @@
         minimum width=2.2cm,
         minimum height=1.0cm,
         align=center,
-        font=\footnotesize\bfseries
+        font=\small\bfseries
     },
     pgie/.style={
         rectangle,
@@ -25,7 +25,7 @@
         minimum width=3.5cm,
         minimum height=1.2cm,
         align=center,
-        font=\footnotesize\bfseries,
+        font=\small\bfseries,
         line width=1pt
     },
     pgie_classes/.style={
@@ -35,7 +35,7 @@
         fill=blue!8,
         minimum width=3.2cm,
         align=left,
-        font=\tiny,
+        font=\scriptsize,
         inner sep=4pt
     },
     sgie/.style={
@@ -46,7 +46,7 @@
         minimum width=3.0cm,
         minimum height=1.0cm,
         align=center,
-        font=\footnotesize\bfseries,
+        font=\small\bfseries,
         line width=0.8pt
     },
     sgie_classes/.style={
@@ -56,7 +56,7 @@
         fill=teal!6,
         minimum width=2.8cm,
         align=left,
-        font=\tiny,
+        font=\scriptsize,
         inner sep=4pt
     },
     output/.style={
@@ -67,13 +67,13 @@
         minimum width=2.2cm,
         minimum height=1.0cm,
         align=center,
-        font=\footnotesize\bfseries,
+        font=\small\bfseries,
         line width=0.8pt
     },
     arrow/.style={->, >=stealth, thick, draw=black!50},
     arrow_pgie/.style={->, >=stealth, thick, draw=blue!50!black},
     arrow_sgie/.style={->, >=stealth, thick, draw=teal!50!black},
-    label_arrow/.style={font=\tiny, fill=white, inner sep=1pt}
+    label_arrow/.style={font=\scriptsize, fill=white, inner sep=1pt}
 ]
 
 % ============================================================================
@@ -134,13 +134,13 @@
 % ============================================================================
 % Título
 % ============================================================================
-\node[font=\small\bfseries, text=labelcolor] at (6.2, 3.5) {Arquitetura de Inferência em Cascata};
+\node[font=\normalsize\bfseries, text=labelcolor] at (6.2, 3.5) {Arquitetura de Inferência em Cascata};
 
 % Separador
 \draw[dashed, gray!40, line width=0.4pt] (6.0, 3.2) -- (6.0, -4.2);
 
 % Labels das seções
-\node[font=\tiny, gray] at (1.9, -2.5) {Detector Primário};
-\node[font=\tiny, gray] at (10.5, -4.0) {Detectores Secundários};
+\node[font=\scriptsize, gray] at (1.9, -2.5) {Detector Primário};
+\node[font=\scriptsize, gray] at (10.5, -4.0) {Detectores Secundários};
 
 \end{tikzpicture}

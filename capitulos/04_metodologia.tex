@@ -6,23 +6,22 @@
 
 % --- Slide: Arquitetura em Cascata ---
 \begin{frame}{Arquitetura em Cascata}
-  \vfill
+  \vspace{-2mm}
   \begin{center}
-    \resizebox{0.95\textwidth}{!}{\input{Figures/diagrama_cascata.tex}}
+    \resizebox{0.92\textwidth}{!}{\input{Figures/diagrama_cascata.tex}}
   \end{center}
 
-  \vspace{2mm}
+  \vspace{1mm}
 
   % Annotation bar
   \begin{center}
-    \small
     \begin{tikzpicture}
-      \node[fill=blue!10, rounded corners=3pt, inner sep=4pt, font=\footnotesize]
+      \node[fill=blue!10, rounded corners=3pt, inner sep=3pt, font=\scriptsize]
         (flow) {%
           \textbf{Fluxo:}\;
           Frame $\;\xrightarrow{\text{PGIE}}\;$
           5 classes $\;\xrightarrow{\text{ROI crop}}\;$
-          3 SGIEs especializados $\;\rightarrow\;$
+          3 SGIEs $\;\rightarrow\;$
           \textbf{46 categorias}
         };
     \end{tikzpicture}
@@ -30,11 +29,11 @@
 
   \vspace{1mm}
 
-  \begin{block}{}
-    \centering\small
-    \textbf{Vantagem:} cada SGIE opera apenas sobre a ROI relevante
-    --- menor carga computacional e maior precisao por dominio.
-  \end{block}
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\footnotesize\color{stagecolor}%
+      \textbf{Vantagem:} cada SGIE opera apenas sobre a ROI relevante --- menor carga computacional e maior precisão por domínio.}
+  \end{beamercolorbox}
   \vfill
 \end{frame}
 
@@ -44,24 +43,24 @@
   \begin{columns}[c]
     \begin{column}{0.62\textwidth}
       \centering
-      \small
-      \renewcommand{\arraystretch}{1.25}
-      \begin{tabular}{@{}lclc@{}}
+      \footnotesize
+      \renewcommand{\arraystretch}{1.2}
+      \begin{tabular}{@{}lcl>{\scriptsize}p{32mm}@{}}
         \toprule
-        \textbf{Modelo} & \textbf{Cls.} & \textbf{Entrada} & \textbf{Saida} \\
+        \textbf{Modelo} & \textbf{Cls.} & \textbf{Entrada} & \textbf{\scriptsize Sa\'{i}da} \\
         \midrule
         \rowcolor{inputcolor!12}
-        PGIE & 5 & Frame completo & Person, Vehicle, Hardhat, Vest, Tool \\
+        PGIE & 5 & Frame & Person, Vehicle, Hardhat, Vest, Tool \\
         \midrule
         \rowcolor{headcolor!12}
-        SGIE-EPI & 14 & ROI \textit{Person} & \scriptsize Capacete, colete, oculos, luva, bota\ldots \\
+        SGIE-EPI & 14 & ROI \textit{Person} & Capacete, colete, \'{o}culos, luva, bota\ldots \\
         \rowcolor{neckcolor!12}
-        SGIE-Maquinario & 9 & ROI \textit{Vehicle} & \scriptsize Escavadeira, guindaste, betoneira\ldots \\
+        SGIE-Maq & 9 & ROI \textit{Vehicle} & Escavadeira, guindaste, betoneira\ldots \\
         \rowcolor{outputcolor!12}
-        SGIE-Ferramentas & 23 & ROI \textit{Tool} & \scriptsize Serra, furadeira, martelo, andaime\ldots \\
+        SGIE-Fer & 23 & ROI \textit{Tool} & Serra, furadeira, martelo, andaime\ldots \\
         \midrule
         \rowcolor{labelcolor!8}
-        \textbf{Total} & \textbf{46} & & \textbf{\textit{categorias unicas}} \\
+        \textbf{Total} & \textbf{46} & & \textbf{categorias \'{u}nicas} \\
         \bottomrule
       \end{tabular}
     \end{column}
@@ -86,141 +85,81 @@
   \vfill
 \end{frame}
 
-% --- Slide: Datasets ---
-\begin{frame}{Datasets}
-  \vfill
+% --- Slide: Datasets e Curadoria (mesclado) ---
+\begin{frame}{Datasets e Curadoria}
+  \vspace{-2mm}
   \centering
-  \small
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{@{}llcll@{}}
+  \scriptsize
+  \renewcommand{\arraystretch}{1.05}
+  \begin{tabular}{@{}llcl@{}}
     \toprule
-    \textbf{Modelo} & \textbf{Dataset} & \textbf{Classes} & \textbf{Foco} & \textbf{Tipo} \\
+    \textbf{Modelo} & \textbf{Dataset(s)} & \textbf{Cls.} & \textbf{Foco} \\
     \midrule
     \rowcolor{inputcolor!8}
-    \multirow{3}{*}{PGIE} & SODA & 20 & Canteiros reais & Publico \\
-    \rowcolor{inputcolor!8}
-                           & MOCS & -- & Maquinas e equipamentos & Publico \\
-    \rowcolor{inputcolor!8}
-                           & Roboflow Construction & -- & Complementos & Publico \\
-    \midrule
+    PGIE & SODA + MOCS + Roboflow Constr. & 5 & Canteiros reais \\
     \rowcolor{headcolor!8}
-    \multirow{3}{*}{SGIE-EPI} & SHWD & 2 & Capacetes (${\sim}7.500$ img) & Publico \\
-    \rowcolor{headcolor!8}
-                               & GDUT-HWD & 2 & Capacetes verificados & Publico \\
-    \rowcolor{headcolor!8}
-                               & PPE Detection & 6+ & Multiplos EPIs & Roboflow \\
-    \midrule
+    SGIE-EPI & SHWD + GDUT-HWD + PPE Det. & 14 & Capacetes, coletes, EPIs \\
     \rowcolor{neckcolor!8}
-    SGIE-Maq. & Construction Vehicles + Heavy Equip. & 9 & Maquinario pesado & Publico \\
-    \midrule
+    SGIE-Maq. & Construction Vehicles + Heavy Eq. & 9 & Maquinario pesado \\
     \rowcolor{outputcolor!8}
-    SGIE-Fer. & Construction Tools + Safety Equip. & 23 & Ferramentas e materiais & Publico \\
+    SGIE-Fer. & Construction Tools + Safety Eq. & 23 & Ferramentas e materiais \\
     \bottomrule
   \end{tabular}
 
-  \vspace{4mm}
+  \vspace{1mm}
 
-  \begin{columns}[c]
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Formato}
-        \centering\footnotesize
-        Todas as anotacoes convertidas para \textbf{YOLO format}\\
-        (\texttt{class x\_center y\_center w h})
-      \end{block}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{alertblock}{Split (todos os modelos)}
-        \centering\footnotesize
-        \textbf{70\% / 20\% / 10\%}\\
-        treino / validacao / teste
-      \end{alertblock}
-    \end{column}
-  \end{columns}
-  \vfill
-\end{frame}
-
-% --- Slide: Curadoria dos Datasets ---
-\begin{frame}{Curadoria dos Datasets}
-  \vfill
+  % Curadoria pipeline
   \begin{center}
-    \resizebox{0.92\textwidth}{!}{%
+    \resizebox{0.90\textwidth}{!}{%
     \begin{tikzpicture}[
-      step/.style={rectangle, rounded corners=4pt, draw=#1!60!black,
-                   fill=#1!15, minimum width=28mm, minimum height=12mm,
-                   align=center, font=\footnotesize\bfseries, line width=0.8pt},
-      arr/.style={-{Latex[length=2mm]}, thick, draw=arrowcolor},
-      note/.style={font=\tiny, text=sublabelcolor, align=center}
+      mystep/.style={rectangle, rounded corners=3pt,
+                   minimum width=18mm, minimum height=7mm,
+                   align=center, font=\tiny\bfseries, line width=0.7pt},
+      arr/.style={-{Latex[length=1.5mm]}, thick, draw=arrowcolor},
     ]
-      \node[step=inputcolor] (s1) at (0,0) {Coleta de\\Datasets};
-      \node[step=neckcolor]  (s2) at (3.5,0) {Remocao de\\Duplicatas};
-      \node[step=headcolor]  (s3) at (7,0) {Padronizacao\\de Classes};
-      \node[step=outputcolor](s4) at (10.5,0) {Balanceamento\\por Classe};
-      \node[step=detectioncolor](s5) at (14,0) {Split\\70/20/10};
+      \node[mystep, draw=inputcolor!60!black, fill=inputcolor!15] (s1) at (0,0) {Coleta};
+      \node[mystep, draw=neckcolor!60!black, fill=neckcolor!15]  (s2) at (2.4,0) {Remo\c{c}\~{a}o\\Duplicatas};
+      \node[mystep, draw=headcolor!60!black, fill=headcolor!15]  (s3) at (4.8,0) {Padroniza\c{c}\~{a}o\\Classes};
+      \node[mystep, draw=outputcolor!60!black, fill=outputcolor!15](s4) at (7.2,0) {Balanceamento};
+      \node[mystep, draw=detectioncolor!60!black, fill=detectioncolor!15](s5) at (9.6,0) {Split\\70/20/10};
 
       \draw[arr] (s1) -- (s2);
       \draw[arr] (s2) -- (s3);
       \draw[arr] (s3) -- (s4);
       \draw[arr] (s4) -- (s5);
-
-      \node[note, below=4mm of s1] {SODA, MOCS,\\SHWD, Roboflow};
-      \node[note, below=4mm of s2] {\textit{Hashing}\\perceptual};
-      \node[note, below=4mm of s3] {Mapeamento\\entre datasets};
-      \node[note, below=4mm of s4] {Sub/sobre-\\amostragem};
-      \node[note, below=4mm of s5] {Treino/val./teste\\estratificado};
     \end{tikzpicture}
     }
   \end{center}
 
-  \vspace{4mm}
-
-  \begin{columns}[c]
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Verificacao Manual}
-        \begin{itemize}\footnotesize
-          \item Revisao de anotacoes incorretas
-          \item Correcao de \textit{bounding boxes}
-          \item Remocao de imagens corrompidas
-        \end{itemize}
-      \end{block}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Padronizacao}
-        \begin{itemize}\footnotesize
-          \item Unificacao de \textit{labels} entre fontes
-          \item Conversao para formato YOLO
-          \item Resolucao de conflitos de classe
-        \end{itemize}
-      \end{block}
-    \end{column}
-  \end{columns}
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\scriptsize\color{stagecolor}%
+      Revisão de anotações, hashing perceptual p/ duplicatas, unificação de labels.
+      Formato \textbf{YOLO} --- Split: \textbf{70/20/10} estratificado.}
+  \end{beamercolorbox}
   \vfill
 \end{frame}
 
 % --- Slide: Distribuicao PGIE ---
 \begin{frame}{Distribuicao de Classes --- PGIE}
-  \vfill
+  \vspace{-2mm}
   \begin{columns}[c]
-    \begin{column}{0.6\textwidth}
+    \begin{column}{0.58\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{labels_pgie.jpg}
+      \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{labels_pgie.jpg}
     \end{column}
-    \begin{column}{0.37\textwidth}
-      \textbf{5 classes:}
-      \vspace{2mm}
-      \begin{itemize}\small
-        \item Person, Vehicle, Hardhat,\\Safety Vest, Tool
-        \vspace{2mm}
-        \item Classe \textit{Person} predominante\\--- reflete cenarios reais
-        \vspace{2mm}
-        \item Desbalanceamento natural mitigado via \textit{data augmentation}
+    \begin{column}{0.39\textwidth}
+      {\footnotesize\textbf{5 classes:}}
+      \begin{itemize}\scriptsize
+        \setlength{\itemsep}{0.5mm}
+        \item Person, Vehicle, Hardhat, Safety Vest, Tool
+        \item \textit{Person} predominante
+        \item Desbalanceamento mitigado via augmentation
       \end{itemize}
 
-      \vspace{3mm}
+      \vspace{1mm}
 
-      \begin{block}{\footnotesize Distribuicao Espacial}
-        \footnotesize
-        Concentracao central com dispersao uniforme --- boa cobertura do campo visual.
-      \end{block}
+      {\scriptsize\color{stagecolor} Concentração central com dispersão uniforme --- boa cobertura do campo visual.}
     \end{column}
   \end{columns}
   \vfill
@@ -228,33 +167,31 @@
 
 % --- Slide: Distribuicao SGIEs ---
 \begin{frame}{Distribuicao de Classes --- SGIEs}
-  \vfill
+  \vspace{-1mm}
   \begin{columns}[c]
     \begin{column}{0.5\textwidth}
       \centering
-      {\footnotesize\textbf{SGIE-Ferramentas} (23 classes)}\\[2mm]
-      \includegraphics[width=\textwidth]{labels_sgie_equipment.jpg}
+      {\footnotesize\textbf{SGIE-Ferramentas} (23 classes)}\\[1mm]
+      \includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{labels_sgie_equipment.jpg}
 
-      \vspace{1mm}
       {\tiny Desbalanceamento significativo entre categorias}
     \end{column}
     \begin{column}{0.5\textwidth}
       \centering
-      {\footnotesize\textbf{SGIE-Maquinario} (9 classes)}\\[2mm]
-      \includegraphics[width=\textwidth]{labels_sgie_machinery.jpg}
+      {\footnotesize\textbf{SGIE-Maquinario} (9 classes)}\\[1mm]
+      \includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{labels_sgie_machinery.jpg}
 
-      \vspace{1mm}
       {\tiny Distribuicao mais equilibrada entre as classes}
     \end{column}
   \end{columns}
 
-  \vspace{3mm}
+  \vspace{1mm}
 
-  \begin{block}{}
-    \centering\footnotesize
-    O SGIE-EPI (14 classes) utiliza datasets especializados (SHWD, GDUT-HWD, PPE Detection)
-    com foco em presenca/ausencia de EPIs --- distribuicao controlada por par positivo/negativo.
-  \end{block}
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\scriptsize\color{stagecolor}%
+      SGIE-EPI (14 cls): datasets SHWD, GDUT-HWD, PPE Detection --- presença/ausência de EPIs com pares positivo/negativo.}
+  \end{beamercolorbox}
   \vfill
 \end{frame}
 
@@ -291,109 +228,83 @@
   \vfill
 \end{frame}
 
-% --- Slide: Hiperparametros de Treinamento ---
-\begin{frame}{Treinamento --- Hiperparametros}
-  \vfill
-  \begin{center}
-    \small
-    \renewcommand{\arraystretch}{1.25}
-    \begin{tabular}{@{}lcc@{}}
-      \toprule
-      \textbf{Parametro} & \textbf{PGIE} & \textbf{SGIEs} \\
-      \midrule
-      \rowcolor{bgbox}
-      Modelo base & YOLOv8m & YOLOv8s \\
-      Resolucao & $640 \times 640$ & $320 \times 320$ \\
-      \rowcolor{bgbox}
-      Batch size & 16 & 32 \\
-      Epocas maximas & 300 & 200 \\
-      \rowcolor{bgbox}
-      Otimizador & SGD & SGD \\
-      LR inicial ($lr_0$) & 0,01 & 0,01 \\
-      \rowcolor{bgbox}
-      LR final ($lr_f$) & 0,01 & 0,01 \\
-      Momentum & 0,937 & 0,937 \\
-      \rowcolor{bgbox}
-      Weight decay & 0,0005 & 0,0005 \\
-      Warmup epochs & 3,0 & 3,0 \\
-      \rowcolor{bgbox}
-      Early stopping & 50 epocas & 30 epocas \\
-      \bottomrule
-    \end{tabular}
-  \end{center}
+% --- Slide: Hiperparâmetros + Pipeline de Otimização (mesclado) ---
+\begin{frame}{Treinamento e Otimiza\c{c}\~{a}o para Borda}
+  \vspace{-2mm}
 
-  \vspace{3mm}
+  \begin{columns}[T]
+    \begin{column}{0.46\textwidth}
+      {\small\color{inputcolor}\textbf{Hiperpar\^{a}metros}}
+      \vspace{1mm}
 
-  \begin{columns}[c]
-    \begin{column}{0.48\textwidth}
-      \begin{block}{\footnotesize Funcao de Perda}
-        \footnotesize
-        $\mathcal{L} = \lambda_{box}\mathcal{L}_{box} + \lambda_{dfl}\mathcal{L}_{dfl} + \lambda_{cls}\mathcal{L}_{cls}$\\[1mm]
-        {\scriptsize CIoU + Distribution Focal + BCE}
+      \centering
+      \scriptsize
+      \renewcommand{\arraystretch}{1.15}
+      \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Par\^{a}metro} & \textbf{PGIE} & \textbf{SGIEs} \\
+        \midrule
+        \rowcolor{bgbox}
+        Modelo & YOLOv8m & YOLOv8s \\
+        Resolu\c{c}\~{a}o & 640 & 320 \\
+        \rowcolor{bgbox}
+        Batch & 16 & 32 \\
+        \'{E}pocas & 300 & 200 \\
+        \rowcolor{bgbox}
+        Otimizador & SGD & SGD \\
+        LR & 0,01 & 0,01 \\
+        \rowcolor{bgbox}
+        Early stop & 50 ep. & 30 ep. \\
+        \bottomrule
+      \end{tabular}
+
+      \vspace{2mm}
+
+      \begin{block}{\scriptsize Perda}
+        \centering\tiny
+        $\mathcal{L} = \lambda_{box}\mathcal{L}_{box} + \lambda_{dfl}\mathcal{L}_{dfl} + \lambda_{cls}\mathcal{L}_{cls}$\\
+        {\tiny CIoU + Distrib.\ Focal + BCE}
       \end{block}
     \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{block}{\footnotesize Ambiente}
-        \footnotesize
-        RTX 4070 (12\,GB), PyTorch 2.0\\
-        Ultralytics YOLOv8 v8.0
-      \end{block}
-    \end{column}
-  \end{columns}
-  \vfill
-\end{frame}
+    \begin{column}{0.50\textwidth}
+      {\small\color{outputcolor}\textbf{Pipeline de Otimiza\c{c}\~{a}o}}
+      \vspace{1mm}
 
-% --- Slide: Pipeline de Otimizacao ---
-\begin{frame}{Pipeline de Otimizacao para Borda}
-  \vfill
-  \begin{center}
-    \resizebox{0.95\textwidth}{!}{%
-    \begin{tikzpicture}[node distance=16mm]
-      \node[inputblock, minimum width=28mm, minimum height=14mm]
-        (pt) {\textbf{PyTorch}\\(.pt)};
-      \node[backboneblock, right=of pt, minimum width=28mm, minimum height=14mm]
-        (onnx) {\textbf{ONNX}\\(.onnx)};
-      \node[detectionblock, right=of onnx, minimum width=32mm, minimum height=14mm]
-        (trt) {\textbf{TensorRT}\\FP16 (.engine)};
-      \node[outputblock, right=of trt, minimum width=28mm, minimum height=14mm]
-        (ds) {\textbf{DeepStream}\\Inferencia};
+      \begin{center}
+        \resizebox{1.05\textwidth}{!}{%
+        \begin{tikzpicture}[node distance=10mm]
+          \node[inputblock, minimum width=24mm, minimum height=12mm, font=\small]
+            (pt) {\textbf{PyTorch}\\(.pt)};
+          \node[backboneblock, right=of pt, minimum width=24mm, minimum height=12mm, font=\small]
+            (onnx) {\textbf{ONNX}};
+          \node[detectionblock, right=of onnx, minimum width=26mm, minimum height=12mm, font=\small]
+            (trt) {\textbf{TensorRT}\\FP16};
+          \node[outputblock, right=of trt, minimum width=24mm, minimum height=12mm, font=\small]
+            (ds) {\textbf{Deploy}\\Jetson};
 
-      \draw[arrow] (pt) -- node[above, font=\scriptsize\bfseries] {export} (onnx);
-      \draw[arrow] (onnx) -- node[above, font=\scriptsize\bfseries] {otimizacao} (trt);
-      \draw[arrow] (trt) -- node[above, font=\scriptsize\bfseries] {deploy} (ds);
+          \draw[arrow] (pt) -- (onnx);
+          \draw[arrow] (onnx) -- (trt);
+          \draw[arrow] (trt) -- (ds);
+        \end{tikzpicture}
+        }
+      \end{center}
 
-      % Annotations below
-      \node[below=5mm of pt, font=\tiny, align=center, text=sublabelcolor]
-        {Treinamento\\GPU desktop};
-      \node[below=5mm of onnx, font=\tiny, align=center, text=sublabelcolor]
-        {Formato\\intermediario};
-      \node[below=5mm of trt, font=\tiny, align=center, text=sublabelcolor]
-        {Quantizacao FP16\\Fusao de camadas};
-      \node[below=5mm of ds, font=\tiny, align=center, text=sublabelcolor]
-        {Jetson AGX Xavier\\tempo real};
-    \end{tikzpicture}
-    }
-  \end{center}
+      \vspace{2mm}
 
-  \vspace{5mm}
-
-  \begin{columns}[c]
-    \begin{column}{0.48\textwidth}
-      \begin{block}{\footnotesize Otimizacoes TensorRT}
-        \begin{itemize}\scriptsize
-          \item \textbf{Quantizacao FP16}: speedup ${\sim}$1.5--2x
-          \item \textbf{Fusao de camadas}: Conv+BN+ReLU
-          \item \textbf{Selecao de kernels}: otimizados p/ GPU alvo
-        \end{itemize}
-      \end{block}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{block}{\footnotesize Conversao no Dispositivo}
-        \begin{itemize}\scriptsize
+      \begin{block}{\scriptsize Otimiza\c{c}\~{o}es TensorRT}
+        \begin{itemize}\tiny
+          \item \textbf{Quantiza\c{c}\~{a}o FP16}: speedup ${\sim}$1,7$\times$
+          \item \textbf{Fus\~{a}o de camadas}: Conv+BN+ReLU
+          \item \textbf{Sele\c{c}\~{a}o de kernels}: otimizados p/ GPU
           \item Compilado \textbf{diretamente no Jetson}
-          \item Garante otimizacao especifica p/ hw
-          \item Engine nao portavel entre GPUs
         \end{itemize}
+      \end{block}
+
+      \vspace{1mm}
+
+      \begin{block}{\scriptsize Ambiente}
+        \centering\tiny
+        RTX 4070 (12\,GB), PyTorch 2.0, Ultralytics v8.0
       \end{block}
     \end{column}
   \end{columns}

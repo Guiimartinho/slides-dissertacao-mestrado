@@ -1,0 +1,56 @@
+% ============================================================================
+% Barra Empilhada Horizontal - Latência do Pipeline (58ms)
+% Para dissertação de mestrado PPGC/UFRGS
+% Uso: \input{Figures/diagrama_latencia.tex}
+% ============================================================================
+
+\begin{tikzpicture}[x=0.16cm, y=0.7cm]
+  % Segments: Decodificação(5.0), PGIE(18.5), SGIE-EPI(8.4), SGIE-Maq(7.8), SGIE-Fer(7.2), Tracker(4.8), OSD(6.3)
+  \def\barH{0.7}
+
+  % Decodificação: 0 - 5.0
+  \fill[backbonecolor!50] (0, 0) rectangle (5.0, \barH);
+  \node[font=\tiny\bfseries, text=white] at (2.5, \barH/2) {Dec};
+
+  % PGIE: 5.0 - 23.5
+  \fill[skipcolor!70] (5.0, 0) rectangle (23.5, \barH);
+  \node[font=\scriptsize\bfseries, text=white] at (14.25, \barH/2) {PGIE 18,5ms};
+
+  % SGIE-EPI: 23.5 - 31.9
+  \fill[detectioncolor!60] (23.5, 0) rectangle (31.9, \barH);
+  \node[font=\tiny\bfseries, text=white] at (27.7, \barH/2) {EPI 8,4};
+
+  % SGIE-Maq: 31.9 - 39.7
+  \fill[neckcolor!50] (31.9, 0) rectangle (39.7, \barH);
+  \node[font=\tiny\bfseries, text=white] at (35.8, \barH/2) {Maq 7,8};
+
+  % SGIE-Fer: 39.7 - 46.9
+  \fill[gridcolor!60] (39.7, 0) rectangle (46.9, \barH);
+  \node[font=\tiny\bfseries] at (43.3, \barH/2) {Fer 7,2};
+
+  % Tracker: 46.9 - 51.7
+  \fill[cpucolor!40] (46.9, 0) rectangle (51.7, \barH);
+  \node[font=\tiny\bfseries, text=white] at (49.3, \barH/2) {Trk};
+
+  % OSD: 51.7 - 58.0
+  \fill[outputcolor!50] (51.7, 0) rectangle (58.0, \barH);
+  \node[font=\tiny\bfseries] at (54.85, \barH/2) {OSD};
+
+  % Border
+  \draw[stagecolor!60, line width=0.5pt] (0, 0) rectangle (58.0, \barH);
+
+  % Total label
+  \node[font=\small\bfseries, anchor=west] at (59, \barH/2) {58\,ms};
+
+  % Brace for inference portion
+  \draw[decorate, decoration={brace, amplitude=4pt, mirror}, thick, draw=skipcolor!70]
+    (5.0, -0.2) -- (46.9, -0.2)
+    node[midway, below=5pt, font=\scriptsize\bfseries, text=skipcolor] {Infer\^{e}ncia: 41,9\,ms (72\%)};
+
+  % Scale ticks
+  \foreach \x/\lab in {0/0, 10/10, 20/20, 30/30, 40/40, 50/50, 58/58} {
+    \draw[gray!50, thin] (\x, \barH) -- (\x, \barH+0.12);
+    \node[font=\tiny, text=sublabelcolor, above] at (\x, \barH+0.1) {\lab};
+  }
+  \node[font=\tiny, text=sublabelcolor, above] at (29, \barH+0.35) {ms};
+\end{tikzpicture}

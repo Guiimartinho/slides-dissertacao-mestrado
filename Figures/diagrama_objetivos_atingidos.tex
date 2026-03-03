@@ -1,0 +1,79 @@
+% ============================================================================
+% Diagrama Objetivos Atingidos - OE1 a OE4 com resultados
+% Para dissertação de mestrado PPGC/UFRGS
+% Uso: \input{Figures/diagrama_objetivos_atingidos.tex}
+% ============================================================================
+
+\begin{tikzpicture}[scale=0.85, transform shape]
+  \def\rowH{1.6}
+  \def\objW{5.2}
+  \def\resW{5.8}
+  \def\gap{1.4}
+
+  % --- OE1 ---
+  \fill[backbonecolor] (0, 0) rectangle (0.12, -\rowH+0.2);
+  \node[fill=backbonecolor!10, rounded corners=3pt, minimum height=12mm, minimum width=\objW cm,
+        font=\footnotesize, align=left, anchor=west, draw=backbonecolor!30] (oe1l)
+    at (0.25, -\rowH/2+0.1) {
+      \textbf{OE1:} Treinar 4 modelos YOLOv8\\
+      {\scriptsize PGIE (5 cls) + 3 SGIEs especializados}
+    };
+  \node[fill=headcolor!10, rounded corners=3pt, minimum height=12mm, minimum width=\resW cm,
+        font=\footnotesize, align=left, anchor=west, draw=headcolor!30] (oe1r)
+    at (\objW+\gap, -\rowH/2+0.1) {
+      {\color{headcolor}$\boldsymbol{\checkmark}$} mAP: 0,83 / 0,77 / 0,84 / 0,71\\
+      {\scriptsize 46 categorias \'{u}nicas treinadas e validadas}
+    };
+  \draw[arrow, line width=0.9pt] (oe1l.east) -- (oe1r.west);
+
+  % --- OE2 ---
+  \def\r{1}
+  \fill[neckcolor] (0, -\r*\rowH) rectangle (0.12, -\r*\rowH-\rowH+0.2);
+  \node[fill=neckcolor!10, rounded corners=3pt, minimum height=12mm, minimum width=\objW cm,
+        font=\footnotesize, align=left, anchor=west, draw=neckcolor!30] (oe2l)
+    at (0.25, -\r*\rowH-\rowH/2+0.1) {
+      \textbf{OE2:} Pipeline DeepStream em cascata\\
+      {\scriptsize PGIE $\to$ SGIEs com rastreamento}
+    };
+  \node[fill=headcolor!10, rounded corners=3pt, minimum height=12mm, minimum width=\resW cm,
+        font=\footnotesize, align=left, anchor=west, draw=headcolor!30] (oe2r)
+    at (\objW+\gap, -\r*\rowH-\rowH/2+0.1) {
+      {\color{headcolor}$\boldsymbol{\checkmark}$} 20 FPS / 58\,ms lat\^{e}ncia end-to-end\\
+      {\scriptsize Pipeline funcional com 4 modelos simult\^{a}neos}
+    };
+  \draw[arrow, line width=0.9pt] (oe2l.east) -- (oe2r.west);
+
+  % --- OE3 ---
+  \def\r{2}
+  \fill[detectioncolor] (0, -\r*\rowH) rectangle (0.12, -\r*\rowH-\rowH+0.2);
+  \node[fill=detectioncolor!10, rounded corners=3pt, minimum height=12mm, minimum width=\objW cm,
+        font=\footnotesize, align=left, anchor=west, draw=detectioncolor!30] (oe3l)
+    at (0.25, -\r*\rowH-\rowH/2+0.1) {
+      \textbf{OE3:} Parser C++ YOLOv8--DeepStream\\
+      {\scriptsize Roteamento PGIE $\to$ SGIEs por classe}
+    };
+  \node[fill=headcolor!10, rounded corners=3pt, minimum height=12mm, minimum width=\resW cm,
+        font=\footnotesize, align=left, anchor=west, draw=headcolor!30] (oe3r)
+    at (\objW+\gap, -\r*\rowH-\rowH/2+0.1) {
+      {\color{headcolor}$\boldsymbol{\checkmark}$} Biblioteca .so compilada e integrada\\
+      {\scriptsize Decodifica\c{c}\~{a}o anchor-free + NMS + roteamento}
+    };
+  \draw[arrow, line width=0.9pt] (oe3l.east) -- (oe3r.west);
+
+  % --- OE4 ---
+  \def\r{3}
+  \fill[outputcolor] (0, -\r*\rowH) rectangle (0.12, -\r*\rowH-\rowH+0.2);
+  \node[fill=outputcolor!10, rounded corners=3pt, minimum height=12mm, minimum width=\objW cm,
+        font=\footnotesize, align=left, anchor=west, draw=outputcolor!30] (oe4l)
+    at (0.25, -\r*\rowH-\rowH/2+0.1) {
+      \textbf{OE4:} Avalia\c{c}\~{a}o de desempenho\\
+      {\scriptsize Acur\'{a}cia, velocidade e recursos}
+    };
+  \node[fill=headcolor!10, rounded corners=3pt, minimum height=12mm, minimum width=\resW cm,
+        font=\footnotesize, align=left, anchor=west, draw=headcolor!30] (oe4r)
+    at (\objW+\gap, -\r*\rowH-\rowH/2+0.1) {
+      {\color{headcolor}$\boldsymbol{\checkmark}$} GPU 82\% | RAM 18\% | 24\,W\\
+      {\scriptsize M\'{e}tricas completas no Jetson AGX Xavier}
+    };
+  \draw[arrow, line width=0.9pt] (oe4l.east) -- (oe4r.west);
+\end{tikzpicture}

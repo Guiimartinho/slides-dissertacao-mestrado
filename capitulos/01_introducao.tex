@@ -10,11 +10,6 @@
 \end{frame}
 }
 
-% --- Slide 2: Sumario ---
-\begin{frame}{Sum\'{a}rio}
-  \tableofcontents
-\end{frame}
-
 % ============================================================================
 \section{Introdu\c{c}\~{a}o}
 % ============================================================================
@@ -75,9 +70,9 @@
     \begin{column}{0.30\textwidth}
       \centering
       \begin{tikzpicture}
-        \node[fill=skipcolor!12, rounded corners=4pt, inner sep=8pt, minimum width=32mm] {
-          \begin{minipage}{28mm}\centering
-            {\color{skipcolor}\fontsize{36}{40}\selectfont\textbf{2,78M}}\\[4pt]
+        \node[fill=skipcolor!12, rounded corners=4pt, inner sep=6pt, minimum width=38mm] {
+          \begin{minipage}{34mm}\centering
+            {\color{skipcolor}\fontsize{30}{34}\selectfont\textbf{2,78M}}\\[3pt]
             {\small mortes/ano por\\acidentes de trabalho}\\[2pt]
             {\tiny\color{sublabelcolor} Fonte: OIT, 2024}
           \end{minipage}
@@ -93,9 +88,9 @@
     \begin{column}{0.30\textwidth}
       \centering
       \begin{tikzpicture}
-        \node[fill=inputcolor!10, rounded corners=4pt, inner sep=8pt, minimum width=32mm] {
-          \begin{minipage}{28mm}\centering
-            {\color{inputcolor}\fontsize{36}{40}\selectfont\textbf{600k}}\\[4pt]
+        \node[fill=inputcolor!10, rounded corners=4pt, inner sep=6pt, minimum width=38mm] {
+          \begin{minipage}{34mm}\centering
+            {\color{inputcolor}\fontsize{30}{34}\selectfont\textbf{600k}}\\[3pt]
             {\small acidentes registrados\\no Brasil em 2022}\\[2pt]
             {\tiny\color{sublabelcolor} 12\% na constru\c{c}\~{a}o}
           \end{minipage}
@@ -111,9 +106,9 @@
     \begin{column}{0.30\textwidth}
       \centering
       \begin{tikzpicture}
-        \node[fill=outputcolor!12, rounded corners=4pt, inner sep=8pt, minimum width=32mm] {
-          \begin{minipage}{28mm}\centering
-            {\color{outputcolor}\fontsize{36}{40}\selectfont\textbf{$<$40\%}}\\[4pt]
+        \node[fill=outputcolor!12, rounded corners=4pt, inner sep=6pt, minimum width=38mm] {
+          \begin{minipage}{34mm}\centering
+            {\color{outputcolor}\fontsize{30}{34}\selectfont\textbf{$<$40\%}}\\[3pt]
             {\small taxa de detec\c{c}\~{a}o\\na vigil\^{a}ncia manual}\\[2pt]
             {\tiny\color{sublabelcolor} Teizer, 2015}
           \end{minipage}
@@ -142,7 +137,7 @@
     Mas \textbf{onde} processar os dados?}
   \end{center}
 
-  \vspace{4mm}
+  \vspace{3mm}
 
   \begin{columns}[T]
     \begin{column}{0.46\textwidth}
@@ -150,14 +145,12 @@
       \setbeamercolor{block title}{fg=white, bg=skipcolor!85}
       \setbeamercolor{block body}{bg=skipcolor!6}
       \begin{block}{\centering Nuvem}
-        \smallskip
-        \begin{itemize}
+        \begin{itemize}\small
           \item[\color{skipcolor}$\boldsymbol{\times}$] Lat\^{e}ncia: 200--500\,ms
           \item[\color{skipcolor}$\boldsymbol{\times}$] Banda: 3--10\,Mbps/c\^{a}m
           \item[\color{skipcolor}$\boldsymbol{\times}$] Falha se sem internet
           \item[\color{skipcolor}$\boldsymbol{\times}$] Custo recorrente
         \end{itemize}
-        \smallskip
       \end{block}
       }
     \end{column}
@@ -166,24 +159,22 @@
       \setbeamercolor{block title}{fg=white, bg=headcolor!85}
       \setbeamercolor{block body}{bg=headcolor!6}
       \begin{block}{\centering Borda (Edge AI)}
-        \smallskip
-        \begin{itemize}
+        \begin{itemize}\small
           \item[\color{headcolor}$\boldsymbol{\checkmark}$] Lat\^{e}ncia: $<$100\,ms
           \item[\color{headcolor}$\boldsymbol{\checkmark}$] Sem depend\^{e}ncia de rede
           \item[\color{headcolor}$\boldsymbol{\checkmark}$] Privacidade local
           \item[\color{headcolor}$\boldsymbol{\checkmark}$] Custo fixo (hardware)
         \end{itemize}
-        \smallskip
       \end{block}
       }
     \end{column}
   \end{columns}
 
-  \vspace{5mm}
+  \vspace{3mm}
 
   \begin{center}
     \begin{tikzpicture}
-      \node[fill=headcolor!12, rounded corners=3pt, inner sep=6pt, text width=0.82\textwidth, align=center] {
+      \node[fill=headcolor!12, rounded corners=3pt, inner sep=5pt, text width=0.82\textwidth, align=center] {
         {\small\textbf{Canteiros de obra} t\^{e}m conectividade inst\'{a}vel e exigem resposta imediata.\\
         A \textbf{computa\c{c}\~{a}o de borda} \'{e} a escolha natural.}
       };
@@ -206,40 +197,40 @@
     \end{tikzpicture}
   \end{center}
 
-  \vspace{3mm}
+  \vspace{1mm}
 
-  % --- Cascade Diagram - Vertical flow ---
+  % --- Cascade Diagram - Horizontal flow ---
   \begin{center}
     \resizebox{0.92\textwidth}{!}{%
     \begin{tikzpicture}[
       node distance=6mm and 12mm,
-      every node/.style={font=\small, align=center},
-      sgienode/.style={draw, rounded corners=3pt, minimum height=13mm, minimum width=30mm, font=\small, align=center},
+      every node/.style={font=\normalsize, align=center},
+      sgienode/.style={draw, rounded corners=3pt, minimum height=14mm, minimum width=32mm, font=\normalsize, align=center},
     ]
       % Camera
-      \node[inputblock, minimum width=26mm, minimum height=14mm] (cam) {
-        \textbf{C\^{a}mera}\\{\scriptsize RTSP Stream}
+      \node[inputblock, minimum width=28mm, minimum height=15mm] (cam) {
+        \textbf{C\^{a}mera}\\{\small RTSP Stream}
       };
 
       % PGIE
-      \node[backboneblock, right=14mm of cam, minimum width=32mm, minimum height=14mm] (pgie) {
-        \textbf{PGIE}\\{\scriptsize 5 classes gerais}
+      \node[backboneblock, right=14mm of cam, minimum width=34mm, minimum height=15mm] (pgie) {
+        \textbf{PGIE}\\{\small 5 classes gerais}
       };
 
       % SGIEs - spread vertically
       \node[sgienode, fill=roicolor!15, right=16mm of pgie, yshift=18mm] (sgie1) {
-        \textbf{SGIE-EPI}\\{\scriptsize 14 classes}
+        \textbf{SGIE-EPI}\\{\small 14 classes}
       };
       \node[sgienode, fill=neckcolor!12, right=16mm of pgie] (sgie2) {
-        \textbf{SGIE-Maq}\\{\scriptsize 9 classes}
+        \textbf{SGIE-Maq}\\{\small 9 classes}
       };
       \node[sgienode, fill=gridcolor!15, right=16mm of pgie, yshift=-18mm] (sgie3) {
-        \textbf{SGIE-Fer}\\{\scriptsize 23 classes}
+        \textbf{SGIE-Fer}\\{\small 23 classes}
       };
 
       % Output
-      \node[outputblock, right=16mm of sgie2, minimum width=26mm, minimum height=14mm] (alerta) {
-        \textbf{Alerta}\\{\scriptsize Tempo Real}
+      \node[outputblock, right=16mm of sgie2, minimum width=28mm, minimum height=15mm] (alerta) {
+        \textbf{Alerta}\\{\small Tempo Real}
       };
 
       % Arrows
@@ -247,11 +238,11 @@
 
       % PGIE to SGIEs with ROI labels
       \draw[arrow, line width=1pt] (pgie.east) -- (sgie1.west)
-        node[midway, above, font=\tiny\itshape, text=sublabelcolor] {ROI: pessoa};
+        node[midway, above, font=\scriptsize\itshape, text=sublabelcolor] {ROI: pessoa};
       \draw[arrow, line width=1pt] (pgie.east) -- (sgie2.west)
-        node[midway, above, font=\tiny\itshape, text=sublabelcolor] {ROI: ve\'{i}culo};
+        node[midway, above, font=\scriptsize\itshape, text=sublabelcolor] {ROI: ve\'{i}culo};
       \draw[arrow, line width=1pt] (pgie.east) -- (sgie3.west)
-        node[midway, below, font=\tiny\itshape, text=sublabelcolor] {ROI: ferramenta};
+        node[midway, below, font=\scriptsize\itshape, text=sublabelcolor] {ROI: ferramenta};
 
       % SGIEs to Alert
       \draw[arrow, line width=1pt] (sgie1.east) -- (alerta.west |- sgie1.east);
@@ -259,21 +250,20 @@
       \draw[arrow, line width=1pt] (sgie3.east) -- (alerta.west |- sgie3.east);
 
       % Annotations below
-      \node[below=3mm of cam, font=\tiny, text=sublabelcolor] {Entrada};
-      \node[below=3mm of pgie, font=\tiny, text=sublabelcolor] {Detector Prim\'{a}rio};
-      \node[below=3mm of sgie3, font=\tiny, text=sublabelcolor] {Detectores Secund\'{a}rios};
-      \node[below=3mm of alerta, font=\tiny, text=sublabelcolor] {Sa\'{i}da};
+      \node[below=3mm of cam, font=\scriptsize, text=sublabelcolor] {Entrada};
+      \node[below=3mm of pgie, font=\scriptsize, text=sublabelcolor] {Detector Prim\'{a}rio};
+      \node[below=3mm of sgie3, font=\scriptsize, text=sublabelcolor] {Detectores Secund\'{a}rios};
+      \node[below=3mm of alerta, font=\scriptsize, text=sublabelcolor] {Sa\'{i}da};
 
       % Total classes annotation
-      \node[below=22mm of sgie2, font=\scriptsize\bfseries, text=stagecolor] {
+      \node[below=22mm of sgie2, font=\small\bfseries, text=stagecolor] {
         46 categorias \'{u}nicas --- 4 modelos YOLOv8
       };
     \end{tikzpicture}
     }
   \end{center}
 
-  \vspace{1mm}
   \centering
-  {\footnotesize\color{stagecolor}\textbf{Infer\^{e}ncia em cascata na borda} --- NVIDIA Jetson AGX Xavier | DeepStream SDK}
+  {\scriptsize\color{stagecolor}\textbf{Infer\^{e}ncia em cascata na borda} --- NVIDIA Jetson AGX Xavier | DeepStream SDK}
   \vfill
 \end{frame}

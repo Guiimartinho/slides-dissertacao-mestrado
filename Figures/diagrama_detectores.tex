@@ -13,8 +13,8 @@
         rounded corners=3pt,
         minimum width=2.6cm,
         minimum height=0.7cm,
-        text centered,
-        font=\small\sffamily,
+        align=center,
+        font=\normalsize\sffamily,
         text=white,
         draw=none,
     },
@@ -30,9 +30,9 @@
     arrow/.style={-{Stealth[length=2mm, width=1.5mm]}, thick, arrowcolor},
     dashedarrow/.style={-{Stealth[length=2mm, width=1.5mm]}, thick, arrowcolor, dashed},
     % Estilos das labels
-    titlelabel/.style={font=\normalsize\sffamily\bfseries, text=labelcolor},
-    stagelabel/.style={font=\tiny\sffamily\bfseries, text=white, fill=stagecolor, rounded corners=2pt, inner sep=3pt},
-    sublabel/.style={font=\tiny\sffamily, text=sublabelcolor},
+    titlelabel/.style={font=\large\sffamily\bfseries, text=labelcolor},
+    stagelabel/.style={font=\scriptsize\sffamily\bfseries, text=white, fill=stagecolor, rounded corners=2pt, inner sep=3pt},
+    sublabel/.style={font=\scriptsize\sffamily, text=sublabelcolor},
     divider/.style={thick, dashed, dividercolor},
 ]
 
@@ -94,7 +94,7 @@
     \draw[arrow] (det) -- (grid);
     \draw[arrow] (grid) -- (out1);
     \draw[dashedarrow] (bb1.west) -- ++(-0.5,0) |- (det.west);
-    \node[sublabel, rotate=90] at (-1.0, -3.2) {Multi-escala};
+    \node[sublabel, rotate=90] at (-1.8, -3.2) {Multi-escala};
 
     \node[sublabel] at (0, -6.9) {Baixa latência | Eficiente};
 \end{scope}

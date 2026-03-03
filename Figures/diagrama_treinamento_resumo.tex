@@ -1,0 +1,102 @@
+% ============================================================================
+% Tabela TikZ - Resumo de Treinamento dos 4 Modelos
+% Para dissertação de mestrado PPGC/UFRGS
+% Uso: \input{Figures/diagrama_treinamento_resumo.tex}
+% ============================================================================
+
+\begin{tikzpicture}[scale=0.85, transform shape]
+  % Column positions
+  \def\colA{0}     % Metric label
+  \def\colB{2.8}   % PGIE
+  \def\colC{5.6}   % SGIE-EPI
+  \def\colD{8.4}   % SGIE-Maq
+  \def\colE{11.2}  % SGIE-Fer
+  \def\colEnd{14.0}
+  \def\rowH{0.7}
+  \def\colW{2.8}
+
+  % Header row - colored per model
+  \fill[inputcolor!80] (\colB, 0) rectangle (\colC, \rowH);
+  \fill[headcolor!70] (\colC, 0) rectangle (\colD, \rowH);
+  \fill[neckcolor!60] (\colD, 0) rectangle (\colE, \rowH);
+  \fill[outputcolor!70] (\colE, 0) rectangle (\colEnd, \rowH);
+
+  % Header labels
+  \fill[stagecolor!70] (\colA, 0) rectangle (\colB, \rowH);
+  \node[font=\small\bfseries, text=white] at ({(\colA+\colB)/2}, \rowH/2) {M\'{e}trica};
+  \node[font=\small\bfseries, text=white] at ({(\colB+\colC)/2}, \rowH/2) {PGIE};
+  \node[font=\small\bfseries, text=white] at ({(\colC+\colD)/2}, \rowH/2) {SGIE-EPI};
+  \node[font=\small\bfseries, text=white] at ({(\colD+\colE)/2}, \rowH/2) {SGIE-Maq};
+  \node[font=\small\bfseries, text=white] at ({(\colE+\colEnd)/2}, \rowH/2) {SGIE-Fer};
+
+  % Row data - alternating backgrounds
+  % Row 1: Modelo
+  \fill[bgbox] (\colA, -0*\rowH) rectangle (\colEnd, -1*\rowH);
+  \node[font=\footnotesize\bfseries, anchor=west] at (\colA+0.15, -0.5*\rowH) {Modelo};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -0.5*\rowH) {YOLOv8m};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -0.5*\rowH) {YOLOv8s};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -0.5*\rowH) {YOLOv8s};
+  \node[font=\footnotesize] at ({(\colE+\colEnd)/2}, -0.5*\rowH) {YOLOv8s};
+
+  % Row 2: Classes
+  \fill[white] (\colA, -1*\rowH) rectangle (\colEnd, -2*\rowH);
+  \node[font=\footnotesize\bfseries, anchor=west] at (\colA+0.15, -1.5*\rowH) {Classes};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -1.5*\rowH) {5};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -1.5*\rowH) {14};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -1.5*\rowH) {9};
+  \node[font=\footnotesize] at ({(\colE+\colEnd)/2}, -1.5*\rowH) {23};
+
+  % Row 3: Resolução
+  \fill[bgbox] (\colA, -2*\rowH) rectangle (\colEnd, -3*\rowH);
+  \node[font=\footnotesize\bfseries, anchor=west] at (\colA+0.15, -2.5*\rowH) {Resolu\c{c}\~{a}o};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -2.5*\rowH) {640$\times$640};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -2.5*\rowH) {320$\times$320};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -2.5*\rowH) {320$\times$320};
+  \node[font=\footnotesize] at ({(\colE+\colEnd)/2}, -2.5*\rowH) {320$\times$320};
+
+  % Row 4: Épocas
+  \fill[white] (\colA, -3*\rowH) rectangle (\colEnd, -4*\rowH);
+  \node[font=\footnotesize\bfseries, anchor=west] at (\colA+0.15, -3.5*\rowH) {\'{E}pocas};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -3.5*\rowH) {187/300};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -3.5*\rowH) {142/200};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -3.5*\rowH) {128/200};
+  \node[font=\footnotesize] at ({(\colE+\colEnd)/2}, -3.5*\rowH) {156/200};
+
+  % Row 5: mAP@0,5 (highlight best/worst)
+  \fill[bgbox] (\colA, -4*\rowH) rectangle (\colEnd, -5*\rowH);
+  \node[font=\footnotesize\bfseries, anchor=west] at (\colA+0.15, -4.5*\rowH) {mAP@0,5};
+  \node[font=\footnotesize\bfseries] at ({(\colB+\colC)/2}, -4.5*\rowH) {0,83};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -4.5*\rowH) {0,77};
+  % Best mAP highlighted
+  \fill[headcolor!25] (\colD, -4*\rowH) rectangle (\colE, -5*\rowH);
+  \node[font=\footnotesize\bfseries, text=headcolor] at ({(\colD+\colE)/2}, -4.5*\rowH) {0,84};
+  % Worst mAP highlighted
+  \fill[skipcolor!12] (\colE, -4*\rowH) rectangle (\colEnd, -5*\rowH);
+  \node[font=\footnotesize\bfseries, text=skipcolor] at ({(\colE+\colEnd)/2}, -4.5*\rowH) {0,71};
+
+  % Row 6: Precisão
+  \fill[white] (\colA, -5*\rowH) rectangle (\colEnd, -6*\rowH);
+  \node[font=\footnotesize\bfseries, anchor=west] at (\colA+0.15, -5.5*\rowH) {Precis\~{a}o};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -5.5*\rowH) {0,84};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -5.5*\rowH) {0,80};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -5.5*\rowH) {0,86};
+  \node[font=\footnotesize] at ({(\colE+\colEnd)/2}, -5.5*\rowH) {0,74};
+
+  % Row 7: Recall
+  \fill[bgbox] (\colA, -6*\rowH) rectangle (\colEnd, -7*\rowH);
+  \node[font=\footnotesize\bfseries, anchor=west] at (\colA+0.15, -6.5*\rowH) {Recall};
+  \node[font=\footnotesize] at ({(\colB+\colC)/2}, -6.5*\rowH) {0,78};
+  \node[font=\footnotesize] at ({(\colC+\colD)/2}, -6.5*\rowH) {0,71};
+  \node[font=\footnotesize] at ({(\colD+\colE)/2}, -6.5*\rowH) {0,79};
+  \node[font=\footnotesize] at ({(\colE+\colEnd)/2}, -6.5*\rowH) {0,66};
+
+  % Grid lines
+  \foreach \y in {0,-1,...,-7} {
+    \draw[dividercolor, thin] (\colA, \y*\rowH) -- (\colEnd, \y*\rowH);
+  }
+  \foreach \x in {\colB,\colC,\colD,\colE} {
+    \draw[dividercolor, very thin] (\x, \rowH) -- (\x, -7*\rowH);
+  }
+  % Outer border
+  \draw[stagecolor, line width=0.8pt] (\colA, \rowH) rectangle (\colEnd, -7*\rowH);
+\end{tikzpicture}
