@@ -279,10 +279,17 @@
 
       \vspace{2mm}
 
-      \begin{block}{\scriptsize Perda}
-        \centering\tiny
-        $\mathcal{L} = \lambda_{box}\mathcal{L}_{box} + \lambda_{dfl}\mathcal{L}_{dfl} + \lambda_{cls}\mathcal{L}_{cls}$\\
-        {\tiny CIoU + Distrib.\ Focal + BCE}
+      \begin{block}{\scriptsize Função de Perda}
+        \centering\scriptsize
+        $\mathcal{L} = \lambda_{box}\mathcal{L}_{box} + \lambda_{dfl}\mathcal{L}_{dfl} + \lambda_{cls}\mathcal{L}_{cls}$
+        \vspace{1mm}
+
+        \raggedright\tiny
+        \begin{tabular}{@{}ll@{}}
+          $\mathcal{L}_{box}$ & CIoU --- localização da bbox \\
+          $\mathcal{L}_{dfl}$ & Distrib.\ Focal --- refinamento das bordas \\
+          $\mathcal{L}_{cls}$ & BCE --- classificação do objeto \\
+        \end{tabular}
       \end{block}
     \end{column}
     \begin{column}{0.50\textwidth}

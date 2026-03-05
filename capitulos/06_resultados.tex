@@ -145,92 +145,94 @@
 
 % --- Slide 29: SGIE-EPI --- Avaliação ---
 \begin{frame}{SGIE-EPI --- Avaliação}
-  \smallskip
+  \vspace{-2mm}
   \centering
   {\small Matriz de confusão e curvas PR para 14 classes de EPIs e situações de risco.}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
   \begin{columns}[c]
-    \begin{column}{0.48\textwidth}
+    \begin{column}{0.50\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{confusion_matrix_sgie_epi.png}
+      \includegraphics[width=\textwidth,height=0.52\textheight,keepaspectratio]{confusion_matrix_sgie_epi.png}
     \end{column}
-    \begin{column}{0.48\textwidth}
+    \begin{column}{0.50\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{PR_curve_sgie_epi.png}
+      \includegraphics[width=\textwidth,height=0.52\textheight,keepaspectratio]{PR_curve_sgie_epi.png}
     \end{column}
   \end{columns}
 
-  \vspace{3mm}
+  \vspace{1mm}
 
-  \begin{center}
-    \footnotesize
-    \textcolor{labelcolor}{%
-      mAP@0,5 = 0,77 com 14 classes. Confusões principais: Safety Vest $\leftrightarrow$ NO-Safety Vest\\
-      e Mask $\leftrightarrow$ NO-Mask --- classes de ausência são inerentemente ambíguas.}
-  \end{center}
-
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\tiny\color{stagecolor}%
+      \textbf{Matriz de confusão} (esq.): diagonal forte = boa separação; confusões em pares presença/ausência (Vest $\leftrightarrow$ NO-Vest, Mask $\leftrightarrow$ NO-Mask).\\[1pt]
+      \textbf{Curvas PR} (dir.): \textbf{mAP@0,5\,=\,0,77} --- melhores: Gloves (0,95), Goggles (0,97); piores: NO-Safety Vest (0,24), NO-Mask (0,61) por ambiguidade visual.}
+  \end{beamercolorbox}
   \vfill
 \end{frame}
 
 % --- Slide 30: SGIE-Maquinário --- Avaliação ---
 \begin{frame}{SGIE-Maquinário --- Avaliação}
-  \smallskip
+  \vspace{-2mm}
   \centering
-  {\small Melhor SGIE: mAP@0,5 = 0,84 com 9 classes de maquinário pesado.}
+  {\small Matriz de confusão e predições na validação para 9 classes de maquinário pesado.}
 
-  \vspace{3mm}
+  \vspace{2mm}
 
   \begin{columns}[c]
-    \begin{column}{0.48\textwidth}
+    \begin{column}{0.50\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.60\textheight,keepaspectratio]{confusion_matrix_sgie_machinery.png}
+      \includegraphics[width=\textwidth,height=0.52\textheight,keepaspectratio]{confusion_matrix_sgie_machinery.png}
     \end{column}
-    \begin{column}{0.48\textwidth}
+    \begin{column}{0.50\textwidth}
       \centering
-      \includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{val_pred_sgie_machinery.jpg}
+      \includegraphics[width=\textwidth,height=0.52\textheight,keepaspectratio]{val_pred_sgie_machinery.jpg}
     \end{column}
   \end{columns}
 
-  \vspace{3mm}
+  \vspace{1mm}
 
-  \begin{center}
-    \footnotesize
-    \textcolor{labelcolor}{%
-      Objetos grandes e visualmente distintos favorecem alta precisão.
-      Melhor: \textbf{Excavator} (0,91).
-      Menor: \textbf{Grader} (0,77) --- menos amostras (350).}
-  \end{center}
-
+  \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
+    \centering
+    {\tiny\color{stagecolor}%
+      \textbf{Matriz de confusão} (esq.): diagonal quase perfeita --- objetos grandes e visualmente distintos facilitam a classificação.\\[1pt]
+      \textbf{Predições} (dir.): bboxes corretas em escavadeiras, caminhões e guindastes em cenas reais de canteiro.\\[1pt]
+      \textbf{mAP@0,5\,=\,0,84} --- melhor SGIE. Melhor classe: Excavator (0,91). Menor: Grader (0,77) por escassez de amostras (350).}
+  \end{beamercolorbox}
   \vfill
 \end{frame}
 
 % --- Slide 31: SGIE-Ferramentas ---
 \begin{frame}{SGIE-Ferramentas --- Avalia\c{c}\~{a}o (\textbf{23 classes})}
   \vspace{-2mm}
-  \begin{columns}[c]
-    \begin{column}{0.48\textwidth}
-      \centering
-      {\small\textbf{Matriz de Confus\~{a}o}}\\[3pt]
-      \includegraphics[width=\textwidth]{confusion_matrix_sgie_equipment.png}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \centering
-      {\small\textbf{Predi\c{c}\~{o}es na Valida\c{c}\~{a}o}}\\[3pt]
-      \adjustbox{clip, trim=0 0 {.5\width} 0}{\includegraphics[width=\textwidth]{val_pred_sgie_equipment.jpg}}
-    \end{column}
-  \end{columns}
+  \centering
+  {\small Matriz de confusão e predições na validação para 23 classes de ferramentas e materiais.}
 
   \vspace{2mm}
 
+  \begin{columns}[c]
+    \begin{column}{0.50\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.52\textheight,keepaspectratio]{confusion_matrix_sgie_equipment.png}
+    \end{column}
+    \begin{column}{0.50\textwidth}
+      \centering
+      \adjustbox{clip, trim=0 0 {.5\width} 0}{\includegraphics[width=2\textwidth,height=0.52\textheight,keepaspectratio]{val_pred_sgie_equipment.jpg}}
+    \end{column}
+  \end{columns}
+
+  \vspace{1mm}
+
   \begin{beamercolorbox}[wd=\textwidth, rounded=true, shadow=false]{block body}
     \centering
-    {\scriptsize Maior desafio: \textbf{23 classes} com alta variabilidade.
-    Objetos grandes (Cone: 0,86 / Ladder: 0,82) \textcolor{headcolor}{\textbf{superam 0,80}}.
-    Ferramentas pequenas (Cutter: 0,54 / Trowel: 0,56) \textcolor{skipcolor}{\textbf{abaixo de 0,60}}.
-    \textcolor{arrowcolor}{Causa}: tamanho reduzido + similaridade visual.}
+    {\tiny\color{stagecolor}%
+      \textbf{Matriz de confusão} (esq.): diagonal visível mas com dispersão --- 23 classes com alta variabilidade de tamanho e forma.\\[1pt]
+      \textbf{Predições} (dir.): detecções corretas em cenas com múltiplas ferramentas sobrepostas (serras, furadeiras, escadas).\\[1pt]
+      Objetos grandes (\textcolor{headcolor}{Cone: 0,86 / Ladder: 0,82}) \textcolor{headcolor}{\textbf{superam 0,80}}; pequenos (\textcolor{skipcolor}{Cutter: 0,54 / Trowel: 0,56}) \textcolor{skipcolor}{\textbf{abaixo de 0,60}} por tamanho reduzido.}
   \end{beamercolorbox}
+  \vfill
 \end{frame}
 
 % --- Slide 32: Performance do Pipeline ---

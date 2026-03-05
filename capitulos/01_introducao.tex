@@ -10,6 +10,63 @@
 \end{frame}
 }
 
+% --- Slide 2: Sumário ---
+{%
+\renewcommand{\InfSectionNumber}{0}%
+\begin{frame}{Sum\'{a}rio}
+  \vfill
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      {\small\color{inputcolor}\textbf{1.\ Introdu\c{c}\~{a}o}}\\[2pt]
+      {\scriptsize\color{sublabelcolor}
+        \quad Contexto, Problema, Motiva\c{c}\~{a}o, Hip\'{o}tese}
+
+      \vspace{3mm}
+
+      {\small\color{backbonecolor}\textbf{2.\ Objetivos}}\\[2pt]
+      {\scriptsize\color{sublabelcolor}
+        \quad Objetivo Geral, Espec\'{i}ficos, Contribui\c{c}\~{o}es, Escopo}
+
+      \vspace{3mm}
+
+      {\small\color{neckcolor}\textbf{3.\ Fundamenta\c{c}\~{a}o Te\'{o}rica}}\\[2pt]
+      {\scriptsize\color{sublabelcolor}
+        \quad Detectores, YOLOv8, Transfer Learning, Jetson, DeepStream}
+
+      \vspace{3mm}
+
+      {\small\color{detectioncolor}\textbf{4.\ Trabalhos Relacionados}}\\[2pt]
+      {\scriptsize\color{sublabelcolor}
+        \quad Compara\c{c}\~{a}o com a Literatura, Lacunas}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      {\small\color{headcolor}\textbf{5.\ Metodologia}}\\[2pt]
+      {\scriptsize\color{sublabelcolor}
+        \quad Cascata, Classes, Datasets, Augmentation, Treinamento}
+
+      \vspace{3mm}
+
+      {\small\color{outputcolor}\textbf{6.\ Implementa\c{c}\~{a}o}}\\[2pt]
+      {\scriptsize\color{sublabelcolor}
+        \quad Pipeline DeepStream, Parser C++, Software Stack, Deploy}
+
+      \vspace{3mm}
+
+      {\small\color{skipcolor}\textbf{7.\ Resultados}}\\[2pt]
+      {\scriptsize\color{sublabelcolor}
+        \quad PGIE, SGIEs, Performance, Recursos, Qualitativos}
+
+      \vspace{3mm}
+
+      {\small\color{stagecolor}\textbf{8.\ Conclus\~{a}o}}\\[2pt]
+      {\scriptsize\color{sublabelcolor}
+        \quad Objetivos Atingidos, Limita\c{c}\~{o}es, Trabalhos Futuros}
+    \end{column}
+  \end{columns}
+  \vfill
+\end{frame}
+}%
+
 % ============================================================================
 \section{Introdu\c{c}\~{a}o}
 % ============================================================================
@@ -189,10 +246,8 @@
 
   \begin{center}
     \begin{tikzpicture}
-      \node[fill=stagecolor!8, rounded corners=4pt, inner sep=8pt, text width=0.9\textwidth, align=center] {
-        {\small Uma arquitetura de \textbf{infer\^{e}ncia em cascata} na borda,\\[2pt]
-        com modelo prim\'{a}rio generalista + modelos secund\'{a}rios especializados,\\[2pt]
-        pode monitorar seguran\c{c}a em \textbf{tempo real} com m\'{u}ltiplas categorias.}
+      \node[fill=stagecolor!8, rounded corners=4pt, inner sep=8pt, text width=0.92\textwidth, align=center] {
+        {\small Uma arquitetura de \textbf{infer\^{e}ncia em cascata} na borda, com modelo prim\'{a}rio generalista + \mbox{modelos} secund\'{a}rios especializados, pode monitorar \mbox{seguran\c{c}a} em \mbox{\textbf{tempo real}} com m\'{u}ltiplas categorias.}
       };
     \end{tikzpicture}
   \end{center}
@@ -256,7 +311,7 @@
       \node[below=3mm of alerta, font=\scriptsize, text=sublabelcolor] {Sa\'{i}da};
 
       % Total classes annotation
-      \node[below=22mm of sgie2, font=\small\bfseries, text=stagecolor] {
+      \node[below=28mm of sgie2, font=\small\bfseries, text=stagecolor] {
         46 categorias \'{u}nicas --- 4 modelos YOLOv8
       };
     \end{tikzpicture}

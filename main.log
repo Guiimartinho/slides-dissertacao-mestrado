@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.2)  2 MAR 2026 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.2)  4 MAR 2026 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -874,9 +874,9 @@ Package: setspace 2022/12/04 v6.7b set line spacing
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 166.
+(hyperref)                removing `\\' on input line 167.
 
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 177.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 178.
 (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -888,24 +888,24 @@ Package babel Info: 'brazil' activates 'portuges' shorthands.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 177.
-LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -947,7 +947,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 177.
+Package hyperref Info: Link coloring OFF on input line 178.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -969,13 +969,13 @@ Package pgfplots notification 'compat/show suggested version=true': document has
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 177.
-Package microtype Info: Applying patch `item' on input line 177.
-Package microtype Info: Applying patch `toc' on input line 177.
-Package microtype Info: Applying patch `eqnum' on input line 177.
-Package microtype Info: Applying patch `footnote' on input line 177.
-Package microtype Info: Applying patch `verbatim' on input line 177.
-LaTeX Info: Redefining \microtypesetup on input line 177.
+LaTeX Info: Redefining \microtypecontext on input line 178.
+Package microtype Info: Applying patch `item' on input line 178.
+Package microtype Info: Applying patch `toc' on input line 178.
+Package microtype Info: Applying patch `eqnum' on input line 178.
+Package microtype Info: Applying patch `footnote' on input line 178.
+Package microtype Info: Applying patch `verbatim' on input line 178.
+LaTeX Info: Redefining \microtypesetup on input line 178.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -992,14 +992,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 (./main.nav)
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 177--177
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 178--178
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/177' will
+Package microtype Info: tracking amount list `main.tex/178' will
 (microtype)             override list `default' for 
-(microtype)             font `OT1////' on input line 177.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 177.
+(microtype)             font `OT1////' on input line 178.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 178.
 (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
@@ -1007,45 +1007,45 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Calculating math sizes for size <80> on input line 177.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 177.
+LaTeX Font Info:    Calculating math sizes for size <80> on input line 178.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 178.
  (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 177.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 178.
  (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 177.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 178.
  (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 177.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 178.
  (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <80> on input line 177.
+(Font)              <80> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <55.99976> on input line 177.
+(Font)              <55.99976> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <40> on input line 177.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 177.
+(Font)              <40> on input line 178.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 178.
  (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 177.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 178.
  (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) (./capitulos/01_introducao.tex
 Package microtype Info: tracking amount list `main.tex/10' will
-(microtype)             override list `main.tex/177' for 
+(microtype)             override list `main.tex/178' for 
 (microtype)             font `OT1////' on input line 10.
 <inf-logo-dark.pdf, id=45, 701.84395pt x 389.02475pt>
 File: inf-logo-dark.pdf Graphic file (type pdf)
@@ -1060,27 +1060,27 @@ Overfull \hbox (3.65pt too wide) in paragraph at lines 10--10
 [1
 
 {/home/wslasus/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/wslasus/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./inf-logo-dark.pdf>]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 62--62
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 67--67
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/62' will
+Package microtype Info: tracking amount list `main.tex/67' will
 (microtype)             override list `main.tex/10' for 
-(microtype)             font `OT1////' on input line 62.
+(microtype)             font `OT1////' on input line 67.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 62--62
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 67--67
 [][] 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 62.
+(Font)              <9> on input line 67.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 62.
+(Font)              <6> on input line 67.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 62.
-Package microtype Info: tracking amount list `main.tex/62(1)' will
-(microtype)             override list `main.tex/62' for 
-(microtype)             font `OT1////' on input line 62.
+(Font)              <5> on input line 67.
+Package microtype Info: tracking amount list `main.tex/67(1)' will
+(microtype)             override list `main.tex/67' for 
+(microtype)             font `OT1////' on input line 67.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1089,47 +1089,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [2{/home/wslasus/.TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 129--129
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 119--119
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/129' will
-(microtype)             override list `main.tex/62(1)' for 
-(microtype)             font `OT1////' on input line 129.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 129.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 129.
+Package microtype Info: tracking amount list `main.tex/119' will
+(microtype)             override list `main.tex/67(1)' for 
+(microtype)             font `OT1////' on input line 119.
 
-Overfull \hbox (16.55145pt too wide) in paragraph at lines 129--129
- [][] 
- []
-
-
-Overfull \hbox (16.55145pt too wide) in paragraph at lines 129--129
- [][] 
- []
-
-LaTeX Font Info:    Calculating math sizes for size <30> on input line 129.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <30> on input line 129.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.99991> on input line 129.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <15> on input line 129.
-
-Overfull \hbox (16.55145pt too wide) in paragraph at lines 129--129
- [][] 
- []
-
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 129--129
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 119--119
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/129(2)' will
-(microtype)             override list `main.tex/129' for 
-(microtype)             font `OT1////' on input line 129.
+Package microtype Info: tracking amount list `main.tex/119(2)' will
+(microtype)             override list `main.tex/119' for 
+(microtype)             font `OT1////' on input line 119.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1137,28 +1111,48 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [3
 
-{/home/wslasus/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 184--184
+]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 186--186
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/184' will
-(microtype)             override list `main.tex/129(2)' for 
-(microtype)             font `OT1////' on input line 184.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 184.
+Package microtype Info: tracking amount list `main.tex/186' will
+(microtype)             override list `main.tex/119(2)' for 
+(microtype)             font `OT1////' on input line 186.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 184.
+(Font)              <10.95> on input line 186.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 184.
+(Font)              <8> on input line 186.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 184--184
+Overfull \hbox (16.55145pt too wide) in paragraph at lines 186--186
+ [][] 
+ []
+
+
+Overfull \hbox (16.55145pt too wide) in paragraph at lines 186--186
+ [][] 
+ []
+
+LaTeX Font Info:    Calculating math sizes for size <30> on input line 186.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <30> on input line 186.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <20.99991> on input line 186.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <15> on input line 186.
+
+Overfull \hbox (16.55145pt too wide) in paragraph at lines 186--186
+ [][] 
+ []
+
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 186--186
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/184(3)' will
-(microtype)             override list `main.tex/184' for 
-(microtype)             font `OT1////' on input line 184.
+Package microtype Info: tracking amount list `main.tex/186(3)' will
+(microtype)             override list `main.tex/186' for 
+(microtype)             font `OT1////' on input line 186.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1166,24 +1160,28 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [4
 
-{/home/wslasus/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 269--269
+{/home/wslasus/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 241--241
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/269' will
-(microtype)             override list `main.tex/184(3)' for 
-(microtype)             font `OT1////' on input line 269.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 269.
+Package microtype Info: tracking amount list `main.tex/241' will
+(microtype)             override list `main.tex/186(3)' for 
+(microtype)             font `OT1////' on input line 241.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 241.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 241.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 241.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 269--269
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 241--241
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/269(4)' will
-(microtype)             override list `main.tex/269' for 
-(microtype)             font `OT1////' on input line 269.
+Package microtype Info: tracking amount list `main.tex/241(4)' will
+(microtype)             override list `main.tex/241' for 
+(microtype)             font `OT1////' on input line 241.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1191,22 +1189,24 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [5
 
-]) (./capitulos/02_objetivos.tex
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 65--65
+{/home/wslasus/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 324--324
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/65' will
-(microtype)             override list `main.tex/269(4)' for 
-(microtype)             font `OT1////' on input line 65.
+Package microtype Info: tracking amount list `main.tex/324' will
+(microtype)             override list `main.tex/241(4)' for 
+(microtype)             font `OT1////' on input line 324.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 324.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 65--65
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 324--324
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/65(5)' will
-(microtype)             override list `main.tex/65' for 
-(microtype)             font `OT1////' on input line 65.
+Package microtype Info: tracking amount list `main.tex/324(5)' will
+(microtype)             override list `main.tex/324' for 
+(microtype)             font `OT1////' on input line 324.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1214,34 +1214,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [6
 
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 110--110
+]) (./capitulos/02_objetivos.tex
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 63--63
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/110' will
-(microtype)             override list `main.tex/65(5)' for 
-(microtype)             font `OT1////' on input line 110.
+Package microtype Info: tracking amount list `main.tex/63' will
+(microtype)             override list `main.tex/324(5)' for 
+(microtype)             font `OT1////' on input line 63.
 
-! Package xcolor Error: Undefined color `SUBLABELCOLOR'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.110 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 110--110
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 63--63
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/110(6)' will
-(microtype)             override list `main.tex/110' for 
-(microtype)             font `OT1////' on input line 110.
+Package microtype Info: tracking amount list `main.tex/63(6)' will
+(microtype)             override list `main.tex/63' for 
+(microtype)             font `OT1////' on input line 63.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1250,13 +1238,13 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [7
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 155--155
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 108--108
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/155' will
-(microtype)             override list `main.tex/110(6)' for 
-(microtype)             font `OT1////' on input line 155.
+Package microtype Info: tracking amount list `main.tex/108' will
+(microtype)             override list `main.tex/63(6)' for 
+(microtype)             font `OT1////' on input line 108.
 
 ! Package xcolor Error: Undefined color `SUBLABELCOLOR'.
 
@@ -1264,19 +1252,19 @@ See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.155 \end{frame}
+l.108 \end{frame}
                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 155--155
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 108--108
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/155(7)' will
-(microtype)             override list `main.tex/155' for 
-(microtype)             font `OT1////' on input line 155.
+Package microtype Info: tracking amount list `main.tex/108(7)' will
+(microtype)             override list `main.tex/108' for 
+(microtype)             font `OT1////' on input line 108.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1285,21 +1273,33 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [8
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 214--214
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 153--153
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/214' will
-(microtype)             override list `main.tex/155(7)' for 
-(microtype)             font `OT1////' on input line 214.
+Package microtype Info: tracking amount list `main.tex/153' will
+(microtype)             override list `main.tex/108(7)' for 
+(microtype)             font `OT1////' on input line 153.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 214--214
+! Package xcolor Error: Undefined color `SUBLABELCOLOR'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.153 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 153--153
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/214(8)' will
-(microtype)             override list `main.tex/214' for 
-(microtype)             font `OT1////' on input line 214.
+Package microtype Info: tracking amount list `main.tex/153(8)' will
+(microtype)             override list `main.tex/153' for 
+(microtype)             font `OT1////' on input line 153.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1308,27 +1308,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [9
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 263--263
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 212--212
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/263' will
-(microtype)             override list `main.tex/214(8)' for 
-(microtype)             font `OT1////' on input line 263.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 263.
+Package microtype Info: tracking amount list `main.tex/212' will
+(microtype)             override list `main.tex/153(8)' for 
+(microtype)             font `OT1////' on input line 212.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 263--263
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 212--212
 [][] 
  []
 
-
-Overfull \vbox (1.26958pt too high) detected at line 263
- []
-
-Package microtype Info: tracking amount list `main.tex/263(9)' will
-(microtype)             override list `main.tex/263' for 
-(microtype)             font `OT1////' on input line 263.
+Package microtype Info: tracking amount list `main.tex/212(9)' will
+(microtype)             override list `main.tex/212' for 
+(microtype)             font `OT1////' on input line 212.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1336,13 +1330,42 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [10
 
+]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 261--261
+[][] 
+ []
+
+Package microtype Info: tracking amount list `main.tex/261' will
+(microtype)             override list `main.tex/212(9)' for 
+(microtype)             font `OT1////' on input line 261.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 261.
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 261--261
+[][] 
+ []
+
+
+Overfull \vbox (1.26958pt too high) detected at line 261
+ []
+
+Package microtype Info: tracking amount list `main.tex/261(10)' will
+(microtype)             override list `main.tex/261' for 
+(microtype)             font `OT1////' on input line 261.
+
+Overfull \hbox (2.12503pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[11
+
 ]) (./capitulos/03_fundamentacao.tex
 Overfull \hbox (2.12503pt too wide) in paragraph at lines 24--24
 [][] 
  []
 
 Package microtype Info: tracking amount list `main.tex/24' will
-(microtype)             override list `main.tex/263(9)' for 
+(microtype)             override list `main.tex/261(10)' for 
 (microtype)             font `OT1////' on input line 24.
 (./Figures/diagrama_detectores.tex)
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
@@ -1352,32 +1375,9 @@ Overfull \hbox (132.55334pt too wide) in paragraph at lines 24--24
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/24(10)' will
+Package microtype Info: tracking amount list `main.tex/24(11)' will
 (microtype)             override list `main.tex/24' for 
 (microtype)             font `OT1////' on input line 24.
-
-Overfull \hbox (2.12503pt too wide) has occurred while \output is active
-[][] 
- []
-
-[11
-
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 43--43
-[][] 
- []
-
-Package microtype Info: tracking amount list `main.tex/43' will
-(microtype)             override list `main.tex/24(10)' for 
-(microtype)             font `OT1////' on input line 43.
-(./Figures/diagrama_yolov8.tex)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 43--43
-[][] 
- []
-
-Package microtype Info: tracking amount list `main.tex/43(11)' will
-(microtype)             override list `main.tex/43' for 
-(microtype)             font `OT1////' on input line 43.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1386,21 +1386,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [12
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 83--83
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 43--43
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/83' will
-(microtype)             override list `main.tex/43(11)' for 
-(microtype)             font `OT1////' on input line 83.
-(./Figures/diagrama_transfer_learning.tex) (./Figures/diagrama_nms.tex)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 83--83
+Package microtype Info: tracking amount list `main.tex/43' will
+(microtype)             override list `main.tex/24(11)' for 
+(microtype)             font `OT1////' on input line 43.
+(./Figures/diagrama_yolov8.tex)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 43--43
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/83(12)' will
-(microtype)             override list `main.tex/83' for 
-(microtype)             font `OT1////' on input line 83.
+Package microtype Info: tracking amount list `main.tex/43(12)' will
+(microtype)             override list `main.tex/43' for 
+(microtype)             font `OT1////' on input line 43.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1409,21 +1409,31 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [13
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 119--119
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 85--85
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/119' will
-(microtype)             override list `main.tex/83(12)' for 
-(microtype)             font `OT1////' on input line 119.
-(./Figures/diagrama_jetson.tex)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 119--119
+Package microtype Info: tracking amount list `main.tex/85' will
+(microtype)             override list `main.tex/43(12)' for 
+(microtype)             font `OT1////' on input line 85.
+(./Figures/diagrama_transfer_learning.tex)
+Overfull \hbox (7.68637pt too wide) in paragraph at lines 85--85
+ [][] 
+ []
+
+(./Figures/diagrama_nms.tex)
+Overfull \hbox (7.68555pt too wide) in paragraph at lines 85--85
+ [][] 
+ []
+
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 85--85
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/119(13)' will
-(microtype)             override list `main.tex/119' for 
-(microtype)             font `OT1////' on input line 119.
+Package microtype Info: tracking amount list `main.tex/85(13)' will
+(microtype)             override list `main.tex/85' for 
+(microtype)             font `OT1////' on input line 85.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1432,21 +1442,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [14
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 202--202
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 121--121
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/202' will
-(microtype)             override list `main.tex/119(13)' for 
-(microtype)             font `OT1////' on input line 202.
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 202--202
+Package microtype Info: tracking amount list `main.tex/121' will
+(microtype)             override list `main.tex/85(13)' for 
+(microtype)             font `OT1////' on input line 121.
+(./Figures/diagrama_jetson.tex)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 121--121
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/202(14)' will
-(microtype)             override list `main.tex/202' for 
-(microtype)             font `OT1////' on input line 202.
+Package microtype Info: tracking amount list `main.tex/121(14)' will
+(microtype)             override list `main.tex/121' for 
+(microtype)             font `OT1////' on input line 121.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1454,26 +1464,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [15
 
-]) (./capitulos/03b_trabalhos_relacionados.tex
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 61--61
+]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 204--204
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/61' will
-(microtype)             override list `main.tex/202(14)' for 
-(microtype)             font `OT1////' on input line 61.
+Package microtype Info: tracking amount list `main.tex/204' will
+(microtype)             override list `main.tex/121(14)' for 
+(microtype)             font `OT1////' on input line 204.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 61--61
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 204--204
 [][] 
  []
 
-
-Overfull \vbox (3.52222pt too high) detected at line 61
- []
-
-Package microtype Info: tracking amount list `main.tex/61(15)' will
-(microtype)             override list `main.tex/61' for 
-(microtype)             font `OT1////' on input line 61.
+Package microtype Info: tracking amount list `main.tex/204(15)' will
+(microtype)             override list `main.tex/204' for 
+(microtype)             font `OT1////' on input line 204.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1481,22 +1487,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [16
 
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 74--74
+]) (./capitulos/03b_trabalhos_relacionados.tex
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 60--60
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/74' will
-(microtype)             override list `main.tex/61(15)' for 
-(microtype)             font `OT1////' on input line 74.
-(./Figures/diagrama_trabalhos_relacionados.tex)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 74--74
+Package microtype Info: tracking amount list `main.tex/60' will
+(microtype)             override list `main.tex/204(15)' for 
+(microtype)             font `OT1////' on input line 60.
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 60--60
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/74(16)' will
-(microtype)             override list `main.tex/74' for 
-(microtype)             font `OT1////' on input line 74.
+Package microtype Info: tracking amount list `main.tex/60(16)' will
+(microtype)             override list `main.tex/60' for 
+(microtype)             font `OT1////' on input line 60.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1505,21 +1511,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [17
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 149--149
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 73--73
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/149' will
-(microtype)             override list `main.tex/74(16)' for 
-(microtype)             font `OT1////' on input line 149.
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 149--149
+Package microtype Info: tracking amount list `main.tex/73' will
+(microtype)             override list `main.tex/60(16)' for 
+(microtype)             font `OT1////' on input line 73.
+(./Figures/diagrama_trabalhos_relacionados.tex)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 73--73
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/149(17)' will
-(microtype)             override list `main.tex/149' for 
-(microtype)             font `OT1////' on input line 149.
+Package microtype Info: tracking amount list `main.tex/73(17)' will
+(microtype)             override list `main.tex/73' for 
+(microtype)             font `OT1////' on input line 73.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1527,26 +1533,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [18
 
-]) (./capitulos/04_metodologia.tex
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 38--38
+]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 148--148
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/38' will
-(microtype)             override list `main.tex/149(17)' for 
-(microtype)             font `OT1////' on input line 38.
-(./Figures/diagrama_cascata.tex)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 38--38
+Package microtype Info: tracking amount list `main.tex/148' will
+(microtype)             override list `main.tex/73(17)' for 
+(microtype)             font `OT1////' on input line 148.
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 148--148
 [][] 
  []
 
-
-Overfull \vbox (0.60973pt too high) detected at line 38
- []
-
-Package microtype Info: tracking amount list `main.tex/38(18)' will
-(microtype)             override list `main.tex/38' for 
-(microtype)             font `OT1////' on input line 38.
+Package microtype Info: tracking amount list `main.tex/148(18)' will
+(microtype)             override list `main.tex/148' for 
+(microtype)             font `OT1////' on input line 148.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1554,37 +1556,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [19
 
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 86--86
+]) (./capitulos/04_metodologia.tex
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 38--38
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/86' will
-(microtype)             override list `main.tex/38(18)' for 
-(microtype)             font `OT1////' on input line 86.
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--86
-[]|\T1/lmss/m/n/8 (+20) Escavadeira, guin-daste,
- []
-
-
-Overfull \hbox (37.96756pt too wide) in paragraph at lines 86--86
- [] 
- []
-
-
-Overfull \hbox (72.69902pt too wide) in paragraph at lines 86--86
- [][] 
- []
-
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 86--86
+Package microtype Info: tracking amount list `main.tex/38' will
+(microtype)             override list `main.tex/148(18)' for 
+(microtype)             font `OT1////' on input line 38.
+(./Figures/diagrama_cascata.tex)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 38--38
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/86(19)' will
-(microtype)             override list `main.tex/86' for 
-(microtype)             font `OT1////' on input line 86.
+Package microtype Info: tracking amount list `main.tex/38(19)' will
+(microtype)             override list `main.tex/38' for 
+(microtype)             font `OT1////' on input line 38.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1593,21 +1580,31 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [20
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 141--141
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 105--105
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/141' will
-(microtype)             override list `main.tex/86(19)' for 
-(microtype)             font `OT1////' on input line 141.
+Package microtype Info: tracking amount list `main.tex/105' will
+(microtype)             override list `main.tex/38(19)' for 
+(microtype)             font `OT1////' on input line 105.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 141--141
+Underfull \hbox (badness 10000) in paragraph at lines 105--105
+[]|\T1/lmss/m/n/8 (+20) Escavadeira, guin-daste,
+ []
+
+
+Overfull \hbox (37.96756pt too wide) in paragraph at lines 105--105
+ [] 
+ []
+
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 105--105
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/141(20)' will
-(microtype)             override list `main.tex/141' for 
-(microtype)             font `OT1////' on input line 141.
+Package microtype Info: tracking amount list `main.tex/105(20)' will
+(microtype)             override list `main.tex/105' for 
+(microtype)             font `OT1////' on input line 105.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1616,26 +1613,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [21
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 166--166
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 160--160
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/166' will
-(microtype)             override list `main.tex/141(20)' for 
-(microtype)             font `OT1////' on input line 166.
-<Figures/labels_pgie.jpg, id=177, 578.16pt x 578.16pt>
-File: Figures/labels_pgie.jpg Graphic file (type jpg)
-<use Figures/labels_pgie.jpg>
-Package pdftex.def Info: Figures/labels_pgie.jpg  used on input line 166.
-(pdftex.def)             Requested size: 171.04092pt x 171.04092pt.
+Package microtype Info: tracking amount list `main.tex/160' will
+(microtype)             override list `main.tex/105(20)' for 
+(microtype)             font `OT1////' on input line 160.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 166--166
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 160--160
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/166(21)' will
-(microtype)             override list `main.tex/166' for 
-(microtype)             font `OT1////' on input line 166.
+Package microtype Info: tracking amount list `main.tex/160(21)' will
+(microtype)             override list `main.tex/160' for 
+(microtype)             font `OT1////' on input line 160.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1643,32 +1635,27 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [22
 
- <./Figures/labels_pgie.jpg>]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 196--196
+]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 185--185
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/196' will
-(microtype)             override list `main.tex/166(21)' for 
-(microtype)             font `OT1////' on input line 196.
-<Figures/labels_sgie_equipment.jpg, id=183, 578.16pt x 578.16pt>
-File: Figures/labels_sgie_equipment.jpg Graphic file (type jpg)
-<use Figures/labels_sgie_equipment.jpg>
-Package pdftex.def Info: Figures/labels_sgie_equipment.jpg  used on input line 196.
-(pdftex.def)             Requested size: 144.7249pt x 144.7249pt.
-<Figures/labels_sgie_machinery.jpg, id=184, 578.16pt x 578.16pt>
-File: Figures/labels_sgie_machinery.jpg Graphic file (type jpg)
-<use Figures/labels_sgie_machinery.jpg>
-Package pdftex.def Info: Figures/labels_sgie_machinery.jpg  used on input line 196.
-(pdftex.def)             Requested size: 144.7249pt x 144.7249pt.
+Package microtype Info: tracking amount list `main.tex/185' will
+(microtype)             override list `main.tex/160(21)' for 
+(microtype)             font `OT1////' on input line 185.
+<Figures/labels_pgie.jpg, id=180, 578.16pt x 578.16pt>
+File: Figures/labels_pgie.jpg Graphic file (type jpg)
+<use Figures/labels_pgie.jpg>
+Package pdftex.def Info: Figures/labels_pgie.jpg  used on input line 185.
+(pdftex.def)             Requested size: 171.04092pt x 171.04092pt.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 196--196
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 185--185
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/196(22)' will
-(microtype)             override list `main.tex/196' for 
-(microtype)             font `OT1////' on input line 196.
+Package microtype Info: tracking amount list `main.tex/185(22)' will
+(microtype)             override list `main.tex/185' for 
+(microtype)             font `OT1////' on input line 185.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1676,27 +1663,32 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [23
 
- <./Figures/labels_sgie_equipment.jpg> <./Figures/labels_sgie_machinery.jpg>]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 229--229
+ <./Figures/labels_pgie.jpg>]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 215--215
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/229' will
-(microtype)             override list `main.tex/196(22)' for 
-(microtype)             font `OT1////' on input line 229.
-<Figures/train_batch0.jpg, id=190, 1927.2pt x 1927.2pt>
-File: Figures/train_batch0.jpg Graphic file (type jpg)
-<use Figures/train_batch0.jpg>
-Package pdftex.def Info: Figures/train_batch0.jpg  used on input line 229.
-(pdftex.def)             Requested size: 175.15747pt x 175.1461pt.
+Package microtype Info: tracking amount list `main.tex/215' will
+(microtype)             override list `main.tex/185(22)' for 
+(microtype)             font `OT1////' on input line 215.
+<Figures/labels_sgie_equipment.jpg, id=186, 578.16pt x 578.16pt>
+File: Figures/labels_sgie_equipment.jpg Graphic file (type jpg)
+<use Figures/labels_sgie_equipment.jpg>
+Package pdftex.def Info: Figures/labels_sgie_equipment.jpg  used on input line 215.
+(pdftex.def)             Requested size: 144.7249pt x 144.7249pt.
+<Figures/labels_sgie_machinery.jpg, id=187, 578.16pt x 578.16pt>
+File: Figures/labels_sgie_machinery.jpg Graphic file (type jpg)
+<use Figures/labels_sgie_machinery.jpg>
+Package pdftex.def Info: Figures/labels_sgie_machinery.jpg  used on input line 215.
+(pdftex.def)             Requested size: 144.7249pt x 144.7249pt.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 229--229
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 215--215
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/229(23)' will
-(microtype)             override list `main.tex/229' for 
-(microtype)             font `OT1////' on input line 229.
+Package microtype Info: tracking amount list `main.tex/215(23)' will
+(microtype)             override list `main.tex/215' for 
+(microtype)             font `OT1////' on input line 215.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1704,27 +1696,27 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [24
 
- <./Figures/train_batch0.jpg>]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 312--312
+ <./Figures/labels_sgie_equipment.jpg> <./Figures/labels_sgie_machinery.jpg>]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 248--248
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/312' will
-(microtype)             override list `main.tex/229(23)' for 
-(microtype)             font `OT1////' on input line 312.
+Package microtype Info: tracking amount list `main.tex/248' will
+(microtype)             override list `main.tex/215(23)' for 
+(microtype)             font `OT1////' on input line 248.
+<Figures/train_batch0.jpg, id=193, 1927.2pt x 1927.2pt>
+File: Figures/train_batch0.jpg Graphic file (type jpg)
+<use Figures/train_batch0.jpg>
+Package pdftex.def Info: Figures/train_batch0.jpg  used on input line 248.
+(pdftex.def)             Requested size: 175.15747pt x 175.1461pt.
 
-Overfull \hbox (7.68289pt too wide) in paragraph at lines 312--312
- [] 
- []
-
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 312--312
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 248--248
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/312(24)' will
-(microtype)             override list `main.tex/312' for 
-(microtype)             font `OT1////' on input line 312.
+Package microtype Info: tracking amount list `main.tex/248(24)' will
+(microtype)             override list `main.tex/248' for 
+(microtype)             font `OT1////' on input line 248.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1732,22 +1724,27 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [25
 
-{/home/wslasus/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]) (./capitulos/05_implementacao.tex
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 79--79
+ <./Figures/train_batch0.jpg>]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 338--338
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/79' will
-(microtype)             override list `main.tex/312(24)' for 
-(microtype)             font `OT1////' on input line 79.
+Package microtype Info: tracking amount list `main.tex/338' will
+(microtype)             override list `main.tex/248(24)' for 
+(microtype)             font `OT1////' on input line 338.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 79--79
+Overfull \hbox (7.68289pt too wide) in paragraph at lines 338--338
+ [] 
+ []
+
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 338--338
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/79(25)' will
-(microtype)             override list `main.tex/79' for 
-(microtype)             font `OT1////' on input line 79.
+Package microtype Info: tracking amount list `main.tex/338(25)' will
+(microtype)             override list `main.tex/338' for 
+(microtype)             font `OT1////' on input line 338.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1755,61 +1752,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [26
 
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 121--121
+{/home/wslasus/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]) (./capitulos/05_implementacao.tex
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 79--79
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/121' will
-(microtype)             override list `main.tex/79(25)' for 
-(microtype)             font `OT1////' on input line 121.
-(./Figures/diagrama_pipeline.tex
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 49.
- (/home/wslasus/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
-[]|\T1/lmss/m/n/8 (+20) Captura
- []
+Package microtype Info: tracking amount list `main.tex/79' will
+(microtype)             override list `main.tex/338(25)' for 
+(microtype)             font `OT1////' on input line 79.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
-[]|\T1/lmss/m/n/8 (+20) NVDEC
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
-[]|\T1/lmss/m/n/8 (+20) Detecção
- []
-
-
-Overfull \hbox (1.84204pt too wide) in paragraph at lines 121--121
-[]|\T1/lmss/m/n/8 (-20) Rastreamento
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
-[]|\T1/lmss/m/n/8 (+20) Classificação
- []
-
-
-Overfull \hbox (29.25972pt too wide) in paragraph at lines 121--121
- [] 
- []
-
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 121--121
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 79--79
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/121(26)' will
-(microtype)             override list `main.tex/121' for 
-(microtype)             font `OT1////' on input line 121.
+Package microtype Info: tracking amount list `main.tex/79(26)' will
+(microtype)             override list `main.tex/79' for 
+(microtype)             font `OT1////' on input line 79.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1818,21 +1776,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [27
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 207--207
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 100--100
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/207' will
-(microtype)             override list `main.tex/121(26)' for 
-(microtype)             font `OT1////' on input line 207.
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 207--207
+Package microtype Info: tracking amount list `main.tex/100' will
+(microtype)             override list `main.tex/79(26)' for 
+(microtype)             font `OT1////' on input line 100.
+(./Figures/diagrama_pipeline.tex)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 100--100
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/207(27)' will
-(microtype)             override list `main.tex/207' for 
-(microtype)             font `OT1////' on input line 207.
+Package microtype Info: tracking amount list `main.tex/100(27)' will
+(microtype)             override list `main.tex/100' for 
+(microtype)             font `OT1////' on input line 100.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1841,26 +1799,29 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [28
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 249--249
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 186--186
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/249' will
-(microtype)             override list `main.tex/207(27)' for 
-(microtype)             font `OT1////' on input line 249.
+Package microtype Info: tracking amount list `main.tex/186(28)' will
+(microtype)             override list `main.tex/100(27)' for 
+(microtype)             font `OT1////' on input line 186.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 186.
+(/home/wslasus/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
-Overfull \hbox (16.44908pt too wide) in paragraph at lines 249--249
- [] 
- []
-
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 249--249
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 186--186
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/249(28)' will
-(microtype)             override list `main.tex/249' for 
-(microtype)             font `OT1////' on input line 249.
+Package microtype Info: tracking amount list `main.tex/186(29)' will
+(microtype)             override list `main.tex/186(28)' for 
+(microtype)             font `OT1////' on input line 186.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1869,21 +1830,26 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [29
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 310--310
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 228--228
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/310' will
-(microtype)             override list `main.tex/249(28)' for 
-(microtype)             font `OT1////' on input line 310.
+Package microtype Info: tracking amount list `main.tex/228' will
+(microtype)             override list `main.tex/186(29)' for 
+(microtype)             font `OT1////' on input line 228.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 310--310
+Overfull \hbox (16.44908pt too wide) in paragraph at lines 228--228
+ [] 
+ []
+
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 228--228
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/310(29)' will
-(microtype)             override list `main.tex/310' for 
-(microtype)             font `OT1////' on input line 310.
+Package microtype Info: tracking amount list `main.tex/228(30)' will
+(microtype)             override list `main.tex/228' for 
+(microtype)             font `OT1////' on input line 228.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1891,22 +1857,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [30
 
-]) (./capitulos/06_resultados.tex
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 24--24
+]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 289--289
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/24(30)' will
-(microtype)             override list `main.tex/310(29)' for 
-(microtype)             font `OT1////' on input line 24.
-(./Figures/diagrama_treinamento_resumo.tex)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 24--24
+Package microtype Info: tracking amount list `main.tex/289' will
+(microtype)             override list `main.tex/228(30)' for 
+(microtype)             font `OT1////' on input line 289.
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 289--289
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/24(31)' will
-(microtype)             override list `main.tex/24(30)' for 
-(microtype)             font `OT1////' on input line 24.
+Package microtype Info: tracking amount list `main.tex/289(31)' will
+(microtype)             override list `main.tex/289' for 
+(microtype)             font `OT1////' on input line 289.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1914,26 +1880,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [31
 
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 67--67
+]) (./capitulos/06_resultados.tex
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 24--24
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/67' will
-(microtype)             override list `main.tex/24(31)' for 
-(microtype)             font `OT1////' on input line 67.
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 67--67
+Package microtype Info: tracking amount list `main.tex/24(32)' will
+(microtype)             override list `main.tex/289(31)' for 
+(microtype)             font `OT1////' on input line 24.
+(./Figures/diagrama_treinamento_resumo.tex)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 24--24
 [][] 
  []
 
-
-Overfull \vbox (2.91034pt too high) detected at line 67
- []
-
-Package microtype Info: tracking amount list `main.tex/67(32)' will
-(microtype)             override list `main.tex/67' for 
-(microtype)             font `OT1////' on input line 67.
+Package microtype Info: tracking amount list `main.tex/24(33)' will
+(microtype)             override list `main.tex/24(32)' for 
+(microtype)             font `OT1////' on input line 24.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -1942,14 +1904,37 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [32
 
 ]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 67--67
+[][] 
+ []
+
+Package microtype Info: tracking amount list `main.tex/67(34)' will
+(microtype)             override list `main.tex/24(33)' for 
+(microtype)             font `OT1////' on input line 67.
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 67--67
+[][] 
+ []
+
+Package microtype Info: tracking amount list `main.tex/67(35)' will
+(microtype)             override list `main.tex/67(34)' for 
+(microtype)             font `OT1////' on input line 67.
+
+Overfull \hbox (2.12503pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[33
+
+]
 Overfull \hbox (2.12503pt too wide) in paragraph at lines 89--89
 [][] 
  []
 
 Package microtype Info: tracking amount list `main.tex/89' will
-(microtype)             override list `main.tex/67(32)' for 
+(microtype)             override list `main.tex/67(35)' for 
 (microtype)             font `OT1////' on input line 89.
-<Figures/results_pgie.png, id=242, 867.24pt x 433.62pt>
+<Figures/results_pgie.png, id=246, 867.24pt x 433.62pt>
 File: Figures/results_pgie.png Graphic file (type png)
 <use Figures/results_pgie.png>
 Package pdftex.def Info: Figures/results_pgie.png  used on input line 89.
@@ -1959,7 +1944,7 @@ Overfull \hbox (132.55334pt too wide) in paragraph at lines 89--89
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/89(33)' will
+Package microtype Info: tracking amount list `main.tex/89(36)' will
 (microtype)             override list `main.tex/89' for 
 (microtype)             font `OT1////' on input line 89.
 
@@ -1967,22 +1952,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
  []
 
-[33
+[34
 
  <./Figures/results_pgie.png>]
 Overfull \hbox (2.12503pt too wide) in paragraph at lines 121--121
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/121(34)' will
-(microtype)             override list `main.tex/89(33)' for 
+Package microtype Info: tracking amount list `main.tex/121(37)' will
+(microtype)             override list `main.tex/89(36)' for 
 (microtype)             font `OT1////' on input line 121.
-<Figures/confusion_matrix_pgie.png, id=250, 867.24pt x 650.43pt>
+<Figures/confusion_matrix_pgie.png, id=254, 867.24pt x 650.43pt>
 File: Figures/confusion_matrix_pgie.png Graphic file (type png)
 <use Figures/confusion_matrix_pgie.png>
 Package pdftex.def Info: Figures/confusion_matrix_pgie.png  used on input line 121.
 (pdftex.def)             Requested size: 147.49501pt x 110.62126pt.
-<Figures/PR_curve_pgie.png, id=251, 650.43pt x 433.62pt>
+<Figures/PR_curve_pgie.png, id=255, 650.43pt x 433.62pt>
 File: Figures/PR_curve_pgie.png Graphic file (type png)
 <use Figures/PR_curve_pgie.png>
 Package pdftex.def Info: Figures/PR_curve_pgie.png  used on input line 121.
@@ -1992,32 +1977,9 @@ Overfull \hbox (132.55334pt too wide) in paragraph at lines 121--121
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/121(35)' will
-(microtype)             override list `main.tex/121(34)' for 
+Package microtype Info: tracking amount list `main.tex/121(38)' will
+(microtype)             override list `main.tex/121(37)' for 
 (microtype)             font `OT1////' on input line 121.
-
-Overfull \hbox (2.12503pt too wide) has occurred while \output is active
-[][] 
- []
-
-[34
-
- <./Figures/confusion_matrix_pgie.png> <./Figures/PR_curve_pgie.png>]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 144--144
-[][] 
- []
-
-Package microtype Info: tracking amount list `main.tex/144' will
-(microtype)             override list `main.tex/121(35)' for 
-(microtype)             font `OT1////' on input line 144.
-(./Figures/diagrama_sgie_epi_distribuicao.tex)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 144--144
-[][] 
- []
-
-Package microtype Info: tracking amount list `main.tex/144(36)' will
-(microtype)             override list `main.tex/144' for 
-(microtype)             font `OT1////' on input line 144.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2025,32 +1987,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [35
 
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 175--175
+ <./Figures/confusion_matrix_pgie.png> <./Figures/PR_curve_pgie.png>]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 144--144
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/175' will
-(microtype)             override list `main.tex/144(36)' for 
-(microtype)             font `OT1////' on input line 175.
-<Figures/confusion_matrix_sgie_epi.png, id=267, 867.24pt x 650.43pt>
-File: Figures/confusion_matrix_sgie_epi.png Graphic file (type png)
-<use Figures/confusion_matrix_sgie_epi.png>
-Package pdftex.def Info: Figures/confusion_matrix_sgie_epi.png  used on input line 175.
-(pdftex.def)             Requested size: 147.49501pt x 110.62126pt.
-<Figures/PR_curve_sgie_epi.png, id=268, 650.43pt x 433.62pt>
-File: Figures/PR_curve_sgie_epi.png Graphic file (type png)
-<use Figures/PR_curve_sgie_epi.png>
-Package pdftex.def Info: Figures/PR_curve_sgie_epi.png  used on input line 175.
-(pdftex.def)             Requested size: 147.4917pt x 98.3278pt.
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 175--175
+Package microtype Info: tracking amount list `main.tex/144' will
+(microtype)             override list `main.tex/121(38)' for 
+(microtype)             font `OT1////' on input line 144.
+(./Figures/diagrama_sgie_epi_distribuicao.tex)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 144--144
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/175(37)' will
-(microtype)             override list `main.tex/175' for 
-(microtype)             font `OT1////' on input line 175.
+Package microtype Info: tracking amount list `main.tex/144(39)' will
+(microtype)             override list `main.tex/144' for 
+(microtype)             font `OT1////' on input line 144.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2058,32 +2010,32 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [36
 
- <./Figures/confusion_matrix_sgie_epi.png> <./Figures/PR_curve_sgie_epi.png>]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 207--207
+]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 174--174
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/207(38)' will
-(microtype)             override list `main.tex/175(37)' for 
-(microtype)             font `OT1////' on input line 207.
-<Figures/confusion_matrix_sgie_machinery.png, id=276, 867.24pt x 650.43pt>
-File: Figures/confusion_matrix_sgie_machinery.png Graphic file (type png)
-<use Figures/confusion_matrix_sgie_machinery.png>
-Package pdftex.def Info: Figures/confusion_matrix_sgie_machinery.png  used on input line 207.
-(pdftex.def)             Requested size: 147.49501pt x 110.62126pt.
-<Figures/val_pred_sgie_machinery.jpg, id=277, 1927.2pt x 1104.125pt>
-File: Figures/val_pred_sgie_machinery.jpg Graphic file (type jpg)
-<use Figures/val_pred_sgie_machinery.jpg>
-Package pdftex.def Info: Figures/val_pred_sgie_machinery.jpg  used on input line 207.
-(pdftex.def)             Requested size: 147.47443pt x 84.49055pt.
+Package microtype Info: tracking amount list `main.tex/174' will
+(microtype)             override list `main.tex/144(39)' for 
+(microtype)             font `OT1////' on input line 174.
+<Figures/confusion_matrix_sgie_epi.png, id=270, 867.24pt x 650.43pt>
+File: Figures/confusion_matrix_sgie_epi.png Graphic file (type png)
+<use Figures/confusion_matrix_sgie_epi.png>
+Package pdftex.def Info: Figures/confusion_matrix_sgie_epi.png  used on input line 174.
+(pdftex.def)             Requested size: 153.63513pt x 115.22633pt.
+<Figures/PR_curve_sgie_epi.png, id=271, 650.43pt x 433.62pt>
+File: Figures/PR_curve_sgie_epi.png Graphic file (type png)
+<use Figures/PR_curve_sgie_epi.png>
+Package pdftex.def Info: Figures/PR_curve_sgie_epi.png  used on input line 174.
+(pdftex.def)             Requested size: 153.64505pt x 102.43002pt.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 207--207
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 174--174
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/207(39)' will
-(microtype)             override list `main.tex/207(38)' for 
-(microtype)             font `OT1////' on input line 207.
+Package microtype Info: tracking amount list `main.tex/174(40)' will
+(microtype)             override list `main.tex/174' for 
+(microtype)             font `OT1////' on input line 174.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2091,32 +2043,32 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [37
 
- <./Figures/confusion_matrix_sgie_machinery.png> <./Figures/val_pred_sgie_machinery.jpg>]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 234--234
+ <./Figures/confusion_matrix_sgie_epi.png> <./Figures/PR_curve_sgie_epi.png>]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 205--205
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/234' will
-(microtype)             override list `main.tex/207(39)' for 
-(microtype)             font `OT1////' on input line 234.
-<Figures/confusion_matrix_sgie_equipment.png, id=285, 867.24pt x 650.43pt>
-File: Figures/confusion_matrix_sgie_equipment.png Graphic file (type png)
-<use Figures/confusion_matrix_sgie_equipment.png>
-Package pdftex.def Info: Figures/confusion_matrix_sgie_equipment.png  used on input line 234.
-(pdftex.def)             Requested size: 147.49782pt x 110.62126pt.
-<Figures/val_pred_sgie_equipment.jpg, id=286, 1927.2pt x 1104.125pt>
-File: Figures/val_pred_sgie_equipment.jpg Graphic file (type jpg)
-<use Figures/val_pred_sgie_equipment.jpg>
-Package pdftex.def Info: Figures/val_pred_sgie_equipment.jpg  used on input line 234.
-(pdftex.def)             Requested size: 147.49782pt x 84.49055pt.
+Package microtype Info: tracking amount list `main.tex/205' will
+(microtype)             override list `main.tex/174(40)' for 
+(microtype)             font `OT1////' on input line 205.
+<Figures/confusion_matrix_sgie_machinery.png, id=280, 867.24pt x 650.43pt>
+File: Figures/confusion_matrix_sgie_machinery.png Graphic file (type png)
+<use Figures/confusion_matrix_sgie_machinery.png>
+Package pdftex.def Info: Figures/confusion_matrix_sgie_machinery.png  used on input line 205.
+(pdftex.def)             Requested size: 153.63513pt x 115.22633pt.
+<Figures/val_pred_sgie_machinery.jpg, id=281, 1927.2pt x 1104.125pt>
+File: Figures/val_pred_sgie_machinery.jpg Graphic file (type jpg)
+<use Figures/val_pred_sgie_machinery.jpg>
+Package pdftex.def Info: Figures/val_pred_sgie_machinery.jpg  used on input line 205.
+(pdftex.def)             Requested size: 153.62042pt x 88.01169pt.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 234--234
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 205--205
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/234(40)' will
-(microtype)             override list `main.tex/234' for 
-(microtype)             font `OT1////' on input line 234.
+Package microtype Info: tracking amount list `main.tex/205(41)' will
+(microtype)             override list `main.tex/205' for 
+(microtype)             font `OT1////' on input line 205.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2124,22 +2076,36 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [38
 
- <./Figures/confusion_matrix_sgie_equipment.png> <./Figures/val_pred_sgie_equipment.jpg>]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 308--308
+ <./Figures/confusion_matrix_sgie_machinery.png> <./Figures/val_pred_sgie_machinery.jpg>]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 236--236
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/308' will
-(microtype)             override list `main.tex/234(40)' for 
-(microtype)             font `OT1////' on input line 308.
+Package microtype Info: tracking amount list `main.tex/236' will
+(microtype)             override list `main.tex/205(41)' for 
+(microtype)             font `OT1////' on input line 236.
+<Figures/confusion_matrix_sgie_equipment.png, id=288, 867.24pt x 650.43pt>
+File: Figures/confusion_matrix_sgie_equipment.png Graphic file (type png)
+<use Figures/confusion_matrix_sgie_equipment.png>
+Package pdftex.def Info: Figures/confusion_matrix_sgie_equipment.png  used on input line 236.
+(pdftex.def)             Requested size: 153.63513pt x 115.22633pt.
+<Figures/val_pred_sgie_equipment.jpg, id=289, 1927.2pt x 1104.125pt>
+File: Figures/val_pred_sgie_equipment.jpg Graphic file (type jpg)
+<use Figures/val_pred_sgie_equipment.jpg>
+Package pdftex.def Info: Figures/val_pred_sgie_equipment.jpg  used on input line 236.
+(pdftex.def)             Requested size: 238.84094pt x 136.83595pt.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 308--308
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 236--236
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/308(41)' will
-(microtype)             override list `main.tex/308' for 
-(microtype)             font `OT1////' on input line 308.
+
+Overfull \vbox (7.11107pt too high) detected at line 236
+ []
+
+Package microtype Info: tracking amount list `main.tex/236(42)' will
+(microtype)             override list `main.tex/236' for 
+(microtype)             font `OT1////' on input line 236.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2147,22 +2113,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [39
 
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 389--389
+ <./Figures/confusion_matrix_sgie_equipment.png> <./Figures/val_pred_sgie_equipment.jpg>]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 310--310
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/389' will
-(microtype)             override list `main.tex/308(41)' for 
-(microtype)             font `OT1////' on input line 389.
+Package microtype Info: tracking amount list `main.tex/310' will
+(microtype)             override list `main.tex/236(42)' for 
+(microtype)             font `OT1////' on input line 310.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 389--389
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 310--310
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/389(42)' will
-(microtype)             override list `main.tex/389' for 
-(microtype)             font `OT1////' on input line 389.
+Package microtype Info: tracking amount list `main.tex/310(43)' will
+(microtype)             override list `main.tex/310' for 
+(microtype)             font `OT1////' on input line 310.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2171,24 +2137,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [40
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 421--421
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 391--391
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/421' will
-(microtype)             override list `main.tex/389(42)' for 
-(microtype)             font `OT1////' on input line 421.
-(./Figures/diagrama_end_to_end.tex
-LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10> not available
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 125.
-)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 421--421
+Package microtype Info: tracking amount list `main.tex/391' will
+(microtype)             override list `main.tex/310(43)' for 
+(microtype)             font `OT1////' on input line 391.
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 391--391
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/421(43)' will
-(microtype)             override list `main.tex/421' for 
-(microtype)             font `OT1////' on input line 421.
+Package microtype Info: tracking amount list `main.tex/391(44)' will
+(microtype)             override list `main.tex/391' for 
+(microtype)             font `OT1////' on input line 391.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2197,26 +2160,24 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [41
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 483--483
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 423--423
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/483' will
-(microtype)             override list `main.tex/421(43)' for 
-(microtype)             font `OT1////' on input line 483.
-LaTeX Font Info:    Calculating math sizes for size <16> on input line 483.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <16> on input line 483.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <11.19995> on input line 483.
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 483--483
+Package microtype Info: tracking amount list `main.tex/423' will
+(microtype)             override list `main.tex/391(44)' for 
+(microtype)             font `OT1////' on input line 423.
+(./Figures/diagrama_end_to_end.tex
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 125.
+)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 423--423
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/483(44)' will
-(microtype)             override list `main.tex/483' for 
-(microtype)             font `OT1////' on input line 483.
+Package microtype Info: tracking amount list `main.tex/423(45)' will
+(microtype)             override list `main.tex/423' for 
+(microtype)             font `OT1////' on input line 423.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2225,29 +2186,26 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [42
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 510--510
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 485--485
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/510' will
-(microtype)             override list `main.tex/483(44)' for 
-(microtype)             font `OT1////' on input line 510.
-File: Figures/val_pred_sgie_equipment.jpg Graphic file (type jpg)
-<use Figures/val_pred_sgie_equipment.jpg>
-Package pdftex.def Info: Figures/val_pred_sgie_equipment.jpg  used on input line 510.
-(pdftex.def)             Requested size: 147.47443pt x 84.49055pt.
-File: Figures/val_pred_sgie_machinery.jpg Graphic file (type jpg)
-<use Figures/val_pred_sgie_machinery.jpg>
-Package pdftex.def Info: Figures/val_pred_sgie_machinery.jpg  used on input line 510.
-(pdftex.def)             Requested size: 147.47443pt x 84.49055pt.
+Package microtype Info: tracking amount list `main.tex/485' will
+(microtype)             override list `main.tex/423(45)' for 
+(microtype)             font `OT1////' on input line 485.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 485.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <16> on input line 485.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <11.19995> on input line 485.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 510--510
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 485--485
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/510(45)' will
-(microtype)             override list `main.tex/510' for 
-(microtype)             font `OT1////' on input line 510.
+Package microtype Info: tracking amount list `main.tex/485(46)' will
+(microtype)             override list `main.tex/485' for 
+(microtype)             font `OT1////' on input line 485.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2255,22 +2213,30 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [43
 
-]) (./capitulos/07_conclusao.tex
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 81--81
+]
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 512--512
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/81' will
-(microtype)             override list `main.tex/510(45)' for 
-(microtype)             font `OT1////' on input line 81.
+Package microtype Info: tracking amount list `main.tex/512' will
+(microtype)             override list `main.tex/485(46)' for 
+(microtype)             font `OT1////' on input line 512.
+File: Figures/val_pred_sgie_equipment.jpg Graphic file (type jpg)
+<use Figures/val_pred_sgie_equipment.jpg>
+Package pdftex.def Info: Figures/val_pred_sgie_equipment.jpg  used on input line 512.
+(pdftex.def)             Requested size: 252.60326pt x 144.72061pt.
+File: Figures/val_pred_sgie_machinery.jpg Graphic file (type jpg)
+<use Figures/val_pred_sgie_machinery.jpg>
+Package pdftex.def Info: Figures/val_pred_sgie_machinery.jpg  used on input line 512.
+(pdftex.def)             Requested size: 252.60326pt x 144.72061pt.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 81--81
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 512--512
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/81(46)' will
-(microtype)             override list `main.tex/81' for 
-(microtype)             font `OT1////' on input line 81.
+Package microtype Info: tracking amount list `main.tex/512(47)' will
+(microtype)             override list `main.tex/512' for 
+(microtype)             font `OT1////' on input line 512.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2278,22 +2244,22 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 
 [44
 
-]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 100--100
+]) (./capitulos/07_conclusao.tex
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 81--81
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/100' will
-(microtype)             override list `main.tex/81(46)' for 
-(microtype)             font `OT1////' on input line 100.
-(./Figures/diagrama_objetivos_atingidos.tex)
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 100--100
+Package microtype Info: tracking amount list `main.tex/81' will
+(microtype)             override list `main.tex/512(47)' for 
+(microtype)             font `OT1////' on input line 81.
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 81--81
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/100(47)' will
-(microtype)             override list `main.tex/100' for 
-(microtype)             font `OT1////' on input line 100.
+Package microtype Info: tracking amount list `main.tex/81(48)' will
+(microtype)             override list `main.tex/81' for 
+(microtype)             font `OT1////' on input line 81.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2302,21 +2268,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [45
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 130--130
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 100--100
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/130' will
-(microtype)             override list `main.tex/100(47)' for 
-(microtype)             font `OT1////' on input line 130.
-
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 130--130
+Package microtype Info: tracking amount list `main.tex/100(49)' will
+(microtype)             override list `main.tex/81(48)' for 
+(microtype)             font `OT1////' on input line 100.
+(./Figures/diagrama_objetivos_atingidos.tex)
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 100--100
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/130(48)' will
-(microtype)             override list `main.tex/130' for 
-(microtype)             font `OT1////' on input line 130.
+Package microtype Info: tracking amount list `main.tex/100(50)' will
+(microtype)             override list `main.tex/100(49)' for 
+(microtype)             font `OT1////' on input line 100.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2325,21 +2291,21 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [46
 
 ]
-Overfull \hbox (2.12503pt too wide) in paragraph at lines 179--179
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 130--130
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/179' will
-(microtype)             override list `main.tex/130(48)' for 
-(microtype)             font `OT1////' on input line 179.
+Package microtype Info: tracking amount list `main.tex/130' will
+(microtype)             override list `main.tex/100(50)' for 
+(microtype)             font `OT1////' on input line 130.
 
-Overfull \hbox (132.55334pt too wide) in paragraph at lines 179--179
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 130--130
 [][] 
  []
 
-Package microtype Info: tracking amount list `main.tex/179(49)' will
-(microtype)             override list `main.tex/179' for 
-(microtype)             font `OT1////' on input line 179.
+Package microtype Info: tracking amount list `main.tex/130(51)' will
+(microtype)             override list `main.tex/130' for 
+(microtype)             font `OT1////' on input line 130.
 
 Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [][] 
@@ -2348,10 +2314,33 @@ Overfull \hbox (2.12503pt too wide) has occurred while \output is active
 [47
 
 ]
-Package microtype Info: tracking amount list `main.tex/208' will
-(microtype)             override list `main.tex/179(49)' for 
-(microtype)             font `OT1////' on input line 208.
- [48
+Overfull \hbox (2.12503pt too wide) in paragraph at lines 191--191
+[][] 
+ []
+
+Package microtype Info: tracking amount list `main.tex/191' will
+(microtype)             override list `main.tex/130(51)' for 
+(microtype)             font `OT1////' on input line 191.
+
+Overfull \hbox (132.55334pt too wide) in paragraph at lines 191--191
+[][] 
+ []
+
+Package microtype Info: tracking amount list `main.tex/191(52)' will
+(microtype)             override list `main.tex/191' for 
+(microtype)             font `OT1////' on input line 191.
+
+Overfull \hbox (2.12503pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[48
+
+]
+Package microtype Info: tracking amount list `main.tex/220' will
+(microtype)             override list `main.tex/191(52)' for 
+(microtype)             font `OT1////' on input line 220.
+ [49
 
 ])
 \tf@nav=\write6
@@ -2372,18 +2361,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2FE02A4BEE3560E606FA104950ECC6ED;899.
  ) 
 Here is how much of TeX's memory you used:
- 45239 strings out of 469515
- 1035464 string characters out of 5469774
- 1546413 words of memory out of 5000000
- 72550 multiletter control sequences out of 15000+600000
- 838783 words of font info for 323 fonts, out of 8000000 for 9000
+ 45213 strings out of 469515
+ 1035165 string characters out of 5469774
+ 1545658 words of memory out of 5000000
+ 72525 multiletter control sequences out of 15000+600000
+ 838247 words of font info for 320 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  101i,20n,107p,1001b,2407s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss12.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbo10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on main.pdf (48 pages, 4083134 bytes).
+</home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbsy10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss12.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbo10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></home/wslasus/.TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on main.pdf (49 pages, 4068708 bytes).
 PDF statistics:
- 494 PDF objects out of 1000 (max. 8388607)
- 357 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
- 123569 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 490 PDF objects out of 1000 (max. 8388607)
+ 356 compressed objects within 4 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 123057 words of extra memory for PDF output out of 128383 (max. 10000000)
 
